@@ -1,0 +1,20 @@
+.item {
+    display: grid;
+    grid-template-areas: "i d";
+    grid-template-columns: 2fr 4fr;
+}
+
+.dialog a {
+    grid-area: d;
+    text-decoration: none;
+}
+
+.dialog {
+    padding-top: 15px;
+}
+
+
+.item img {
+    width: 50px;
+    grid-area: i;
+}
