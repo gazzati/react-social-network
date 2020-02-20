@@ -1,6 +1,24 @@
 
 .discriptionBlock {
     padding: 10px;
+    display: grid;
+    grid-template-areas: "i s";
+    grid-template-columns: 1fr 8fr;
 }
 
+.background img {
+    width: 500px;
+}
+
+.discriptionBlock img {
+    grid-area: i;
+    border-radius: 20px;
+    width: 100px;
+    padding: 10px; /* Толщина рамки */
+    background: #61dafb; /* Цвет рамки */
+}
+
+.discriptionBlock .status {
+    grid-area: s;
+}
 

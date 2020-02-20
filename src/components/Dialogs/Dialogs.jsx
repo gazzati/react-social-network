@@ -12,7 +12,7 @@ const Dialogs = (props) => {
 
     let sendMessage = () => {
         let text = newMessageElement.current.value;
-        alert(text);
+        alert('Вы отправили сообщение: ' + text);
     }
 
     return (

@@ -4,7 +4,18 @@
     padding: 25px;
     margin-top: 5px;
     border-radius: 10px;
+    display: grid;
+    grid-template-areas: "l" "f";
 
+    grid-template-rows: 3fr 1fr;
+}
+
+.nav .list {
+    grid-area: l;
+}
+
+.nav .friends {
+    grid-area: f;
 }
 
 .item {
