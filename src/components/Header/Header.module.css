@@ -1,5 +1,5 @@
 .header {
-    grid-area: h;
+   grid-area: h;
     background-color: black;
     border-radius: 0 0 10px 10px;
 }
@@ -7,5 +7,17 @@
 .header img {
     width: 120px;
     margin: -2px;
+}
+
+.loginBlock {
+    float: right;
+    color: #61dafb;
+    margin: 20px;
+}
+
+
+.loginBlock a {
+    text-decoration: none;
+    color: #61dafb;
 }
 
