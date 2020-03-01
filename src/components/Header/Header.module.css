@@ -1,7 +1,7 @@
 .header {
     grid-area: h;
     background-color: black;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
 }
 
 .header img {
