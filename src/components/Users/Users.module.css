@@ -2,6 +2,12 @@
     width: 100px;
 }
 
+
+
+/*.number {
+    cursor: pointer
+}*/
+
 .selectedPage {
-    font-weight: bold;
-}
+     font-weight: bold;
+ }
