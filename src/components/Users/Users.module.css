@@ -4,10 +4,11 @@
 
 
 
-/*.number {
-    cursor: pointer
-}*/
+.number {
+     cursor: pointer
+}
 
 .selectedPage {
      font-weight: bold;
+     cursor: pointer
  }

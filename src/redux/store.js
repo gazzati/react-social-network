@@ -9,7 +9,11 @@ let store = {
                 {id: 1, message: 'Hi, how are you?', likesCount: 12},
                 {id: 1, message: 'Hi, how', likesCount: 1},
                 {id: 1, message: 'Hi,re you?', likesCount: 21},
-                {id: 2, message: 'It\'s my first post', likesCount: 11}
+                {id: 2, message: 'It\'s my first post', likesCount: 11},
+                {id: 2, message: 'It\'s my first post', likesCount: 11},
+                {id: 2, message: 'It\'s my first post', likesCount: 11},
+                {id: 2, message: 'It\'s my first post', likesCount: 11},
+                {id: 2, message: 'It\'s my first post', likesCount: 11},
             ],
             newPostText: 'it-'
         },

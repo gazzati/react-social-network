@@ -2,8 +2,6 @@ import React from 'react';
 import s from "./Users.module.css";
 import userPhoto from '../../assets/images/user.png'
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
-import {usersAPI} from "../../api/api";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -15,13 +13,16 @@ let Users = (props) => {
     return <div>
         <div>
             {pages.map(p => {
-                return <span className={props.currentPage === p && s.selectedPage}
-                             className={s.number}
+                let className = s.number;
+                if (props.currentPage === p) {
+                    className = s.selectedPage;
+                }
+                return <span className={className/*props.currentPage === p && s.selectedPage*/}
+
                              onClick={(e) => {
                                  props.onPageChanged(p)
                              }}>{p}</span>
-            })
-            }
+            })}
         </div>
         {props.users.map(u =>
             <div key={u.id}>
@@ -35,11 +36,15 @@ let Users = (props) => {
                     <div>
                         {u.followed
                             ? <button disabled={props.folowingInProgress.some(id => id === u.id)}
-                                      onClick={() => {props.unfollow(u.id)}}>
+                                      onClick={() => {
+                                          props.unfollow(u.id)
+                                      }}>
                                 Unfollow</button>
 
                             : <button disabled={props.folowingInProgress.some(id => id === u.id)}
-                                      onClick={() => {props.follow(u.id)}}>
+                                      onClick={() => {
+                                          props.follow(u.id)
+                                      }}>
                                 Follow</button>}
                     </div>
                 </span>
