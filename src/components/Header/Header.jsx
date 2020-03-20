@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 
 const Header = (props) => {
     return <header className={s.header}>
-       <NavLink to="/profile/:userId?" activeClassName={s.activeLink}>
+       <NavLink to="/profile/" activeClassName={s.activeLink}>
             <img
                 src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'/>
         </NavLink>
