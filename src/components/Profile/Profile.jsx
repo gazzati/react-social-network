@@ -2,8 +2,6 @@ import React from 'react';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/Post/MyPostsContainer";
 import Preloader from "../common/Preloader/Preloader";
-import * as axios from "axios";
-import preloader from "../../assets/images/preloader.svg";
 
 const Profile = (props) => {
     if (!props.profile) {
