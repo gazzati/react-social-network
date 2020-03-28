@@ -10,7 +10,7 @@ const MyPosts = (props) => {
     let postsElements =
         props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} key={p.id}/>)
 
-    const maxLength10 = maxLengthCreator(10);
+    const maxLength50 = maxLengthCreator(10);
 
     const addNewPostForm = (props) => {
         return (
@@ -19,7 +19,7 @@ const MyPosts = (props) => {
                     <Field component={Textarea}
                            name="newPostText"
                            placeholder="Enter your post"
-                           validate={[required]}
+                           validate={[required, maxLength50]}
                     />
                 </div>
                 <div>

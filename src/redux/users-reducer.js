@@ -57,7 +57,7 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 folowingInProgress: action.isFetching
                     ? [...state.folowingInProgress, action.userId]
-                    : state.folowingInProgress.filter(id => id != action.userId)
+                    : state.folowingInProgress.filter(id => id !== action.userId)
             }
         }
         default:
@@ -74,16 +74,15 @@ export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFe
 export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId })
 
 
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (page, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
-
-        usersAPI.getUsers(currentPage, pageSize).then(data => {
+        dispatch(setCurrentPage(page))
+        usersAPI.getUsers(page, pageSize).then(data => {
             dispatch(toggleIsFetching(false));
             dispatch(setUsers(data.items));
             dispatch(setTotalUsersCount(data.totalCount))
         });
-        dispatch(setCurrentPage(currentPage))
     }
 }
 
@@ -92,7 +91,7 @@ export const follow = (userId) => {
         dispatch(toggleFollowingProgress(true, userId))
         usersAPI.Follow(userId)
             .then(response => {
-                if (response.data.resultCode == 0) {
+                if (response.data.resultCode === 0) {
                     dispatch(followSuccess(userId))
                 }
                 dispatch(toggleFollowingProgress(false, userId));
@@ -106,7 +105,7 @@ export const unfollow = (userId) => {
         dispatch(toggleFollowingProgress(true, userId))
         usersAPI.unFollow(userId)
             .then(response => {
-                if (response.data.resultCode == 0) {
+                if (response.data.resultCode === 0) {
                     dispatch(unfollowSuccess(userId))
                 }
                 dispatch(toggleFollowingProgress(false, userId));

@@ -2,6 +2,7 @@ import React from 'react';
 import s from "./Users.module.css";
 import userPhoto from '../../assets/images/user.png'
 import {NavLink} from "react-router-dom";
+import Preloader from "../common/Preloader/Preloader";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -24,13 +25,14 @@ let Users = (props) => {
                              }}>{p}</span>
             })}
         </div>
+        {props.isFetching ? <Preloader/> : null}
         {props.users.map(u =>
             <div key={u.id}>
                 <span>
                     <div>
                         <NavLink to={'profile/' + u.id}>
-                            <img src={u.photos.small != null ? u.photos.small : userPhoto}
-                                 className={s.photo}/>
+                            <img src={u.photos.small != null ? u.photos.small : userPhoto }
+                                 className={s.photo} alt={""}/>
                         </NavLink>
                     </div>
                     <div>
