@@ -19,7 +19,7 @@ const MyPosts = (props) => {
                     <Field component={Textarea}
                            name="newPostText"
                            placeholder="Enter your post"
-                           validate={[required, maxLength10]}
+                           validate={[required]}
                     />
                 </div>
                 <div>
