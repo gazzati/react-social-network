@@ -5,7 +5,7 @@ import userPhoto from "../../../../assets/images/user.png";
 const Post = (props) => {
     return (
         <div className={s.item}>
-            <img src={userPhoto} alt={""}/>
+            <img src={props.profile.photos.large || userPhoto} alt={""}/>
             {props.message}
             {props.likesCount} likes
         </div>

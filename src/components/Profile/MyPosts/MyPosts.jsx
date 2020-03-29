@@ -6,32 +6,35 @@ import reduxForm from "redux-form/lib/reduxForm";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {Textarea} from "../../common/FormsControls/FormsControls";
 
-const MyPosts = (props) => {
+const maxLength50 = maxLengthCreator(10);
+
+const addNewPostForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div>
+                <Field component={Textarea}
+                       name="newPostText"
+                       placeholder="Enter your post"
+                       validate={[required, maxLength50]}
+                />
+            </div>
+            <div>
+                <button>Add post</button>
+            </div>
+        </form>
+    )
+}
+
+const AddNewPostForm = reduxForm({form: "profileAddPostForm"})(addNewPostForm)
+
+
+const MyPosts = React.memo(props => {
+    console.log("hiii")
     let postsElements =
-        props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} key={p.id}/>)
+        props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} key={p.id}
+                                   profile={props.profile}/>)
 
-    const maxLength50 = maxLengthCreator(10);
-
-    const addNewPostForm = (props) => {
-        return (
-            <form onSubmit={props.handleSubmit}>
-                <div>
-                    <Field component={Textarea}
-                           name="newPostText"
-                           placeholder="Enter your post"
-                           validate={[required, maxLength50]}
-                    />
-                </div>
-                <div>
-                    <button>Add post</button>
-                </div>
-            </form>
-        )
-    }
-
-    const AddNewPostForm = reduxForm({form: "profileAddPostForm"})(addNewPostForm)
-
-    let onAddPost = (values) => {
+        let onAddPost = (values) => {
         props.addPost(values.newPostText);
     }
 
@@ -45,8 +48,6 @@ const MyPosts = (props) => {
         </div>
     )
 
-}
-
-
+});
 
 export default MyPosts;
