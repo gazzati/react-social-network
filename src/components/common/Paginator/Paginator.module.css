@@ -11,3 +11,14 @@
     font-weight: bold;
     border-color: black;
 }
+
+
+
+.number {
+    cursor: pointer
+}
+
+.selectedPage {
+    font-weight: bold;
+    cursor: pointer
+}
