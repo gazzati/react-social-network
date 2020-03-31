@@ -1,12 +1,12 @@
 .app-wrapper {
     margin: 0 auto;
     display: grid;
-    width: 1920px;
+    width: 1900px;
     height: 1200px;
-    grid-template-areas: "h h" "n c";
+    grid-template-areas: "h h h h" "a n c b";
 
-    grid-template-rows:  80px 1fr;
-    grid-template-columns: 1fr 10fr;
+    grid-template-rows:  80px auto;
+    grid-template-columns: 350px 200px 1000px 350px;
 
     /* grid-gap: 10px; */
 }
@@ -17,4 +17,14 @@
     margin: 5px 0 0 5px;
     padding: 5px;
     border-radius: 10px;
+}
+
+.aaa {
+    grid-area: a;
+    background-color: white;
+}
+
+.bbb {
+    grid-area: b;
+    background-color: white;
 }

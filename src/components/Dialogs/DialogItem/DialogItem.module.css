@@ -1,20 +1,22 @@
 .item {
     display: grid;
     grid-template-areas: "i d";
-    grid-template-columns: 2fr 4fr;
+    grid-template-columns: 80px auto;
+    margin: 10px 0 0 15px;
 }
 
 .dialog a {
     grid-area: d;
     text-decoration: none;
+    color: black;
+    font-size: 20px;
 }
 
 .dialog {
-    padding-top: 15px;
+    margin-top: 24px;
 }
 
-
 .item img {
-    width: 50px;
+    width: 70px;
     grid-area: i;
 }

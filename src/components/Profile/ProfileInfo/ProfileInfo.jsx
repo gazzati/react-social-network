@@ -10,18 +10,26 @@ const ProfileInfo = (props) => {
         }
     }
     return (
-        <div>
-            <div className={s.discriptionBlock}>
-                <img src={props.profile.photos.large || userPhoto} className={s.mainPhoto} alt={""}/>
-                <div>
-                    {props.profile.fullName}
-                    <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
-                    {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
-                </div>
-
+        <div className={s.discriptionBlock}>
+            <div className={s.photo}>
+                {props.isOwner &&
+                <input id="upl" type={"file"} className={s.button} onChange={onMainPhotoSelected}/>}
+                <label for="upl">
+                    <img src={props.profile.photos.large || userPhoto} className={s.mainPhoto} alt={""}/>
+                </label>
             </div>
+            <div className={s.discription}>
+                <div className={s.name}>
+                    {props.profile.fullName}
+                </div>
+                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+            </div>
+
         </div>
     )
 }
 
 export default ProfileInfo;
+
+
+

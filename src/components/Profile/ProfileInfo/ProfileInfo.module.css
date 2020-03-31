@@ -1,25 +1,37 @@
-
 .discriptionBlock {
     padding: 10px;
     display: grid;
     grid-template-areas: "i s";
-    grid-template-columns: 1fr 8fr;
+    grid-template-columns: 220px auto;
 }
 
-.background img {
-    width: 500px;
-}
 
-.discriptionBlock img {
+.photo {
     grid-area: i;
-    border-radius: 20px;
-    width: 100px;
-    padding: 10px; /* Толщина рамки */
-    background: #61dafb; /* Цвет рамки */
 }
 
-.discriptionBlock .status {
+.mainPhoto {
+    border-radius: 20px;
+    width: 200px;
+    border: #61dafb 5px solid;
+    cursor: pointer;
+}
+
+.discriptionBlock  {
     grid-area: s;
 }
 
+.button {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 30px;
+}
 

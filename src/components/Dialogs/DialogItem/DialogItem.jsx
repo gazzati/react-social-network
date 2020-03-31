@@ -1,12 +1,13 @@
 import React from "react";
 import s from './DialogItem.module.css'
 import {NavLink} from "react-router-dom";
+import userPhoto from "../../../assets/images/user.png";
 
 const DialogItem = (props) => {
     return (
         <div className={s.item}>
             <img
-                src="https://icons-for-free.com/iconfiles/png/512/business+face+people+icon-1320086457520622872.png"
+                src={userPhoto}
                 alt={""}/>
             <div className={s.dialog + ' ' + s.active}>
                 <NavLink to={"/dialogs/" + props.id}>{props.name}</NavLink>

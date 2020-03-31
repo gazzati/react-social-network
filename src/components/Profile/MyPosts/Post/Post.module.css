@@ -1,9 +1,30 @@
 .item {
-  color: black;
+  width: 600px;
+  height: 65px;
+  border-bottom: #61dafb 1px solid;
+  display: grid;
+  grid-template-areas: "i m l";
+  grid-template-columns: 65px auto 80px;
+  margin-top: 20px;
 }
 
-.item img {
-  width: 50px;
-  height: 50px;
+.img {
+  grid-area: i;
+  width: 60px;
+  height: 60px;
   border-radius: 10px;
+}
+.mes {
+  grid-area: m;
+}
+
+.likes {
+  margin-top: 12px;
+  grid-area: l;
+  cursor: pointer;
+}
+
+.count {
+  font-weight: bold;
+  font-size: 20px;
 }

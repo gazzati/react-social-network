@@ -6,7 +6,7 @@
     border-radius: 10px;
     display: grid;
     grid-template-areas: "l" "f";
-
+    font-size: 20px;
     grid-template-rows: 3fr 1fr;
 }
 
