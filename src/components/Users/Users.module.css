@@ -39,10 +39,10 @@
 }
 
 .unfollow {
-    background-color: lightblue;
+    background-color: lightslategray;
     width: 95px;
     height: 40px;
-    border: lightblue 1px solid;
+    border: lightslategray 1px solid;
     border-radius: 10px;
     font-size: 20px;
     margin-top: 40px;
