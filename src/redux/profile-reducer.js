@@ -10,11 +10,11 @@ const ADD_LIKES = 'ADD_LIKES'
 
 let initialState = {
     posts: [
-        {id: 1, message: 'Hi, how are you?', likesCount: 12},
-        {id: 2, message: 'Hi, how', likesCount: 1},
-        {id: 3, message: 'Hi,re you?', likesCount: 21},
-        {id: 4, message: 'It\'s my first post', likesCount: 11},
-        {id: 5, message: 'Hi, how', likesCount: 1},
+        {id: 1, message: 'It is my first post', likesCount: 12},
+        {id: 2, message: 'It is my website', likesCount: 1},
+        {id: 3, message: 'Hi, how are you?', likesCount: 21},
+        {id: 4, message: 'I want to become a developer', likesCount: 11},
+        {id: 5, message: 'Say me about you', likesCount: 1},
 
     ],
     profile: null,
