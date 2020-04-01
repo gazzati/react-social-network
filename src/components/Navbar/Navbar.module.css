@@ -2,6 +2,7 @@
     grid-area: n;
     background-color: #61dafb ;
     padding: 25px;
+    height: 300px;
     margin-top: 5px;
     border-radius: 10px;
     display: grid;
