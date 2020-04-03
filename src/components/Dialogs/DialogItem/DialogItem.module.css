@@ -3,6 +3,13 @@
     grid-template-areas: "i d";
     grid-template-columns: 80px auto;
     margin: 10px 0 0 15px;
+    background-color: #586775;
+    height: 70px;
+    border-radius: 10px;
+}
+
+.item div a {
+    color: ghostwhite;
 }
 
 .dialog a {
@@ -17,6 +24,7 @@
 }
 
 .item img {
-    width: 70px;
+    width: 60px;
     grid-area: i;
+    margin: 5px
 }

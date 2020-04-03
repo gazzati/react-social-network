@@ -1,30 +1,61 @@
-.app-wrapper {
+.appWrapper {
     margin: 0 auto;
     display: grid;
     width: 1600px;
     height: 1200px;
-    grid-template-areas: "h h h h" "a n c b";
+    grid-template-areas: "h h h h" ". n c .";
 
-    grid-template-rows:  80px auto;
+    grid-template-rows:  85px auto;
     grid-template-columns: 300px 150px 850px 300px;
+    grid-gap: 8px;
 
-    /* grid-gap: 10px; */
 }
 
-.app-wrapper-content {
-    grid-area: c;
-    background-color: ghostwhite;
-    margin: 5px 0 0 5px;
-    padding: 5px;
+
+
+.head {
+    grid-area: h;
+    width: 1600px;
+    background-color: black;
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 5px;
+    z-index: 1;
+
+}
+
+.nav {
+    position: sticky;
+    top: 5px;
+    grid-area: n;
+    background-color: #61dafb;
+    padding: 20px;
+    height: 300px;
     border-radius: 10px;
 }
 
-.aaa {
-    grid-area: a;
-    background-color: white;
+.appWrapperContent {
+    grid-area: c;
+    background-color: #95acc2;
+    padding: 5px;
+    border-radius: 10px;
+    z-index: 1;
 }
 
-.bbb {
-    grid-area: b;
-    background-color: white;
+.side {
+    color: ghostwhite;
+    position: absolute;
+    z-index: 0;
+    width: 1600px;
+    height: 2000px;
 }
+
+.sideBlack {
+    background-color: #586775;
+    position: absolute;
+    z-index: 0;
+    width: 1600px;
+    height: 2000px;
+
+}
+
+

@@ -5,6 +5,7 @@
   "homepage": "https://gazzati.github.io/ReactSocialNetwork",
   "dependencies": {
     "axios": "^0.19.2",
+    "classnames": "^2.2.6",
     "gh-pages": "^2.2.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",

@@ -1,10 +1,4 @@
 .nav {
-    grid-area: n;
-    background-color: #61dafb ;
-    padding: 25px;
-    height: 300px;
-    margin-top: 5px;
-    border-radius: 10px;
     display: grid;
     grid-template-areas: "l" "f";
     font-size: 20px;
@@ -31,4 +25,8 @@
 
 .item a.activeLink {
     color: ghostwhite;
+}
+
+.friends {
+    margin-top: 15px;
 }

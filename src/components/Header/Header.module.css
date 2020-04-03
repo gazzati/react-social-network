@@ -1,18 +1,21 @@
 .header {
-   grid-area: h;
+    grid-area: h;
+    width: 1600px;
     background-color: black;
     border-radius: 0 0 10px 10px;
+    margin-bottom: 5px;
+
 }
 
 .header img {
     width: 120px;
-    margin: -2px 0 0 278px;
+    margin: -2px 0 0 283px;
 }
 
 .loginBlock {
     float: right;
     color: #61dafb;
-    margin: 5px 303px 0 0 ;
+    margin: 5px 284px 0 0 ;
     cursor: pointer;
 }
 
@@ -38,4 +41,17 @@
 .login {
     margin: 10px;
     font-size: 28px;
+    font-weight: bold;
+}
+
+.button {
+    background-color: #61dafb;
+    width: 65px;
+    height: 20px;
+    border: #61dafb 1px solid;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
 }

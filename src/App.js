@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
+import styles from "./App.css";
 import Navbar from './components/Navbar/Navbar';
-import {BrowserRouter, HashRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route, Switch, withRouter} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -11,6 +11,8 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import store from "./redux/redux-store";
 import {withSuspense} from "./hoc/withSuspense";
+import SettingsContainer from "./components/Settings/SettingsContainer";
+
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"))
 
@@ -24,19 +26,25 @@ class App extends React.Component {
             return <Preloader />
         }*/
         return (
-            <div className='app-wrapper'>
-                <HeaderContainer/>
-                <Navbar/>
-                <div className='app-wrapper-content'>
-                    <Route path='/dialogs'
-                           render={withSuspense(DialogsContainer)}/>
-                    <Route path='/profile/:userId?'
-                           render={() => <ProfileContainer/>}/>
-                    <Route path='/users'
-                           render={() => <UsersContainer/>}/>
-                    <Route path='/login'
-                           render={() => <LoginPage/>}/>
-
+            <div className="appWrapper">
+                <div className={this.props.sideStyle}></div>
+                <div className="head"><HeaderContainer /></div>
+                <div className="nav"><Navbar /></div>
+                <div className="appWrapperContent">
+                    <Switch> //dopolnenie
+                        <Route path='/dialogs'
+                               render={withSuspense(DialogsContainer)}/>
+                        <Route path='/profile/:userId?'
+                               render={() => <ProfileContainer/>}/>
+                        <Route path='/users'
+                               render={() => <UsersContainer/>}/>
+                        <Route exact path='/login'
+                               render={() => <LoginPage/>}/>
+                        <Route exact path='/settings'
+                               render={() => <SettingsContainer/>}/>
+                        <Route path='*'
+                               render={() => <h1>404 NOT FOUND</h1>}/>
+                    </Switch>
                 </div>
             </div>
 
@@ -45,7 +53,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    initialized: state.app.initialized
+    initialized: state.app.initialized,
+    sideStyle: state.settings.sideStyle,
 })
 
 let AppContainer = compose(

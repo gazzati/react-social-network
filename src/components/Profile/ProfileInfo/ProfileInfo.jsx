@@ -44,36 +44,55 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
     )
 }
 
+
 const ProfileData = ({profile, isOwner, goToEditMode, status, updateStatus}) => {
-    return <div className={s.form}>
-        <span className={s.info}>
-            <div className={s.name}>
-                {profile.fullName}
-            </div>
-            <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
-            <div>
-                <b>About me</b>: {profile.aboutMe}
-            </div>
-            <div>
-                 <b>Looking for a job</b>: {profile.lookingForAJob ? "yes" : "no"}
-             </div>
-            {profile.lookingForAJob && <div>
-                <b>My professional skills</b>: {profile.lookingForAJobDescription}
-            </div>}
-            {isOwner && <div>
-                <button className={s.edit} onClick={goToEditMode}>edit</button>
-            </div>}
+    const openContacts = () => {
+        document.getElementById('contacts').style.display = "block";
+    }
+    const closeContacts = () => {
+        document.getElementById('contacts').style.display = "none";
+    }
+    return <span className={s.form}>
+            <span className={s.info}>
+                 <div className={s.name}>
+                    {profile.fullName}
+                 </div>
+                <ProfileStatusWithHooks  status={status} updateStatus={updateStatus}/>
+                <span className={s.contacts}>
+                    <div className={s.contactsMenuName}
+                         onClick={openContacts}
+                         onDoubleClick={closeContacts}>
+                        My contacts</div>
+                    <div id="contacts" className={s.contactsMenu}>
+                        {Object.keys(profile.contacts).map(key => {
+                            return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
+                        })}
+                    </div>
+                </span>
+            </span>
+            <span className={s.description}>
+                <div>
+                     <div>•About me: </div>
+                     <span className={s.tab}>{profile.aboutMe}</span>
+                </div>
+                <div>
+                    <span>•Looking for a job:</span> {profile.lookingForAJob ? "yes" : "no"}
+                 </div>
+                {profile.lookingForAJob && <div>
+                    <div>•My professional skills:</div> <span className={s.tab}>{profile.lookingForAJobDescription}</span></div>}
+                {isOwner && <div>
+                    <button className={s.edit} onClick={goToEditMode}>Edit info</button>
+                </div>}
+            </span>
         </span>
-        <span className={s.contacts}>
-            <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
-                return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
-            })}
-        </span>
-    </div>
 }
 
 const Contact = ({contactTitle, contactValue}) => {
-    return <div><b>{contactTitle}</b>: {contactValue}</div>
+    if (contactValue) {
+        return <div>{contactTitle}: <a className={s.contactsLink} href={contactValue}>{contactValue}</a></div>
+    } else {
+        return null
+    }
 }
 
 export default ProfileInfo;

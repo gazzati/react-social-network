@@ -1,0 +1,45 @@
+.settings {
+    width: 200px;
+    display: grid;
+    grid-template-areas: "l b";
+    grid-template-columns: 100px auto;
+}
+
+.button {
+    grid-area: b;
+    margin-top: 25px;
+    display: inline-block;
+    width: 45px; /* ширина */
+    height: 25px; /* высота */
+    border-radius: 19px; /* радиус скругления */
+    background: #bfbfbf; /* цвет фона */
+    z-index: 0;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition-duration: 300ms; /* анимация */
+
+}
+.button::after {
+    content: "";
+    height: 20px; /* высота кнопки */
+    width: 20px; /* ширина кнопки */
+    border-radius: 17px;
+    background: #fff; /* цвет кнопки */
+    top: 2px; /* положение кнопки по вертикали относительно основы */
+    left: 3px; /* положение кнопки по горизонтали относительно основы */
+    transition-duration: 300ms; /* анимация */
+    position: absolute;
+    z-index: 1;
+}
+.switchOn {
+    background: #61dafb;
+}
+.switchOn::after {
+    left: 23px;
+}
+
+.label {
+    grid-area: l;
+    margin: 25px 0 0 5px;
+}

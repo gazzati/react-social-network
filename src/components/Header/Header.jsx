@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Header.module.css';
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 import icon from "./../../assets/images/reactIcon.png"
 
 
@@ -10,15 +10,17 @@ const Header = (props) => {
             <img
                 src={icon} alt={""}/>
         </NavLink>
-
+        <Redirect to="/login" />
         <div className={s.loginBlock}>
             {props.isAuth
                 ? <div>
                     <NavLink to="/profile" className={s.userName}>{props.login}</NavLink>
-                    <div onClick={props.logout} className={s.logout}>logout</div>
+                    <div className={s.logout}>
+                        <button onClick={props.logout} className={s.button}>log out</button>
+                    </div>
                 </div>
                 : <div className={s.login} >
-                    <NavLink to={'login'}>login</NavLink>
+                    <NavLink to={'login'}>Log in</NavLink>
                 </div>}
         </div>
     </div>

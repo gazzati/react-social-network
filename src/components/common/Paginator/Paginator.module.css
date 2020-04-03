@@ -4,21 +4,34 @@
 }
 .pageNumber {
     padding: 2px;
-    border: 1px solid grey;
+    cursor: pointer;
+    background-color: #61dafb;
+    width: 55px;
+    height: 25px;
+    border: #61dafb 1px solid;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
 }
 
 .pageNumber.selectedPage {
     font-weight: bold;
-    border-color: black;
 }
 
-
-
-.number {
-    cursor: pointer
-}
 
 .selectedPage {
     font-weight: bold;
     cursor: pointer
+}
+
+.button {
+    background-color: black;
+    width: 55px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+    color: #61dafb
 }

@@ -1,0 +1,28 @@
+.button {
+     background-color: #61dafb;
+     width: 60px;
+     height: 25px;
+     border: #61dafb 1px solid;
+     border-radius: 15px;
+     font-size: 16px;
+     cursor: pointer;
+     margin-top: 5px;
+     outline: none;
+}
+
+.s1 {
+    display: grid;
+    width: 120px;
+    grid-template-areas: "so st";
+    grid-template-columns: auto auto;
+}
+
+.s2 {
+    grid-area: so;
+}
+
+.s3 {
+    grid-area: st;
+    margin-top: -2px
+}
+

@@ -7,6 +7,7 @@
 
 .dialogsItems{
     grid-area: i;
+    width: 230px;
 }
 .messages {
     grid-area: m;
@@ -19,4 +20,15 @@
 
 .area {
     resize: none;
+}
+
+.button {
+    background-color: #61dafb;
+    width: 55px;
+    height: 25px;
+    border: #61dafb 1px solid;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
 }

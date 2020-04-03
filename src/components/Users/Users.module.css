@@ -32,19 +32,22 @@
     width: 95px;
     height: 40px;
     border: #61dafb 1px solid;
-    border-radius: 10px;
+    border-radius: 7px;
     font-size: 20px;
     margin-top: 40px;
     cursor: pointer;
+    outline: none;
 }
 
 .unfollow {
-    background-color: lightslategray;
+    background-color: black;
+    color: #61dafb;
     width: 95px;
     height: 40px;
-    border: lightslategray 1px solid;
-    border-radius: 10px;
+    border: black 1px solid;
+    border-radius: 7px;
     font-size: 20px;
     margin-top: 40px;
     cursor: pointer;
+    outline: none;
 }
