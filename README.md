@@ -1,3 +1,26 @@
+Социальная сеть, созданная с использованием React и Redux.
+
+## Приложение опубликовано на gh-pages по адресу https://gazzati.github.io/ReactSocialNetwork/
+  Данные для входа: login: gazzaevtimur@gmail.com
+                    password: timur99
+                  
+## Разработка                 
+  -Данные приложение берет с API для курса Путь Самурая(ссылка: https://www.youtube.com/watch?v=gb7gMluAeao&list=PLcvhF2Wqh7DNVy1OCUpG3i5lyxyBWhGZ8&index=1). Запросы на сервер отправляются с использованием Axios и вынесены в отдельный файл api.js. 
+  -Само приложение разбито на множество JS и JSX файлов, каждый из которых является либо презентационной, либо контейнерной компонентой. Каждая презентационная компонента использует модульные стили, которое хранятся в соответствующих файлах CSS. Также в проекте используются вспомогательные компоненты типа Preloader(крутилка при загрузке) и Hoc Redirect(перенапраление на форму Login для неавторизованных пользователей). 
+  -Для работы с формами используется библиотека Redux Form.
+  -В компонентах, котороые требуют временного хранения данных было принято решение использования хуков UseState и UseEffect, чтобы не перекидывать часто данные в State.
+  -В некоторых контейнерных компонентах используется библиотека reselect.
+  
+## Функционал
+  -На вкладке Profile отображается изображение пользователя, имя, статус, и дополнительное описание. При двойном клике можно загрузить и обновить свою фотографию. Имя, статус и дополнительная информация тоже редактируются. Ниже находится блок с постами и форма добавление нового поста. 
+  -На вкладке Dialogs располагаются сообщения 
+  -На вкладке Users с использованием пагинатора выводятся пользователи по 10 человек на странице. Здесь можно подписаться/отписаться или отписаться от пользователя.
+  -На вкладке Settings находится кнопка переключения на темную тему
+  
+В будущем планирую дорабатывать приложение: добавить функционал для личных сообщений, отображать список всех подписчиков и подписок.
+Дизайн также требует доработок.
+                  
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -43,26 +66,3 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
