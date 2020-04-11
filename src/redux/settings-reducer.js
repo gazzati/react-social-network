@@ -11,7 +11,6 @@ const settingsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 blackThemeButton: !state.blackThemeButton,
-                sideStyle: action.styleArray[0]
             }
         }
         default:
@@ -19,6 +18,6 @@ const settingsReducer = (state = initialState, action) => {
     }
 }
 
-export const onBlackThemeButton = (styleArray) => ({type: PRESS_BLACK_THEME_BUTTON, styleArray})
+export const onBlackThemeButton = () => ({type: PRESS_BLACK_THEME_BUTTON})
 
 export default settingsReducer;

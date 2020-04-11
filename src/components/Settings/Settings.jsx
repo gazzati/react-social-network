@@ -1,15 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import s from './../Settings/Settings.module.css';
 import cn from "classnames";
-import styles from "../common/Paginator/Paginator.module.css";
 
 const Settings = (props) => {
     const func = () => {
         if(!props.blackThemeButton){
-            props.onBlackThemeButton(["sideBlack"]);
+            props.onBlackThemeButton()
+            document.getElementById('side').style.backgroundColor = "#72879c";
+            document.getElementById('wrapper').style.backgroundColor = "#586775";
         }
         else {
-            props.onBlackThemeButton(["side"])
+            props.onBlackThemeButton()
+            document.getElementById('side').style.backgroundColor = "white";
+            document.getElementById('wrapper').style.backgroundColor = "ghostwhite";
+
         }
     }
         return (

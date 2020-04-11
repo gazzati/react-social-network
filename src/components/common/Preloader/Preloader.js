@@ -2,9 +2,9 @@ import React from 'react';
 import preloader from "../../../assets/images/preloader.svg";
 
 let Preloader = (props) => {
-    return <div  style={ { backgroundColor: '#95acc2'} }>
+    return <span  style={ { "margin-left": '20px'} }>
         <img src={preloader} alt={""}/>
-    </div>
+    </span>
 }
 
 export default Preloader;

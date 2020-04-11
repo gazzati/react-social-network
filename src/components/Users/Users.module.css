@@ -1,16 +1,18 @@
 .user {
-    border-bottom: #61dafb 1px solid;
     display: grid;
-    width: 820px;
-    height: 130px;
     grid-template-areas: "p d f";
-    grid-template-columns: 150px auto 150px;
+    grid-template-columns: 130px auto 130px;
+
+    width: 750px;
+    height: 130px;
+    margin-left: 20px;
+    border-bottom: #61dafb 1px solid;
 }
 
 .photo {
     margin: 10px;
     grid-area: p;
-    width: 100px;
+    width: 90px;
 }
 
 .fol {
@@ -29,12 +31,12 @@
 
 .follow{
     background-color: #61dafb;
-    width: 95px;
-    height: 40px;
+    width: 85px;
+    height: 35px;
     border: #61dafb 1px solid;
     border-radius: 7px;
     font-size: 20px;
-    margin-top: 40px;
+    margin-top: 45px;
     cursor: pointer;
     outline: none;
 }
@@ -42,12 +44,12 @@
 .unfollow {
     background-color: black;
     color: #61dafb;
-    width: 95px;
-    height: 40px;
+    width: 85px;
+    height: 35px;
     border: black 1px solid;
     border-radius: 7px;
     font-size: 20px;
-    margin-top: 40px;
+    margin-top: 45px;
     cursor: pointer;
     outline: none;
 }

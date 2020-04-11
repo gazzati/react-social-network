@@ -1,14 +1,11 @@
 .appWrapper {
-    margin: 0 auto;
-    display: grid;
     width: 1600px;
     height: 1200px;
+
+    display: grid;
     grid-template-areas: "h h h h" ". n c .";
-
-    grid-template-rows:  85px auto;
+    grid-template-rows:  70px auto;
     grid-template-columns: 300px 150px 850px 300px;
-    grid-gap: 8px;
-
 }
 
 
@@ -16,46 +13,45 @@
 .head {
     grid-area: h;
     width: 1600px;
+    height: 70px;
     background-color: black;
-    border-radius: 0 0 10px 10px;
-    margin-bottom: 5px;
-    z-index: 1;
+   /* border-radius: 0 0 10px 10px;*/
+    box-shadow: 0 10px 3px;
+    z-index: 2;
+    position: sticky;
+    top: 0;
 
 }
 
 .nav {
-    position: sticky;
-    top: 5px;
     grid-area: n;
-    background-color: #61dafb;
-    padding: 20px;
     height: 300px;
+    width: 150px;
+    position: sticky;
     border-radius: 10px;
+    box-shadow: 0 0 3px 1px;
+    background-color: #61dafb;
+    top: 85px;
+    z-index: 1;
 }
 
 .appWrapperContent {
     grid-area: c;
-    background-color: #95acc2;
-    padding: 5px;
+    width: 845px;
+    margin: 15px 0 0 6px;
+    background-color: ghostwhite;
     border-radius: 10px;
+    box-shadow: 0 0 3px 1px;
     z-index: 1;
 }
 
 .side {
-    color: ghostwhite;
+    color: white;
     position: absolute;
     z-index: 0;
     width: 1600px;
     height: 2000px;
 }
 
-.sideBlack {
-    background-color: #586775;
-    position: absolute;
-    z-index: 0;
-    width: 1600px;
-    height: 2000px;
-
-}
 
 

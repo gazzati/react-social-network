@@ -4,7 +4,6 @@ import {createField, Input, Textarea} from "../../common/FormsControls/FormsCont
 import {reduxForm} from "redux-form";
 import style from "../../common/FormsControls/FormsControls.module.css";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
-import Field from "redux-form/lib/Field";
 
 const ProfileDataForm = ({profile, handleSubmit, error, status, updateStatus}) => {
     return <form className={s.form} onSubmit={handleSubmit}>

@@ -1,8 +1,10 @@
 .settings {
-    width: 200px;
     display: grid;
     grid-template-areas: "l b";
     grid-template-columns: 100px auto;
+
+    width: 200px;
+    padding: 20px
 }
 
 .button {

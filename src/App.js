@@ -27,11 +27,11 @@ class App extends React.Component {
         }*/
         return (
             <div className="appWrapper">
-                <div className={this.props.sideStyle}></div>
+                <div id="side" className={this.props.sideStyle}></div>
                 <div className="head"><HeaderContainer /></div>
                 <div className="nav"><Navbar /></div>
-                <div className="appWrapperContent">
-                    <Switch> //dopolnenie
+                <div id="wrapper" className="appWrapperContent">
+                    <Switch>               {/*dopolnenie*/}
                         <Route path='/dialogs'
                                render={withSuspense(DialogsContainer)}/>
                         <Route path='/profile/:userId?'

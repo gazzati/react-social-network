@@ -1,8 +1,11 @@
 .nav {
     display: grid;
     grid-template-areas: "l" "f";
-    font-size: 20px;
     grid-template-rows: 3fr 1fr;
+
+    padding: 15px;
+    font-size: 20px;
+
 }
 
 .nav .list {
@@ -14,7 +17,7 @@
 }
 
 .item {
-    padding-top: 7px;
+    padding-top: 5px;
 }
 
 .item a{

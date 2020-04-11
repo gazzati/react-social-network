@@ -40,7 +40,7 @@ const Login = (props) => {
     if (props.isAuth) {
         return <Redirect to={"/profile"}/>
     }
-    return <div>
+    return <div className={s.login}>
         <h2>LOG IN</h2>
         <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
     </div>
