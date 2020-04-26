@@ -4,6 +4,11 @@
   "private": true,
   "homepage": "https://gazzati.github.io/ReactSocialNetwork",
   "dependencies": {
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.4",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@types/redux-form": "^8.2.3",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "gh-pages": "^2.2.0",
@@ -15,7 +20,8 @@
     "redux": "^4.0.5",
     "redux-form": "^8.3.1",
     "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",

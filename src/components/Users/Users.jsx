@@ -10,7 +10,7 @@ let Users = ({currentPage, totalUsersCount, pageSize, onPageChanged, isFetching,
         <div>
             {isFetching ? <Preloader/> : null}
             {users.map(u => <User user={u}
-                                  folowingInProgress={props.folowingInProgress}
+                                  followingInProgress={props.followingInProgress}
                                   unfollow={props.unfollow}
                                   follow={props.follow}
                                   key={u.id}
