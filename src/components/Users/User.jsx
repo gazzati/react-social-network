@@ -3,7 +3,7 @@ import s from "./Users.module.css";
 import userPhoto from '../../assets/images/user.png'
 import {NavLink} from "react-router-dom";
 
-let User = ({user, folowingInProgress, unfollow, follow}) => {
+let User = ({user, followingInProgress, unfollow, follow}) => {
     return (
         <div className={s.user}>
             <div className={s.photo}>
@@ -14,14 +14,14 @@ let User = ({user, folowingInProgress, unfollow, follow}) => {
             </div>
             <div className={s.fol}>
                 {user.followed
-                    ? <button disabled={folowingInProgress.some(id => id === user.id)}
+                    ? <button disabled={followingInProgress.some(id => id === user.id)}
                               className={s.unfollow}
                               onClick={() => {
                                   unfollow(user.id)
                               }}>
                         Unfollow</button>
 
-                    : <button disabled={folowingInProgress.some(id => id === user.id)}
+                    : <button disabled={followingInProgress.some(id => id === user.id)}
                               className={s.follow}
                               onClick={() => {
                                   follow(user.id)
