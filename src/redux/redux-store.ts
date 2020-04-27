@@ -9,7 +9,7 @@ import {reducer as formReducer } from 'redux-form'
 import appReducer from "./app-reducer";
 import settingsReducer from "./settings-reducer";
 
-let reducers = combineReducers({
+let rootReducer = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     sidebar: sidebarReducer,
@@ -20,9 +20,13 @@ let reducers = combineReducers({
     settings: settingsReducer
 });
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;//Chrome
-const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)));//Chrome
+type RootReducerType = typeof rootReducer; // (globalstate: AppStateType) => AppStateType
+export type AppStateType = ReturnType<RootReducerType>
 
-window._store_ = store;
+// @ts-ignore
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(rootReducer,  composeEnhancers(applyMiddleware(thunkMiddleware)))
+// @ts-ignore
+window.__store__ = store
 
-export default store;
+export default store
