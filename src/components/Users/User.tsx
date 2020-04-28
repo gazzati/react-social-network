@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {FC} from 'react';
 import s from "./Users.module.css";
 import userPhoto from '../../assets/images/user.png'
 import {NavLink} from "react-router-dom";
 
-let User = ({user, followingInProgress, unfollow, follow}) => {
+type PropsType = {
+    user: any
+    followingInProgress: Array<number>
+    unfollow: (userId: number) => void
+    follow: (userId: number) => void
+}
+
+let User: FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
     return (
         <div className={s.user}>
             <div className={s.photo}>
@@ -33,7 +40,6 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
                 <div>{user.status}</div>
             </div>
         </div>)
-
 }
 
 export default User

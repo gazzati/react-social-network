@@ -16,7 +16,6 @@ type PropsType = {
     isFetching: boolean
 }
 
-
 let Users: FC<PropsType> = ({currentPage, totalUsersCount, pageSize,
                                 onPageChanged, isFetching, users,
                                 ...props}) => {

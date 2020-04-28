@@ -2,7 +2,6 @@
     display: grid;
     grid-template-areas: "i s";
     grid-template-columns: 250px auto;
-
     padding: 15px;
 }
 
@@ -13,7 +12,7 @@
 .mainPhoto {
     border-radius: 20px;
     width: 235px;
-    /*border: black 5px solid;*/
+    border: black 1px solid;
     cursor: pointer;
 }
 
@@ -40,6 +39,7 @@
 
 .info {
     grid-area: info;
+
 }
 .description {
     grid-area: description;
@@ -47,7 +47,6 @@
 }
 
 .contacts {
-
 }
 
 .contactsEdit {
