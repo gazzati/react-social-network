@@ -4,7 +4,7 @@
     grid-template-columns: 100px auto;
 
     width: 200px;
-    padding: 20px
+    padding: 0.5em
 }
 
 .button {
@@ -12,7 +12,7 @@
     margin-top: 25px;
     display: inline-block;
     width: 45px; /* ширина */
-    height: 25px; /* высота */
+    height: 24px; /* высота */
     border-radius: 19px; /* радиус скругления */
     background: #bfbfbf; /* цвет фона */
     z-index: 0;

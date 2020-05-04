@@ -11,7 +11,7 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import store from "./redux/redux-store";
 import {withSuspense} from "./hoc/withSuspense";
-import SettingsContainer from "./components/Settings/SettingsContainer";
+import Settings from "./components/Settings/Settings";
 
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"))
@@ -27,7 +27,6 @@ class App extends React.Component {
         }*/
         return (
             <div className="appWrapper">
-                <div id="side" className={this.props.sideStyle}></div>
                 <div className="head"><HeaderContainer /></div>
                 <div className="nav"><Navbar /></div>
                 <div id="wrapper" className="appWrapperContent">
@@ -41,7 +40,7 @@ class App extends React.Component {
                         <Route exact path='/login'
                                render={() => <LoginPage/>}/>
                         <Route exact path='/settings'
-                               render={() => <SettingsContainer/>}/>
+                               render={() => <Settings/>}/>
                         <Route path='*'
                                render={() => <h1>404 NOT FOUND</h1>}/>
                     </Switch>
@@ -52,9 +51,14 @@ class App extends React.Component {
     }
 }
 
+setTimeout(() => { if(localStorage.getItem('blackThemeButton') === 'true') {
+    document.getElementById('body').style.backgroundColor = "#72879c";
+    document.getElementById('wrapper').style.backgroundColor = "#586775";
+}}, 500)
+
+
 const mapStateToProps = (state) => ({
     initialized: state.app.initialized,
-    sideStyle: state.settings.sideStyle,
 })
 
 let AppContainer = compose(

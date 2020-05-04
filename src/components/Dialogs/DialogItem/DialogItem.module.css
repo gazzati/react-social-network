@@ -1,11 +1,13 @@
 .item {
+    margin: 10px 0 10px 25px;
+    background-color: #586775;
+    height: 73px;
+    border-radius: 5px;
+    width: 150px;
+
     display: grid;
     grid-template-areas: "i d";
     grid-template-columns: 80px auto;
-    margin: 10px 0 0 15px;
-    background-color: #586775;
-    height: 70px;
-    border-radius: 10px;
 }
 
 .item div a {
@@ -16,7 +18,7 @@
     grid-area: d;
     text-decoration: none;
     color: black;
-    font-size: 20px;
+    font-size: 1.2em;
 }
 
 .dialog {
@@ -24,7 +26,7 @@
 }
 
 .item img {
-    width: 60px;
+    width: 64px;
     grid-area: i;
     margin: 5px
 }

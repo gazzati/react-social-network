@@ -6,9 +6,8 @@ import icon from "./../../assets/images/reactIcon.png"
 
 const Header = (props) => {
     return <div className={s.header}>
-        <NavLink to="/profile/" activeClassName={s.activeLink}>
-            <img
-                src={icon} alt={""}/>
+        <NavLink to="/profile/" className={s.logo}>
+            <img src={icon} alt={""} />
         </NavLink>
         <Redirect to="/login" />
         <div className={s.loginBlock}>

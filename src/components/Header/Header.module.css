@@ -1,21 +1,29 @@
+.header {
+    display: grid;
+    grid-template-areas: ". logo login ." ;
+    grid-template-columns: 1fr 0.5fr 3fr 1fr;
+    grid-gap: 0.5em;
+}
 
-.header img {
-    width: 120px;
-    margin: -2px 0 0 275px;
+.logo {
+    grid-area: logo;
+}
+
+.logo img{
+    width: 80px;
+    margin-top: 3px;
 }
 
 .loginBlock {
-    float: right;
+    grid-area: login;
     color: #61dafb;
-    margin: 0 299px 0 0 ;
     cursor: pointer;
+    justify-self: right;
 }
-
 
 .loginBlock a {
     text-decoration: none;
     color: #61dafb;
-    margin-top: 20px;
 }
 
 .userName {
@@ -24,14 +32,12 @@
 
 
 .logout {
-    text-align: right;
     font-size: 18px;
     color: white;
 
 }
 
 .login {
-    margin: 10px;
     font-size: 28px;
     font-weight: bold;
 }
@@ -46,4 +52,16 @@
     cursor: pointer;
     font-weight: bold;
     outline: none;
+}
+
+@media screen and (max-width: 750px){
+    .header {
+        display: grid;
+        grid-template-areas: "logo login" ;
+        grid-template-columns: 0.5fr 3fr;
+        grid-gap: 0.5em;
+    }
+    .loginBlock {
+        margin-right: 2px;
+    }
 }

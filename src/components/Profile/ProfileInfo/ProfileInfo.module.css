@@ -1,23 +1,20 @@
-.discriptionBlock {
+.descriptionBlock {
+    margin: 10px;
     display: grid;
-    grid-template-areas: "i s";
-    grid-template-columns: 250px auto;
-    padding: 15px;
+    grid-template-areas: "photo info_description";
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 0.5em;
 }
 
-.photo {
-    grid-area: i;
-}
 
 .mainPhoto {
-    border-radius: 20px;
-    width: 235px;
-    border: black 1px solid;
+    display: block;
+    width: 100%;
+    min-width: 100px;
+    grid-area: photo;
+    border-radius: 5px;
+    border: black 2px solid;
     cursor: pointer;
-}
-
-.discriptionBlock  {
-    grid-area: s;
 }
 
 .button {
@@ -29,32 +26,48 @@
     z-index: -1;
 }
 
+.info_description {
+    grid-area: info_description;
+}
+
 .form {
-    width: 550px;
-    height: 300px;
     display: grid;
     grid-template-areas: "info description";
-    grid-template-columns: 220px auto;
+    grid-template-columns: 40% auto;
+    grid-gap: 0.5em;
 }
 
 .info {
     grid-area: info;
-
 }
+
 .description {
+    margin-top: 30px;
     grid-area: description;
-    margin-top: 60px;
+
 }
 
-.contacts {
-}
+@media screen and (max-width: 1200px){
+    .form {
+        display: inline-block;
 
+    }
+    .info {
+        display: inline-block;
+    }
+
+    .description {
+        margin-top: 0;
+        display: inline-block;
+
+    }
+}
 .contactsEdit {
     margin: 10px;
     grid-area: contacts;
     display: grid;
     grid-template-areas: "contactKey contactValue";
-    grid-template-columns: 80px auto;
+    grid-template-columns: 30% auto;
 }
 
 .contactKey {
@@ -82,12 +95,12 @@
 .contactsMenuName::selection {
     background: transparent;
 }
-
 .name {
     font-weight: bold;
-    font-size: 30px;
-    margin-bottom: 20px;
+    font-size: 1.3em;
+    min-width: 200px;
 }
+
 
 .status {
 }

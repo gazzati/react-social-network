@@ -2,12 +2,13 @@
     margin: 30px;
 }
 .pageNumber {
-    padding: 2px;
+    display: inline-block;
+    padding-left: 4px;
     cursor: pointer;
     background-color: #61dafb;
-    width: 55px;
-    height: 25px;
-    border: #61dafb 1px solid;
+    width: 25px;
+    height: 20px;
+    border: black 1px solid;
     border-radius: 5px;
     font-size: 15px;
     outline: none;
@@ -20,13 +21,17 @@
 
 .selectedPage {
     font-weight: bold;
-    cursor: pointer
+    cursor: pointer;
+    border: black 2px solid;
+    width: 27px;
+    height: 21px;
 }
 
 .button {
+    margin-top: -2px;
     background-color: black;
-    width: 55px;
-    height: 25px;
+    width: 45px;
+    height: 20px;
     border: black 1px solid;
     border-radius: 5px;
     font-size: 15px;

@@ -8,10 +8,11 @@
      height: 25px;
      border: #61dafb 1px solid;
      border-radius: 15px;
-     font-size: 16px;
+     font-size: 14px;
      cursor: pointer;
      margin-top: 5px;
      outline: none;
+    font-weight: bolder;
 }
 
 .s1 {

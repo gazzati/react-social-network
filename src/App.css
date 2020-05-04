@@ -1,23 +1,30 @@
-.appWrapper {
-    width: 1600px;
-    height: 1200px;
-
-    display: grid;
-    grid-template-areas: "h h h h" ". n c .";
-    grid-template-rows:  70px auto;
-    grid-template-columns: 300px 150px 850px 300px;
+*, *:after, *:before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    transition: .5s ease-in-out; /* добавим плавность переходов для всех элементов страницы*/
 }
 
+body {
+    background: white;
+}
+
+.appWrapper {
+    display: grid;
+    grid-template-areas: "h h h h" ". n c .";
+    grid-template-rows: 80px auto;
+    grid-template-columns: 1fr 0.5fr 3fr 1fr;
+    grid-column-gap: 0.3em;
+    grid-row-gap: 0.2em;
+
+}
 
 
 .head {
     grid-area: h;
-    width: 1600px;
-    height: 70px;
     background-color: black;
-   /* border-radius: 0 0 10px 10px;*/
-    box-shadow: 0 10px 3px;
-    z-index: 2;
+    /* border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 3px;*/
     position: sticky;
     top: 0;
 
@@ -25,33 +32,42 @@
 
 .nav {
     grid-area: n;
-    height: 300px;
-    width: 150px;
-    position: sticky;
-    border-radius: 10px;
-    box-shadow: 0 0 3px 1px;
+    height: 20em;
     background-color: #61dafb;
-    top: 85px;
-    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 1px;
+    position: sticky;
+    top: 83px;
+
 }
 
 .appWrapperContent {
     grid-area: c;
-    width: 845px;
-    margin: 15px 0 0 6px;
     background-color: ghostwhite;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 0 3px 1px;
-    z-index: 1;
 }
 
-.side {
-    color: white;
-    position: absolute;
-    z-index: 0;
-    width: 1600px;
-    height: 2000px;
+.preloader {
+    margin-left: 20px
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+@media screen and (max-width: 750px){
+    .appWrapper {
+        display: grid;
+        grid-template-areas: "h h" "n c";
+        grid-template-rows: 80px auto;
+        grid-template-columns: 0.5fr 3fr;
+        grid-column-gap: 0.3em;
+        grid-row-gap: 0.2em;
+    }
+}
 
 

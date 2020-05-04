@@ -26,7 +26,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div className={s.friends}>
-                 friends
+                 Friends
             </div>
         </nav>
     )

@@ -1,5 +1,5 @@
 .item {
-  width: 600px;
+  max-width: 600px;
   height: 65px;
   border-bottom: #61dafb 1px solid;
   display: grid;

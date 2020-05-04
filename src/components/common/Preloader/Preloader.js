@@ -2,7 +2,7 @@ import React from 'react';
 import preloader from "../../../assets/images/preloader.svg";
 
 let Preloader = (props) => {
-    return <span  style={ { "margin-left": '20px'} }>
+    return <span  className="preloader">
         <img src={preloader} alt={""}/>
     </span>
 }

@@ -22,7 +22,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
     }
 
     return (
-        <div className={s.discriptionBlock}>
+        <div className={s.descriptionBlock}>
             <div className={s.photo}>
                 {isOwner &&
                 <input id="upl" type={"file"} className={s.button} onChange={onMainPhotoSelected}/>}
@@ -30,7 +30,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
                     <img src={profile.photos.large || userPhoto} className={s.mainPhoto} alt={""}/>
                 </label>
             </div>
-            <div className={s.discription}>
+            <div className={s.info_description}>
                 {editMode
                     ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}
                                        status={status} updateStatus={updateStatus}/>
@@ -52,8 +52,8 @@ const ProfileData = ({profile, isOwner, goToEditMode, status, updateStatus}) => 
     const closeContacts = () => {
         document.getElementById('contacts').style.display = "none";
     }
-    return <span className={s.form}>
-            <span className={s.info}>
+    return <div className={s.form}>
+            <div className={s.info}>
                  <div className={s.name}>
                     {profile.fullName}
                  </div>
@@ -69,8 +69,8 @@ const ProfileData = ({profile, isOwner, goToEditMode, status, updateStatus}) => 
                         })}
                     </div>
                 </span>
-            </span>
-            <span className={s.description}>
+            </div>
+            <div className={s.description}>
                 <div>
                      <div>•About me: </div>
                      <span className={s.tab}>{profile.aboutMe}</span>
@@ -83,8 +83,8 @@ const ProfileData = ({profile, isOwner, goToEditMode, status, updateStatus}) => 
                 {isOwner && <div>
                     <button className={s.edit} onClick={goToEditMode}>Edit info</button>
                 </div>}
-            </span>
-        </span>
+            </div>
+        </div>
 }
 
 const Contact = ({contactTitle, contactValue}) => {

@@ -26,9 +26,9 @@ const ProfileDataForm = ({profile, handleSubmit, error, status, updateStatus}) =
             <div><button className={s.save}>save</button></div>
             {error && <div className={style.formSummaryError}>{error}</div>}
         </span>
-        <div>
+        <div className={s.contacts}>
             My contacts: {Object.keys(profile.contacts).map(key => {
-                return <div key={key} className={s.contact}>
+                return <div key={key}>
                     <div className={s.contactsEdit}>
                         <div className={s.contactKey}>{key}:</div>
                         <div className={s.contactValue}>{createField("http://" + key + ".com", "contacts." + key, [], Input)}</div>

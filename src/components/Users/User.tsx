@@ -13,7 +13,7 @@ type PropsType = {
 let User: FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
     return (
         <div className={s.user}>
-            <div className={s.photo}>
+            <div>
                 <NavLink to={'profile/' + user.id}>
                     <img src={user.photos.small != null ? user.photos.small : userPhoto}
                          className={s.photo} alt={""}/>
@@ -35,7 +35,7 @@ let User: FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
                               }}>
                         Follow</button>}
             </div>
-            <div className={s.discription}>
+            <div className={s.descriptionUser}>
                 <div className={s.name}>{user.name}</div>
                 <div>{user.status}</div>
             </div>

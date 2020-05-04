@@ -11,7 +11,7 @@ const maxLength50 = maxLengthCreator(50);
 const addNewPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <div>
+            <span>
                 <Field className={s.area}
                        cols="25"
                        rows="4"
@@ -20,10 +20,10 @@ const addNewPostForm = (props) => {
                        placeholder="Enter your post"
                        validate={[required, maxLength50]}
                 />
-            </div>
-            <div>
+            </span>
+            <span>
                 <button className={s.button}>Add post</button>
-            </div>
+            </span>
         </form>
     )
 }

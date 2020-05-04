@@ -1,32 +1,34 @@
 .user {
     display: grid;
     grid-template-areas: "p d f";
-    grid-template-columns: 130px auto 130px;
+    grid-template-columns: 110px auto 0.1fr;
+    grid-gap: 5px;
 
-    width: 750px;
-    height: 130px;
-    margin-left: 20px;
+    max-width: 100% ;
+    height: 115px;
+    margin: 0 2em;
     border-bottom: #61dafb 1px solid;
 }
 
 .photo {
-    margin: 10px;
     grid-area: p;
-    width: 90px;
+    width: 95%;
+    margin: 5px;
 }
 
 .fol {
     grid-area: f;
 }
 
-.discription {
+.descriptionUser {
     grid-area: d;
     margin-top: 20px;
+    height: 90px;
 }
 
 .name {
     font-size: 20px;
-
+    font-weight: bold;
 }
 
 .follow{
@@ -36,7 +38,7 @@
     border: #61dafb 1px solid;
     border-radius: 7px;
     font-size: 20px;
-    margin-top: 45px;
+    margin-top: 40px;
     cursor: pointer;
     outline: none;
 }
@@ -49,7 +51,7 @@
     border: black 1px solid;
     border-radius: 7px;
     font-size: 20px;
-    margin-top: 45px;
+    margin-top: 40px;
     cursor: pointer;
     outline: none;
 }

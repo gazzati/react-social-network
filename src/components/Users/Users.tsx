@@ -1,8 +1,8 @@
 import React, {FC} from 'react'
-import Preloader from "../common/Preloader/Preloader"
-import User from "./User"
-import Paginator from "../common/Paginator/Paginator";
-import {UserType} from "../../types/types";
+import User from './User'
+import Paginator from '../common/Paginator/Paginator'
+import {UserType} from '../../types/types'
+import Preloader from "../common/Preloader/Preloader";
 
 type PropsType = {
     totalUsersCount: number
@@ -17,13 +17,14 @@ type PropsType = {
 }
 
 let Users: FC<PropsType> = ({currentPage, totalUsersCount, pageSize,
-                                onPageChanged, isFetching, users,
+                                onPageChanged,  users, isFetching,
                                 ...props}) => {
     return <div>
-        <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
-                   totalItemsCount={totalUsersCount} pageSize={pageSize}/>
+        {!isFetching ? <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
+                   totalItemsCount={totalUsersCount} pageSize={pageSize}/> : null}
+
+        {isFetching ? <Preloader/> : null}
         <div>
-            {isFetching ? <Preloader/> : null}
             {users.map(u => <User user={u}
                                   followingInProgress={props.followingInProgress}
                                   unfollow={props.unfollow}
