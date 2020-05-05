@@ -11,7 +11,6 @@ const Dialogs = (props) => {
     let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id}/>);
     let messagesElements = state.messages.map(m => <Message message={m.message} key={m.id}/>);
 
-
     let addNewMessage = (values) => {
         props.sendMessage(values.newMessageBody);
         values.newMessageBody = "";
@@ -31,8 +30,16 @@ const Dialogs = (props) => {
 }
 
 const AddMessageForm = (props) => {
+
+    let handleKeyDown =  (e, cb) => {
+        if (e.key === 'Enter' && e.shiftKey === false) {
+            e.preventDefault();
+            cb();
+        }
+    };
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={props.handleSubmit}
+              onKeyDown={(e) => handleKeyDown(e, props.handleSubmit)}>
             <div>
                 <Field className={s.area}
                        cols="25"

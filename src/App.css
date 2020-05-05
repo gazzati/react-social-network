@@ -2,12 +2,20 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    transition: .5s ease-in-out; /* добавим плавность переходов для всех элементов страницы*/
+    transition: .3s ease-in-out; /* добавим плавность переходов для всех элементов страницы*/
 }
 
 body {
     background: white;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
 
 .appWrapper {
     display: grid;
@@ -32,13 +40,12 @@ body {
 
 .nav {
     grid-area: n;
-    height: 20em;
+    height: 250px;
     background-color: #61dafb;
     border-radius: 5px;
     box-shadow: 0 0 3px 1px;
     position: sticky;
     top: 83px;
-
 }
 
 .appWrapperContent {
@@ -52,22 +59,21 @@ body {
     margin-left: 20px
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-}
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 700px){
     .appWrapper {
         display: grid;
         grid-template-areas: "h h" "n c";
         grid-template-rows: 80px auto;
-        grid-template-columns: 0.5fr 3fr;
+        grid-template-columns: 0.1fr 3fr;
         grid-column-gap: 0.3em;
         grid-row-gap: 0.2em;
     }
 }
 
+@media screen and (max-width: 600px){
+    .nav {
+        height: 160px;
+    }
+}
 

@@ -22,7 +22,6 @@ let Users: FC<PropsType> = ({currentPage, totalUsersCount, pageSize,
     return <div>
         {!isFetching ? <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
                    totalItemsCount={totalUsersCount} pageSize={pageSize}/> : null}
-
         {isFetching ? <Preloader/> : null}
         <div>
             {users.map(u => <User user={u}

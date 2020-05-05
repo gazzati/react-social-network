@@ -1,13 +1,11 @@
 .newsList {
-    margin: 0 2em;
+    margin: 0 30px;
     max-width: 845px;
-
 }
 
 .newsList :nth-child(2n){
     grid-template-areas: "image title" "image description" "image info";
 }
-
 
 .newItem {
     height: auto;
@@ -68,7 +66,10 @@ a {
     font-size: 15px;
 }
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 650px){
+    .newsList {
+        margin: 0 10px;
+    }
     .newsList .newItem {
         height: auto;
         border-bottom: #61dafb 1.5px solid;

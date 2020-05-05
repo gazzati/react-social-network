@@ -9,8 +9,17 @@ import {Textarea} from "../../common/FormsControls/FormsControls";
 const maxLength50 = maxLengthCreator(50);
 
 const addNewPostForm = (props) => {
+
+    let handleKeyDown =  (e, cb) => {
+        if (e.key === 'Enter' && e.shiftKey === false) {
+            e.preventDefault();
+            cb();
+        }
+    };
+
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={props.handleSubmit}
+              onKeyDown={(e) => handleKeyDown(e, props.handleSubmit)}>
             <span>
                 <Field className={s.area}
                        cols="25"
@@ -33,7 +42,10 @@ const AddNewPostForm = reduxForm({form: "profileAddPostForm"})(addNewPostForm)
 
 const MyPosts = React.memo(props => {
     let postsElements =
-        props.posts.map(p => <Post message={p.message}
+        props.posts
+            //.reverse()
+            .sort((a, b) => a.id < b.id ? 1 : -1)
+            .map(p => <Post message={p.message}
                                    likesCount={p.likesCount}
                                    key={p.id}
                                    id={p.id}

@@ -15,9 +15,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 
     const onSubmit = (formData) => {
         saveProfile(formData).then(
-            () => {
-                setEditMode(false);
-            }
+            () => setEditMode(false)
         )
     }
 
@@ -44,48 +42,47 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
     )
 }
 
-
 const ProfileData = ({profile, isOwner, goToEditMode, status, updateStatus}) => {
     const openContacts = () => {
         let display = document.getElementById('contacts').style.display
         if (display === 'none') {
             document.getElementById('contacts').style.display = 'block'
-        }
-        else
+        } else
             document.getElementById('contacts').style.display = 'none'
     }
     return <div className={s.form}>
-            <div className={s.info}>
-                 <div className={s.name}>
-                    {profile.fullName}
-                 </div>
-                <ProfileStatusWithHooks  status={status} updateStatus={updateStatus}/>
-                <span className={s.contacts}>
+        <div className={s.info}>
+            <div className={s.name}>
+                {profile.fullName}
+            </div>
+            <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+            <span className={s.contacts}>
                     <div className={s.contactsMenuName}
                          onClick={openContacts}>
-                        My contacts</div>
+                        •My contacts</div>
                     <div id="contacts" className={s.contactsMenu}>
                         {Object.keys(profile.contacts).map(key => {
                             return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
                         })}
                     </div>
                 </span>
-            </div>
-            <div className={s.description}>
-                <div>
-                     <div>•About me: </div>
-                     <span className={s.tab}>{profile.aboutMe}</span>
-                </div>
-                <div>
-                    <span>•Looking for a job:</span> {profile.lookingForAJob ? "yes" : "no"}
-                 </div>
-                {profile.lookingForAJob && <div>
-                    <div>•My professional skills:</div> <span className={s.tab}>{profile.lookingForAJobDescription}</span></div>}
-                {isOwner && <div>
-                    <button className={s.edit} onClick={goToEditMode}>Edit info</button>
-                </div>}
-            </div>
         </div>
+        <div className={s.description}>
+            <div>
+                <div>•About me:</div>
+                <span className={s.tab}>{profile.aboutMe}</span>
+            </div>
+            <div>
+                <span>•Looking for a job:</span> {profile.lookingForAJob ? "yes" : "no"}
+            </div>
+            {profile.lookingForAJob && <div>
+                <div>•My professional skills:</div>
+                <span className={s.tab}>{profile.lookingForAJobDescription}</span></div>}
+            {isOwner && <div>
+                <button className={s.edit} onClick={goToEditMode}>Edit info</button>
+            </div>}
+        </div>
+    </div>
 }
 
 const Contact = ({contactTitle, contactValue}) => {

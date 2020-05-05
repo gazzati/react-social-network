@@ -8,17 +8,24 @@
 
 .button {
     background-color: #61dafb;
-    width: 100px;
-    height: 30px;
+    width: 80px;
+    height: 20px;
     border: #61dafb 1px solid;
-    border-radius: 8px;
-    font-size: 18px;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
     outline: none;
 }
 
 .area {
+    margin-top: 10px;
     resize: none;
-rows: 7;
-columns: 30;
+}
+
+@media screen and (max-width: 600px){
+    .button {
+        width: 60px;
+        height: 20px;
+        font-size: 14px;
+    }
 }

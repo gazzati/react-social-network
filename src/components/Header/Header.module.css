@@ -54,7 +54,7 @@
     outline: none;
 }
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 700px){
     .header {
         display: grid;
         grid-template-areas: "logo login" ;

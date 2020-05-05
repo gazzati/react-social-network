@@ -15,8 +15,15 @@ type LoginFormOwnProps = {
 }
 
 const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnProps> & LoginFormOwnProps> = ({handleSubmit, error, captchaUrl}) => {
+
+    let handleKeyDown =  (e: any, cb: any) => {
+        if (e.key === 'Enter' && e.shiftKey === false) {
+            e.preventDefault();
+            cb();
+        }
+    };
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} onKeyDown={(e) => handleKeyDown(e, handleSubmit)}>
             {createField<LoginFormValuesTypeKeys>("Email", "email", [required], Input)}
             {createField<LoginFormValuesTypeKeys>("Password", "password", [required], Input, {type: "password"})}
             <div className={s.s1}>

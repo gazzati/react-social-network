@@ -5,7 +5,6 @@
     max-width: 200px;
     padding: 0.5em;
     font-size: 1.2em;
-
 }
 
 .nav .list {
@@ -32,4 +31,12 @@
 
 .friends {
     margin-top: 15px;
+}
+
+@media screen and (max-width: 600px){
+    .nav {
+        max-width: 100px;
+        padding: 0.1em;
+        font-size: 0.7em;
+    }
 }

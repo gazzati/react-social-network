@@ -1,10 +1,11 @@
 .dialogs {
     max-width: 450px;
+    font-size: 16px;
+    padding-top: 5px;
+
     display: grid;
     grid-template-areas: "i . m" ;
     grid-template-columns: 160px auto 200px;
-    font-size: 16px;
-    padding-top: 5px;
     grid-gap: 2em;
 }
 
@@ -18,7 +19,7 @@
 
 .message {
     font-size: 1em;
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
 }
 
 .area {

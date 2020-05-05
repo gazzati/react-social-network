@@ -26,7 +26,7 @@ const News: FC<PropsType> = ({currentPage, totalNewsCount, pageSize, onPageChang
 
             {isFetching ? <Preloader/> : null}
             <div className={s.newsList}>
-                   {news.map(n => <NewsItem /*key={index}*/ newsItem={n}/>)}
+                   {news.map(n => <NewsItem key={Date.now()} newsItem={n}/>)}
 
             </div>
         </div>

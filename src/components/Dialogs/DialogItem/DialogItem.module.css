@@ -10,6 +10,12 @@
     grid-template-columns: 80px auto;
 }
 
+@media screen and (max-width: 600px){
+    .item {
+        margin: 10px 0 10px 10px;
+    }
+}
+
 .item div a {
     color: ghostwhite;
 }
