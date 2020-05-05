@@ -4,7 +4,7 @@
     grid-template-columns: 110px auto 0.1fr;
     grid-gap: 5px;
 
-    max-width: 100% ;
+    max-width: 100%;
     height: 115px;
     margin: 0 2em;
     border-bottom: #61dafb 1px solid;

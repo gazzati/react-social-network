@@ -12,6 +12,7 @@ import {initializeApp} from "./redux/app-reducer";
 import store from "./redux/redux-store";
 import {withSuspense} from "./hoc/withSuspense";
 import Settings from "./components/Settings/Settings";
+import NewsContainer from "./components/News/NewsContainer";
 
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"))
@@ -41,6 +42,8 @@ class App extends React.Component {
                                render={() => <LoginPage/>}/>
                         <Route exact path='/settings'
                                render={() => <Settings/>}/>
+                        <Route exact path='/news'
+                               render={() => <NewsContainer/>}/>
                         <Route path='*'
                                render={() => <h1>404 NOT FOUND</h1>}/>
                     </Switch>

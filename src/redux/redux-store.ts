@@ -7,6 +7,7 @@ import authReducer from "./auth-reducer";
 import thunkMiddleware  from "redux-thunk";
 import {reducer as formReducer } from 'redux-form'
 import appReducer from "./app-reducer";
+import newsReducer from "./news-reducer";
 
 let rootReducer = combineReducers({
     profilePage: profileReducer,
@@ -16,6 +17,7 @@ let rootReducer = combineReducers({
     auth: authReducer,
     form: formReducer,
     app: appReducer,
+    news: newsReducer
 });
 
 type RootReducerType = typeof rootReducer; // (globalstate: AppStateType) => AppStateType

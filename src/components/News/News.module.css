@@ -1,0 +1,81 @@
+.newsList {
+    margin: 0 2em;
+    max-width: 845px;
+
+}
+
+.newsList :nth-child(2n){
+    grid-template-areas: "image title" "image description" "image info";
+}
+
+
+.newItem {
+    height: auto;
+    border-bottom: #61dafb 1.5px solid;
+    padding: 10px 0;
+
+    display: grid;
+    grid-template-areas: "title image" "description image" "info image";
+    grid-template-columns: auto auto;
+    grid-gap: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.img {
+    grid-area: image;
+    max-width: 300px;
+}
+
+.img img {
+    max-width: 300px;
+    width: 100%;
+    border: black 1px solid;
+    border-radius: 5px;
+    box-shadow: none;
+    display: block;
+}
+
+.title {
+    grid-area: title;
+    font-size: 18px;
+
+}
+
+.description {
+    grid-area: description;
+}
+
+.newItem .info {
+    grid-area: info;
+    align-self: end;
+
+    display: grid;
+    grid-template-areas: "publish date";
+}
+
+.publish {
+    grid-area: publish;
+    text-align: left;
+}
+
+.newItem .info .date {
+    text-align: right;
+    grid-area: date;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 750px){
+    .newsList .newItem {
+        height: auto;
+        border-bottom: #61dafb 1.5px solid;
+        padding: 10px 0;
+
+        display: grid;
+        grid-template-areas: "title" "image" "description" "info";
+        grid-gap: 5px;
+    }
+}

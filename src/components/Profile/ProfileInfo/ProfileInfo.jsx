@@ -47,10 +47,12 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 
 const ProfileData = ({profile, isOwner, goToEditMode, status, updateStatus}) => {
     const openContacts = () => {
-        document.getElementById('contacts').style.display = "block";
-    }
-    const closeContacts = () => {
-        document.getElementById('contacts').style.display = "none";
+        let display = document.getElementById('contacts').style.display
+        if (display === 'none') {
+            document.getElementById('contacts').style.display = 'block'
+        }
+        else
+            document.getElementById('contacts').style.display = 'none'
     }
     return <div className={s.form}>
             <div className={s.info}>
@@ -60,8 +62,7 @@ const ProfileData = ({profile, isOwner, goToEditMode, status, updateStatus}) => 
                 <ProfileStatusWithHooks  status={status} updateStatus={updateStatus}/>
                 <span className={s.contacts}>
                     <div className={s.contactsMenuName}
-                         onClick={openContacts}
-                         onDoubleClick={closeContacts}>
+                         onClick={openContacts}>
                         My contacts</div>
                     <div id="contacts" className={s.contactsMenu}>
                         {Object.keys(profile.contacts).map(key => {

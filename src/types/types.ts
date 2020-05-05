@@ -19,8 +19,8 @@ export type PhotosType = {
 }
 export type ProfileType = {
     userId: number
-    lookinfForAJob: boolean
-    lookinfForAJobDescription: string
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
     fullName: string
     contacts: ContactsType
     photos: PhotosType
@@ -32,4 +32,16 @@ export type UserType = {
     status: string
     photos: PhotosType
     followed: boolean
+}
+
+export type SourceType = {
+    name: string
+}
+export type NewsType = {
+    title: string
+    description: string
+    url: string
+    urlToImage: string
+    publishedAt: string
+    source: SourceType
 }

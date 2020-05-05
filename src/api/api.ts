@@ -11,21 +11,21 @@ const instance = axios.create({
 })
 
 export const usersAPI = {
-        getUsers(currentPage = 1, pageSize = 10) {
-            return instance.get(`users?page=${currentPage}&count=${pageSize}`)
-                .then(response => {
-                    return response.data;
-                })
-        },
-        unFollow(id: number) {
-            return instance.delete(`follow/${id}`)
-        },
-        Follow(id: number) {
-            return instance.post(`follow/${id}`)
-        },
-        getProfile(userId: number) {
-            return profileAPI.getProfile(userId)
-        }
+    getUsers(currentPage = 1, pageSize = 10) {
+        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+            .then(response => {
+                return response.data;
+            })
+    },
+    unFollow(id: number) {
+        return instance.delete(`follow/${id}`)
+    },
+    Follow(id: number) {
+        return instance.post(`follow/${id}`)
+    },
+    getProfile(userId: number) {
+        return profileAPI.getProfile(userId)
+    }
 
 }
 
@@ -99,4 +99,14 @@ export const securityAPI = {
     getCaptchaUrl() {
         return instance.get(`security/get-captcha-url`)
     },
+}
+
+export const newsAPI = {
+    getNews(currentPage: number = 1, pageSize: number = 5) {
+        return axios.get(`https://newsapi.org/v2/top-headlines?` +
+            `country=ru&apiKey=3d368681f4414a9fb4ffa48ef6d52ea6&pageSize=${pageSize}&page=${currentPage}`)
+            .then(response => {
+                return response.data;
+            })
+    }
 }
