@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/ReactSocialNetwork/static/css/main.b09384af.chunk.css",
-    "main.js": "/ReactSocialNetwork/static/js/main.002861fa.chunk.js",
-    "main.js.map": "/ReactSocialNetwork/static/js/main.002861fa.chunk.js.map",
-    "runtime-main.js": "/ReactSocialNetwork/static/js/runtime-main.c9ffdbed.js",
-    "runtime-main.js.map": "/ReactSocialNetwork/static/js/runtime-main.c9ffdbed.js.map",
+    "main.js": "/ReactSocialNetwork/static/js/main.a6f108c1.chunk.js",
+    "main.js.map": "/ReactSocialNetwork/static/js/main.a6f108c1.chunk.js.map",
+    "runtime-main.js": "/ReactSocialNetwork/static/js/runtime-main.fb897cb0.js",
+    "runtime-main.js.map": "/ReactSocialNetwork/static/js/runtime-main.fb897cb0.js.map",
     "static/js/2.5230a864.chunk.js": "/ReactSocialNetwork/static/js/2.5230a864.chunk.js",
     "static/js/2.5230a864.chunk.js.map": "/ReactSocialNetwork/static/js/2.5230a864.chunk.js.map",
     "static/css/3.b24e9b62.chunk.css": "/ReactSocialNetwork/static/css/3.b24e9b62.chunk.css",
-    "static/js/3.073d7ae5.chunk.js": "/ReactSocialNetwork/static/js/3.073d7ae5.chunk.js",
-    "static/js/3.073d7ae5.chunk.js.map": "/ReactSocialNetwork/static/js/3.073d7ae5.chunk.js.map",
+    "static/js/3.bd94e033.chunk.js": "/ReactSocialNetwork/static/js/3.bd94e033.chunk.js",
+    "static/js/3.bd94e033.chunk.js.map": "/ReactSocialNetwork/static/js/3.bd94e033.chunk.js.map",
     "index.html": "/ReactSocialNetwork/index.html",
-    "precache-manifest.bb80568534fbae88fc0ccd904e6068f5.js": "/ReactSocialNetwork/precache-manifest.bb80568534fbae88fc0ccd904e6068f5.js",
+    "precache-manifest.aebfc86fa52a53b3cc7f98be084e6dcd.js": "/ReactSocialNetwork/precache-manifest.aebfc86fa52a53b3cc7f98be084e6dcd.js",
     "service-worker.js": "/ReactSocialNetwork/service-worker.js",
     "static/css/3.b24e9b62.chunk.css.map": "/ReactSocialNetwork/static/css/3.b24e9b62.chunk.css.map",
     "static/css/main.b09384af.chunk.css.map": "/ReactSocialNetwork/static/css/main.b09384af.chunk.css.map",
@@ -21,9 +21,9 @@
     "static/media/user.png": "/ReactSocialNetwork/static/media/user.8b1dbb1f.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.c9ffdbed.js",
+    "static/js/runtime-main.fb897cb0.js",
     "static/js/2.5230a864.chunk.js",
     "static/css/main.b09384af.chunk.css",
-    "static/js/main.002861fa.chunk.js"
+    "static/js/main.a6f108c1.chunk.js"
   ]
 }
