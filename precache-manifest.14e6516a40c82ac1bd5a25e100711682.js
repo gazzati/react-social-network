@@ -1,35 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7a0607c4fa6f99eaa50be48fd121544a",
+    "revision": "5acb30e1d46889545cc579524575bc9d",
     "url": "/ReactSocialNetwork/index.html"
   },
   {
-    "revision": "02fbb2db5bc4dc99cf82",
-    "url": "/ReactSocialNetwork/static/css/3.73ca2cf9.chunk.css"
+    "revision": "22d9d76f7e329710055a",
+    "url": "/ReactSocialNetwork/static/css/3.e82bb8ea.chunk.css"
   },
   {
-    "revision": "87da0416cacd693241c6",
-    "url": "/ReactSocialNetwork/static/css/main.98724043.chunk.css"
+    "revision": "6be8ab57efd95b0d2f1d",
+    "url": "/ReactSocialNetwork/static/css/main.1d935e84.chunk.css"
   },
   {
-    "revision": "88dc2bdc45dd2af49445",
-    "url": "/ReactSocialNetwork/static/js/2.78491c21.chunk.js"
+    "revision": "60c91c626f337e9cb4d1",
+    "url": "/ReactSocialNetwork/static/js/2.d7cced60.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/ReactSocialNetwork/static/js/2.78491c21.chunk.js.LICENSE.txt"
+    "url": "/ReactSocialNetwork/static/js/2.d7cced60.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "02fbb2db5bc4dc99cf82",
-    "url": "/ReactSocialNetwork/static/js/3.1e4ddf70.chunk.js"
+    "revision": "22d9d76f7e329710055a",
+    "url": "/ReactSocialNetwork/static/js/3.2fb1247a.chunk.js"
   },
   {
-    "revision": "87da0416cacd693241c6",
-    "url": "/ReactSocialNetwork/static/js/main.b46e3342.chunk.js"
+    "revision": "6be8ab57efd95b0d2f1d",
+    "url": "/ReactSocialNetwork/static/js/main.9133087d.chunk.js"
   },
   {
-    "revision": "6042fdd20f877109bfb1",
-    "url": "/ReactSocialNetwork/static/js/runtime-main.c033f953.js"
+    "revision": "a494bbf2f5b7adfe4063",
+    "url": "/ReactSocialNetwork/static/js/runtime-main.c6c49796.js"
   },
   {
     "revision": "87610641cf4a84ff236ecff0c6501004",
@@ -40,12 +40,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ReactSocialNetwork/static/media/instagram.28f2a7e4.svg"
   },
   {
-    "revision": "d15cb0507f59dd3581a4e6c770d9fd43",
-    "url": "/ReactSocialNetwork/static/media/preloader.d15cb050.svg"
+    "revision": "41f18daa92b3296e2306d83ab1e203c0",
+    "url": "/ReactSocialNetwork/static/media/leftArrowIcon.41f18daa.svg"
+  },
+  {
+    "revision": "0cd9853d07e08a5449e6a303bbbb8e9c",
+    "url": "/ReactSocialNetwork/static/media/preloader.0cd9853d.svg"
   },
   {
     "revision": "a79469daa83205dfcbdc2858f1e892cb",
     "url": "/ReactSocialNetwork/static/media/reactIcon.a79469da.png"
+  },
+  {
+    "revision": "0c41106f6c336ef53bf91ed517a9f4c5",
+    "url": "/ReactSocialNetwork/static/media/rightArrowIcon.0c41106f.svg"
   },
   {
     "revision": "72b44340d29365383b964c95bae32b2c",
