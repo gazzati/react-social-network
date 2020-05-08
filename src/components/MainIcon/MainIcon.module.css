@@ -1,0 +1,24 @@
+.mainIcon {
+  display: grid;
+  grid-template-areas: "logo title";
+  grid-template-columns: 60px auto;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.logo {
+  grid-area: logo;
+  width: 60px;
+}
+
+.title {
+  grid-area: title;
+  width: 156px;
+  height: 36px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.06;
+  color: #ffffff;
+  text-align: left;
+}

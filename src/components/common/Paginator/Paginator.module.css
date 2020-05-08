@@ -1,48 +1,52 @@
 .paginator {
-    margin: 30px 0 0 30px;
+    height: 35px;
+    display: grid;
+    justify-items: center;
 }
 
-@media screen and (max-width: 600px){
-    .paginator {
-        margin: 10px 0 0 10px;
-    }
+.paginatorElements {
+    max-width: 300px;
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, 36px);
+    grid-column-gap: 8px;
+    justify-content: center;
 }
 
 .pageNumber {
-    display: inline-block;
-    padding-left: 4px;
     cursor: pointer;
-    background-color: #61dafb;
-    width: 30px;
-    height: 20px;
-    border: black 1px solid;
-    border-radius: 5px;
-    font-size: 15px;
+    text-align: center;
+    padding-top: 18%;
+    height: 29px;
+    border-radius: 10px;
+    background-color: #ffffff;
     outline: none;
-}
 
-.pageNumber.selectedPage {
-    font-weight: bold;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.29;
+    color: #1a122d;
 }
-
 
 .selectedPage {
-    font-weight: bold;
-    cursor: pointer;
-    border: black 2px solid;
-    width: 30px;
-    height: 21px;
+    background-color: #6d57f6;
+}
+
+.paginator span {
+    margin-left: 8px;
+    max-width: 45px;
 }
 
 .button {
-    margin-top: -2px;
-    background-color: black;
-    width: 45px;
-    height: 20px;
-    border: black 1px solid;
-    border-radius: 5px;
-    font-size: 15px;
+    max-width: 45px;
     cursor: pointer;
     outline: none;
-    color: #61dafb
+    color: #61dafb;
+    display: inline-block;
+    margin: 0 -8px;
+}
+
+.buttonHidden {
+    display: none;
 }

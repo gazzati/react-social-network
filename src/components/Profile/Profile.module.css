@@ -1,0 +1,7 @@
+.profile {
+    width: 100%;
+    display: grid;
+    grid-template-areas: "infoBlock" "posts";
+    grid-template-rows: 300px auto;
+    grid-gap: 18px;
+}

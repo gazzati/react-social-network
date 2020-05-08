@@ -24,11 +24,22 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPro
     };
     return (
         <form onSubmit={handleSubmit} onKeyDown={(e) => handleKeyDown(e, handleSubmit)}>
-            {createField<LoginFormValuesTypeKeys>("Email", "email", [required], Input)}
-            {createField<LoginFormValuesTypeKeys>("Password", "password", [required], Input, {type: "password"})}
+            {createField<LoginFormValuesTypeKeys>(
+                "Email",
+                "email",
+                [],
+                Input,
+                {'height': '30px', 'width': '200px'})}
+            {createField<LoginFormValuesTypeKeys>(
+                "Password",
+                "password",
+                [],
+                Input,
+                {'height': '30px', 'width': '200px', 'margin-top': '10px'},
+                {type: "password"})}
             <div className={s.s1}>
                 <div className={s.s2}>
-                    {createField<LoginFormValuesTypeKeys>(undefined, "rememberMe", [], Input, {type: "checkbox"})}
+                    {createField<LoginFormValuesTypeKeys>(undefined, "rememberMe", [], Input, {}, {type: "checkbox"})}
                 </div>
                 <div className={s.s3}>
                     remember me

@@ -1,50 +1,125 @@
-.descriptionBlock {
-    margin: 10px;
+.infoBlock {
+    grid-area: infoBlock;
+
     display: grid;
-    grid-template-areas: "photo info_description";
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 0.5em;
+    grid-template-areas: "mainInfo description";
+    grid-template-columns: 34% 64.3%;
+    grid-gap: 1.7%;
+}
+
+.mainInfo {
+    grid-area: mainInfo;
+    width: 100%;
+    border-radius: 10px;
+    background: linear-gradient(to top, var(--wrap-bg-color) 75%, #3827a0 25%);
 }
 
 .mainPhoto {
-    display: block;
-    width: 100%;
-    min-width: 100px;
-    grid-area: photo;
-    border-radius: 5px;
-    border: black 2px solid;
-    cursor: pointer;
+    border-radius: 40px;
+    margin: 40px 0 0 40px;
+    width: 80px;
+    border: solid 2px #61dafb;
 }
 
-.button {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
+.name {
+    margin: 20px 0 0 40px;
+    font-family: Montserrat;
+    color: var(--b-w-text-color);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: left;
 }
 
-.info_description {
-    grid-area: info_description;
+.status {
+    margin: 10px 0 0 40px;
+    font-family: Montserrat;
+    font-size: 14px;
+    line-height: 1.29;
+    text-align: left;
+    color: var(--1a122d-w-text-color);
 }
 
-.form {
+.edit {
     display: grid;
-    grid-template-areas: "info description";
-    grid-template-columns: 40% auto;
-    grid-gap: 0.5em;
-}
-
-.info {
-    grid-area: info;
+    margin: 12% 0 0 10%;
+    width: 80%;
+    max-width: 173px;
+    height: 40px;
+    border-radius: 20px;
+    border: solid 1px #6d57f6;
+    background-color: #6d57f6;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29;
+    text-align: center;
+    color: #ffffff;
+    outline: none;
 }
 
 .description {
-    margin-top: 30px;
     grid-area: description;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--wrap-bg-color);
+    padding: 40px 5%;
 
+    display: grid;
+    grid-template-areas: "aboutMe" "skills" "contacts";
+    grid-template-rows: 32% 35% 31%;
+    grid-gap: 1.7%;
 }
+
+.description p {
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.25;
+    text-align: left;
+    color: #6d57f6;
+}
+
+.description span {
+    font-family: Montserrat;
+    font-size: 14px;
+    line-height: 1.29;
+    text-align: left;
+    color: var(--1a122d-w-text-color)
+}
+
+.contactsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 33%);
+    grid-row-gap: 20px;
+}
+
+.contacts a {
+    display: grid;
+    grid-template-areas: "ico link";
+    grid-template-columns: 20px auto;
+    align-items: center;
+}
+
+.contacts a img {
+    grid-area: ico;
+}
+
+.contacts a p {
+    grid-area: link;
+    color: var(--9d9aa8-w-text-color);
+}
+
+
+
+
+
+
+/*
+
+
+
+
 
 @media screen and (max-width: 1200px){
     .form {
@@ -94,39 +169,32 @@
 .contactsMenuName::selection {
     background: transparent;
 }
-.name {
-    font-weight: bold;
-    font-size: 1.3em;
-    min-width: 200px;
-}
 
-
-.status {
-}
 
 .tab {
     margin-left: 15px;
 }
 
 
-.save {
-     background-color: #61dafb;
-     width: 60px;
-     height: 25px;
-     border: #61dafb 1px solid;
-     border-radius: 5px;
-     font-size: 18px;
-     cursor: pointer;
-    outline: none;
-}
-
-.edit {
-    background-color: #61dafb;
-    width: 70px;
-    height: 20px;
-    border: #61dafb 1px solid;
-    border-radius: 5px;
-    font-size: 15px;
+!*
+.save, .edit {
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    border: solid 1px #6d57f6;
+    background-color: #6d57f6;
     cursor: pointer;
     outline: none;
+
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.29;
+    text-align: center;
+    color: #ffffff;
 }
+*!
+*/
+
+

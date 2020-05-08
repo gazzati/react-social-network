@@ -1,4 +1,5 @@
 import React, {FC} from 'react'
+import s from "./Users.module.css"
 import User from './User'
 import Paginator from '../common/Paginator/Paginator'
 import {UserType} from '../../types/types'
@@ -19,9 +20,9 @@ type PropsType = {
 let Users: FC<PropsType> = ({currentPage, totalUsersCount, pageSize,
                                 onPageChanged,  users, isFetching,
                                 ...props}) => {
-    return <div>
-        {!isFetching ? <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
-                   totalItemsCount={totalUsersCount} pageSize={pageSize}/> : null}
+    return <div className={s.users}>
+        <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
+                   totalItemsCount={totalUsersCount} pageSize={pageSize}/>
         {isFetching ? <Preloader/> : null}
         <div>
             {users.map(u => <User user={u}

@@ -1,98 +1,118 @@
-import React, {useState} from 'react';
-import s from './ProfileInfo.module.css';
-import userPhoto from "../../../assets/images/user.png";
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks"
-import ProfileDataForm from "./ProfileDataForm.jsx";
+import React, {useState} from 'react'
+import s from './ProfileInfo.module.css'
+import userPhoto from '../../../assets/images/user.png'
+import ProfileStatusWithHooks from './ProfileStatusWithHooks'
+import ProfileDataForm from './ProfileEditForm.jsx'
+import vk from '../../../assets/images/vk.svg'
+import instagram from '../../../assets/images/instagram.svg'
+import skype from '../../../assets/images/skype.svg'
+import twitter from '../../../assets/images/twitter.svg'
+import youtube from '../../../assets/images/youtube.svg'
+import facebook from '../../../assets/images/facebook.svg'
 
-const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
-    let [editMode, setEditMode] = useState(false);
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, goToEditMode}) => {
 
-    const onMainPhotoSelected = (e) => {
-        if (e.target.files.length) {
-            savePhoto(e.target.files[0]);
-        }
-    }
 
-    const onSubmit = (formData) => {
-        saveProfile(formData).then(
-            () => setEditMode(false)
-        )
-    }
+
+
+
 
     return (
-        <div className={s.descriptionBlock}>
-            <div className={s.photo}>
-                {isOwner &&
-                <input id="upl" type={"file"} className={s.button} onChange={onMainPhotoSelected}/>}
-                <label htmlFor="upl">
-                    <img src={profile.photos.large || userPhoto} className={s.mainPhoto} alt={""}/>
-                </label>
+        <div className={s.infoBlock}>
+            <div className={s.mainInfo}>
+                <img src={profile.photos.large || userPhoto} className={s.mainPhoto} alt={""}/>
+                <div className={s.name}>
+                    {profile.fullName}
+                </div>
+                <div className={s.status}>
+                    <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+                </div>
+                {isOwner && <button className={s.edit} onClick={goToEditMode}>Edit my profile</button>}
             </div>
-            <div className={s.info_description}>
-                {editMode
-                    ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}
-                                       status={status} updateStatus={updateStatus}/>
-                    : <ProfileData goToEditMode={() => {
-                        setEditMode(true)
-                    }} profile={profile} isOwner={isOwner}
-                                   status={status} updateStatus={updateStatus}/>}
-
-            </div>
+            {0
+                ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={1}
+                                   status={status} updateStatus={updateStatus}/>
+                : <ProfileData profile={profile} />}
         </div>
     )
 }
 
-const ProfileData = ({profile, isOwner, goToEditMode, status, updateStatus}) => {
-    const openContacts = () => {
-        let display = document.getElementById('contacts').style.display
-        if (display === 'none') {
-            document.getElementById('contacts').style.display = 'block'
-        } else
-            document.getElementById('contacts').style.display = 'none'
-    }
-    return <div className={s.form}>
-        <div className={s.info}>
-            <div className={s.name}>
-                {profile.fullName}
-            </div>
-            <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
-            <span className={s.contacts}>
-                    <div className={s.contactsMenuName}
-                         onClick={openContacts}>
-                        •My contacts</div>
-                    <div id="contacts" className={s.contactsMenu}>
-                        {Object.keys(profile.contacts).map(key => {
-                            return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
-                        })}
-                    </div>
-                </span>
+const ProfileData = ({profile}) => {
+    return <div className={s.description}>
+        <div>
+            <p>About me</p>
+            <span>{profile.aboutMe}</span>
         </div>
-        <div className={s.description}>
-            <div>
-                <div>•About me:</div>
-                <span className={s.tab}>{profile.aboutMe}</span>
-            </div>
-            <div>
-                <span>•Looking for a job:</span> {profile.lookingForAJob ? "yes" : "no"}
-            </div>
-            {profile.lookingForAJob && <div>
-                <div>•My professional skills:</div>
-                <span className={s.tab}>{profile.lookingForAJobDescription}</span></div>}
-            {isOwner && <div>
-                <button className={s.edit} onClick={goToEditMode}>Edit info</button>
-            </div>}
+
+        {profile.lookingForAJob &&
+        <div>
+            <p>Skills</p>
+            <span>
+                {profile.lookingForAJobDescription}
+            </span>
+        </div>}
+
+        <div className={s.contactsList}>
+            {Object.keys(profile.contacts).map(key => {
+                return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
+            })}
         </div>
+
+
     </div>
 }
 
 const Contact = ({contactTitle, contactValue}) => {
     if (contactValue) {
-        return <div>{contactTitle}: <a className={s.contactsLink} href={contactValue}>{contactValue}</a></div>
+        return (
+            <div className={s.contacts}>
+                {contactTitle === 'github' && contactValue !== '' &&
+                <a href={contactValue} target="_blank">
+                    <img src={skype} alt=""/>
+                    <p>{contactValue}</p>
+                </a>}
+
+                {contactTitle === 'vk' && contactValue !== '' &&
+                <a href={contactValue} target="_blank">
+                    <img src={vk} alt=""/>
+                    <p>{contactValue}</p>
+                </a>}
+
+                {contactTitle === 'facebook' && contactValue !== '' &&
+                <a href={contactValue} target="_blank">
+                    <img src={facebook} alt=""/>
+                    <p>{contactValue}</p>
+                </a>}
+
+                {contactTitle === 'instagram' && contactValue !== '' &&
+                <a href={contactValue} target="_blank">
+                    <img src={instagram} alt=""/>
+                    <p>{contactValue}</p>
+                </a>}
+
+                {contactTitle === 'twitter' && contactValue !== '' &&
+                <a href={contactValue} target="_blank">
+                    <img src={twitter} alt=""/>
+                    <p>{contactValue}</p>
+                </a>}
+
+                {contactTitle === 'youtube' && contactValue !== '' &&
+                <a href={contactValue} target="_blank">
+                    <img src={youtube} alt=""/>
+                    <p>{contactValue}</p>
+                </a>}
+
+            </div>
+        )
     } else {
         return null
     }
 }
 
+
+/*{Object.keys(profile.contacts).map(key => {
+    return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
+})}*/
 export default ProfileInfo;
 
 

@@ -11,7 +11,7 @@ const FormControl: React.FC<FormControlPropsType> = ({meta: {touched, error}, ch
     const hasError = touched && error;
     return (
         <div className={styles.formControl + " " + (hasError ? styles.error : "")}>
-            <div>
+            <div >
                 {children}
             </div>
             {hasError && <span>{error}</span>}
@@ -26,6 +26,7 @@ export const Textarea: React.FC<WrappedFieldProps> = (props) => {
 
 export const Input: React.FC<WrappedFieldProps> = (props) => {
     const {input, meta, ...restProps} = props;
+    // @ts-ignore
     return <FormControl {...props}><input {...input} {...restProps} /></FormControl>
 }
 
@@ -34,6 +35,7 @@ export function createField<FormKeysType extends string>(
                             name: FormKeysType,
                             validators: Array<FieldValidatorType>,
                             component: React.FC<WrappedFieldProps>,
+                            styles  = {},
                             props = {},
                             text = "") {
     return <span>
@@ -41,6 +43,7 @@ export function createField<FormKeysType extends string>(
                name={name}
                validate={validators}
                component={component}
+               style={styles}
                {...props}
         /> {text}
     </span>

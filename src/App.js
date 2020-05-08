@@ -13,60 +13,62 @@ import store from "./redux/redux-store";
 import {withSuspense} from "./hoc/withSuspense";
 import Settings from "./components/Settings/Settings";
 import NewsContainer from "./components/News/NewsContainer";
+import MainIcon from "./components/MainIcon/MainIcon";
+import {toggleBlackTheme} from "./redux/settings-reducer";
+import FriendsContainer from "./components/Friends/FriendsContainer";
 
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"))
 
 class App extends React.Component {
     componentDidMount() {
+        this.props.toggleBlackTheme(localStorage.getItem('blackThemeButton') === 'true');
         this.props.initializeApp()
     }
 
-    render() {
-        /*if(!this.props.initialized){
-            return <Preloader />
-        }*/
+    render() {  /*if(!this.props.initialized){ return <Preloader />}*/
         return (
-            <div className="appWrapper">
-                <div className="head"><HeaderContainer /></div>
-                <div className="nav"><Navbar /></div>
-                <div id="wrapper" className="appWrapperContent">
-                    <Switch>               {/*dopolnenie*/}
-                        <Route path='/dialogs'
-                               render={withSuspense(DialogsContainer)}/>
-                        <Route path='/profile/:userId?'
-                               render={() => <ProfileContainer/>}/>
-                        <Route path='/users'
-                               render={() => <UsersContainer/>}/>
+            <div className="mainPage">
+                <span className="icon"><MainIcon /></span>
+                <div className="head"> </div>
+                <span className="userLog"><HeaderContainer /></span>
+                <div className="nav">
+                    <Navbar /></div>
+                <div className="appWrapperContent">
+                    <Switch>
                         <Route exact path='/login'
                                render={() => <LoginPage/>}/>
+                        <Route path='/profile/:userId?'
+                               render={() => <ProfileContainer/>}/>
+                        <Route path='/dialogs'
+                               render={withSuspense(DialogsContainer)}/>
+                        <Route path='/users'
+                               render={() => <UsersContainer/>}/>
+                        <Route path='/friends'
+                               render={() => <FriendsContainer/>}/>
                         <Route exact path='/settings'
                                render={() => <Settings/>}/>
-                        <Route exact path='/news'
+                        <Route path='/news'
                                render={() => <NewsContainer/>}/>
                         <Route path='*'
-                               render={() => <h1>404 NOT FOUND</h1>}/>
+                               render={() => <NewsContainer/>}/>
                     </Switch>
                 </div>
             </div>
-
         )
     }
 }
 
 setTimeout(() => { if(localStorage.getItem('blackThemeButton') === 'true') {
-    document.getElementById('body').style.backgroundColor = "#72879c";
-    document.getElementById('wrapper').style.backgroundColor = "#586775";
-}}, 500)
+    document.documentElement.setAttribute("data-theme", "dark");
+}}, 300)
 
 
-const mapStateToProps = (state) => ({
+let mapStateToProps = (state) => ({
     initialized: state.app.initialized,
 })
 
-let AppContainer = compose(
-    withRouter,
-    connect(mapStateToProps, {initializeApp}))(App);
+let AppContainer = compose(withRouter, connect(mapStateToProps, {initializeApp, toggleBlackTheme}))(App);
 
 const MainApp = (props) => {
     return <HashRouter>

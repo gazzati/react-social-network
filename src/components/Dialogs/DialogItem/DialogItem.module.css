@@ -1,13 +1,15 @@
 .item {
-    margin: 10px 0 10px 25px;
     background-color: #586775;
     height: 73px;
     border-radius: 5px;
     width: 150px;
 
+
     display: grid;
     grid-template-areas: "i d";
     grid-template-columns: 80px auto;
+
+    margin-bottom: 5px;
 }
 
 @media screen and (max-width: 600px){

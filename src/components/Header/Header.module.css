@@ -1,3 +1,59 @@
+.userBlock {
+
+}
+
+.isAuthUserBlock {
+    display: grid;
+    grid-template-areas: "userName photo func";
+    grid-template-columns: auto 48px 20px;
+    grid-gap: 20px;
+    align-items: center;
+    justify-items: right;
+}
+
+
+.userLogName {
+    grid-area: userName;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.29;
+    text-align: right;
+    color: #ffffff;
+}
+
+.userPhoto {
+    grid-area: photo;
+    width: 48px;
+    border-radius: 24px;
+    border: solid 2px #61dafb;
+}
+
+.function {
+    grid-area: func;
+    width: 20px;
+    cursor: pointer;
+}
+
+.login {
+    display: grid;
+    align-self: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.29;
+    text-align: right;
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+/*
 .header {
     display: grid;
     grid-template-areas: ". logo login ." ;
@@ -14,17 +70,6 @@
     margin-top: 3px;
 }
 
-.loginBlock {
-    grid-area: login;
-    color: #61dafb;
-    cursor: pointer;
-    justify-self: right;
-}
-
-.loginBlock a {
-    text-decoration: none;
-    color: #61dafb;
-}
 
 .userName {
     font-size: 32px;
@@ -37,10 +82,6 @@
     text-align: right;
 }
 
-.login {
-    font-size: 28px;
-    font-weight: bold;
-}
 
 .button {
     background-color: #61dafb;
@@ -65,3 +106,4 @@
         margin-right: 2px;
     }
 }
+*/

@@ -1,5 +1,12 @@
+.news {
+    background-color: var(--wrap-bg-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 3.5%;
+}
+
 .newsList {
-    margin: 0 30px;
     max-width: 845px;
 }
 
@@ -29,7 +36,7 @@ a {
 }
 
 .img img {
-    max-width: 300px;
+    max-width: 100px;
     width: 100%;
     border: black 1px solid;
     border-radius: 5px;
@@ -40,7 +47,6 @@ a {
 .title {
     grid-area: title;
     font-size: 18px;
-
 }
 
 .description {

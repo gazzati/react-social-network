@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import s from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import Preloader from "../common/Preloader/Preloader";
@@ -11,6 +12,7 @@ type PropsType = {
     status: string
     saveProfile: (a: any) => void
     updateStatus: (status: string) => void
+    goToEditMode: (a: any) => void
 }
 
 const Profile: FC<PropsType> = (props) => {
@@ -18,15 +20,15 @@ const Profile: FC<PropsType> = (props) => {
        return <Preloader />
     }
     return (
-        <div>
+        <div className={s.profile} >
             <ProfileInfo isOwner={props.isOwner}
                          savePhoto={props.savePhoto}
                          profile={props.profile}
                          status={props.status}
-                         saveProfile={props.saveProfile}
                          updateStatus={props.updateStatus}
+                         goToEditMode={props.goToEditMode}
                          />
-            <MyPostsContainer />
+            <MyPostsContainer/>
         </div>
     )
 }

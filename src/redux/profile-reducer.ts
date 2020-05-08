@@ -9,7 +9,7 @@ const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS'
 const DELETE_POST = 'DELETE_POST'
 const ADD_LIKES = 'ADD_LIKES'
 
-let initialState = {
+export let profileInitialState = {
     posts: [
         {id: 1, message: 'It is my first post', likesCount: 12},
         {id: 2, message: 'It is my website', likesCount: 1},
@@ -22,12 +22,11 @@ let initialState = {
     status: ""
 };
 
-export type InitialStateType = typeof initialState
+export type InitialStateType = typeof profileInitialState
 
-const profileReducer = (state = initialState, action: any): InitialStateType => {
+const profileReducer = (state = profileInitialState, action: any): InitialStateType => {
     switch (action.type) {
         case ADD_POST: {
-            console.log(initialState.posts.length + 1)
             let newPost = {
                 id: Date.now(),
                 message: action.newPostText,

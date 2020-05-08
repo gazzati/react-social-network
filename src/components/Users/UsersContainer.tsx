@@ -67,7 +67,7 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => {
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
-        followingInProgress: getFollowingInProgress(state)
+        followingInProgress: getFollowingInProgress(state),
     }
 }
 

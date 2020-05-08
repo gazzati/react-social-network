@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './Post.module.css';
 import userPhoto from "../../../../assets/images/user.png";
+import likeIcon from "../../../../assets/images/like.png";
 
 const Post = (props) => {
     const onClick = () => {
@@ -9,14 +10,20 @@ const Post = (props) => {
 
     return (
         <div className={s.item}>
-            <img className={s.img} src={userPhoto} alt={""}/>
-            <div className={s.mes}>
-                {props.message}
+            <div className={s.user}>
+                <img className={s.userPhoto} src={props.profile ? props.profile.photos.large : userPhoto} alt={""}/>
+                <span className={s.name}>{props.profile.fullName}</span>
             </div>
-            <span className={s.likes} onClick={onClick}>
-                <span  className={s.count}>{props.likesCount + " "}</span>
-                likes
-            </span>
+
+            <div className={s.text}>
+                {props.message && props.message}
+            </div>
+            <div className={s.likes} onClick={onClick}>
+                <span className={s.likeCount}>{props.likesCount}</span>
+                <img src={likeIcon} alt=""/>
+            </div>
+
+
         </div>
     )
 }

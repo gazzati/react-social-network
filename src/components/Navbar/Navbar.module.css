@@ -1,37 +1,55 @@
 .nav {
+    margin-left: 12%;
+    margin-bottom: 20px;
+}
+
+.link {
     display: grid;
-    grid-template-areas: "l" "f";
-    grid-template-rows: 3fr 1fr;
-    max-width: 200px;
-    padding: 0.5em;
-    font-size: 1.2em;
+    margin-top: 40px;
+    grid-template-areas: "ico label";
+    grid-template-columns: 18px auto;
+    grid-gap: 4.6%;
 }
 
-.nav .list {
-    grid-area: l;
+.link svg {
+    grid-area: ico;
+    width: 100%;
+    fill: #9d9aa8;
 }
 
-.nav .friends {
-    grid-area: f;
+.activeItem svg{
+    fill: #6d57f6;
 }
 
 .item {
-    padding-top: 5px;
+    grid-area: label;
+    font-family: Montserrat;
+    max-width: 150px;
+    height: 18px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29;
+    text-align: left;
+    color: #9d9aa8;
 }
 
-.item a{
-    color: black;
-    text-decoration: none;
-
+.activeItem .item{
+    color: #6d57f6;
+    font-weight: 600;
 }
 
-.item a.activeLink {
-    color: ghostwhite;
+.itemLogout svg {
+    fill: #f81c1c;
+    cursor: pointer;
 }
 
-.friends {
-    margin-top: 15px;
+.itemLogout .item {
+    color: #f81c1c;
+    cursor: pointer;
 }
+
+
+/*
 
 @media screen and (max-width: 600px){
     .nav {
@@ -39,4 +57,4 @@
         padding: 0.1em;
         font-size: 0.7em;
     }
-}
+}*/

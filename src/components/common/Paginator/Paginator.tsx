@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import styles from "./Paginator.module.css";
 import cn from "classnames";
+import leftArrowIcon from "./../../../assets/images/leftArrowIcon.svg"
+import rightArrowIcon from "./../../../assets/images/rightArrowIcon.svg"
 
 type PropsType = {
     totalItemsCount: number
@@ -10,10 +12,12 @@ type PropsType = {
     portionSize?: number
 }
 
-let Paginator: React.FC<PropsType> = ({totalItemsCount, pageSize,
+let Paginator: React.FC<PropsType> = ({
+                                          totalItemsCount, pageSize,
                                           currentPage,
                                           onPageChanged,
-                                          portionSize = 10}) => {
+                                          portionSize = 5
+                                      }) => {
 
     let pagesCount = Math.ceil(totalItemsCount / pageSize);
 
@@ -29,21 +33,36 @@ let Paginator: React.FC<PropsType> = ({totalItemsCount, pageSize,
 
 
     return <div className={cn(styles.paginator)}>
-        { portionNumber > 1 &&
-        <button className={styles.button} onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button> }
+        <div className={styles.paginatorElements}>
+            {<img src={leftArrowIcon} alt=""
+
+                  className={portionNumber > 1 ? styles.button :  styles.buttonHidden }
+                  onClick={() => {
+                      setPortionNumber(portionNumber - 1)
+                  }}/>
+            }
             {pages
-                .filter(p => p >= leftPortionPageNumber && p<=rightPortionPageNumber)
+                .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
                 .map((p) => {
-                return <div className={cn({
-                    [styles.selectedPage]: currentPage === p
-                }, styles.pageNumber) }
-                             key={p}
-                             onClick={(e) => {
-                                 onPageChanged(p);
-                             }}>{p}</div>
-            })}
-        { portionCount > portionNumber &&
-            <button className={styles.button} onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</button> }
+                    return <div className={cn({
+                        [styles.selectedPage]: currentPage === p
+                    }, styles.pageNumber)}
+                                key={p}
+                                onClick={(e) => {
+                                    onPageChanged(p);
+                                }}>{p}</div>
+                })}
+            {portionCount > portionNumber &&
+
+            <span>
+                      <img src={rightArrowIcon} alt=""
+                           className={styles.button}
+                           onClick={() => {
+                               setPortionNumber(portionNumber + 1)
+                           }}/>
+                    </span>
+            }
+        </div>
     </div>
 }
 

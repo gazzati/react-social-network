@@ -1,27 +1,30 @@
 import React from 'react';
 import s from './Header.module.css';
 import {NavLink, Redirect} from "react-router-dom";
-import icon from "./../../assets/images/reactIcon.png"
-
+import userPhoto from "../../assets/images/user.png";
+import userLogIcon from "../../assets/images/userLogIcon.png";
 
 const Header = (props) => {
-    return <div className={s.header}>
-        <NavLink to="/profile/" className={s.logo}>
-            <img src={icon} alt={""} />
-        </NavLink>
+
+    const showUserMenu = () => {
+
+    }
+
+    return <div className={s.userBlock}>
         <Redirect to="/login" />
-        <div className={s.loginBlock}>
             {props.isAuth
-                ? <div>
-                    <NavLink to="/profile" className={s.userName}>{props.login}</NavLink>
-                    <div className={s.logout}>
+                ? <span className={s.isAuthUserBlock}>
+                    <span className={s.userLogName}>{props.profile && props.profile.fullName}</span>
+                    <img className={s.userPhoto}
+                         src={props.profile ? props.profile.photos.large : userPhoto} alt=""/>
+                    <img className={s.function} src={userLogIcon} alt="" onClick={showUserMenu}/>
+                         
+                   {/* <div className={s.logout}>
                         <button onClick={props.logout} className={s.button}>log out</button>
-                    </div>
-                </div>
-                : <div className={s.login} >
-                    <NavLink to={'login'}>Log in</NavLink>
-                </div>}
-        </div>
+                    </div>*/}
+                </span>
+                : <NavLink to={'/login'} className={s.login}>Log in</NavLink>}
+      
     </div>
 }
 
