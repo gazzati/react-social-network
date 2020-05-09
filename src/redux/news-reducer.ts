@@ -7,7 +7,7 @@ import {ThunkAction} from "redux-thunk";
 let initialState = {
     news: [] as Array<NewsType>,
     isFetching: true as boolean,
-    pageSize: 10 as number,
+    pageSize: 5 as number,
     totalNewsCount: 0 as number,
     currentPage: 1 as number,
 };

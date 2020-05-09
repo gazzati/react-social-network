@@ -42,8 +42,6 @@ const AddMessageForm = (props) => {
               onKeyDown={(e) => handleKeyDown(e, props.handleSubmit)}>
             <div>
                 <Field className={s.area}
-                       cols="25"
-                       rows="4"
                        component="textarea"
                        name="newMessageBody"
                        placeholder="Enter your message"/>

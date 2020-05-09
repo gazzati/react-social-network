@@ -6,8 +6,8 @@
     border-radius: 10px;
 
     display: grid;
-    grid-template-areas: "i . m" ;
-    grid-template-columns: 160px 100px 200px;
+    grid-template-areas: "i . m ." ;
+    grid-template-columns: 160px auto 200px auto;
     grid-gap: 2em;
 }
 
@@ -20,21 +20,33 @@
 }
 
 .message {
-    font-size: 1em;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29;
+    color: #ffffff;
+    outline: none;
     margin: 10px 0;
 }
 
 .area {
     resize: none;
+    height: 70px;
+    margin: 20px 0 5px 0;
+    padding: 0;
 }
 
 .button {
-    background-color: #61dafb;
-    width: 55px;
-    height: 25px;
-    border: #61dafb 1px solid;
-    border-radius: 5px;
-    font-size: 15px;
-    cursor: pointer;
+    width: 70px;
+    height: 30px;
+    border-radius: 20px;
+    border: solid 1px #6d57f6;
+    background-color: #6d57f6;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29;
+    text-align: center;
+    color: #ffffff;
     outline: none;
 }

@@ -12,32 +12,32 @@ type PropsType = {
 
 let User: FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
     return (
-        <div className={s.user}>
-            <div>
+        <div className={s.userContainer}>
+            <div className={s.user}>
                 <NavLink to={'profile/' + user.id}>
                     <img src={user.photos.small != null ? user.photos.small : userPhoto}
                          className={s.photo} alt={""}/>
                 </NavLink>
-            </div>
-            <div className={s.fol}>
-                {user.followed
-                    ? <button disabled={followingInProgress.some(id => id === user.id)}
-                              className={s.unfollow}
-                              onClick={() => {
-                                  unfollow(user.id)
-                              }}>
-                        Unfollow</button>
+                <div className={s.descriptionUser}>
+                    <div className={s.name}>{user.name}</div>
+                    <div>{user.status}</div>
+                </div>
+                <div className={s.fol}>
+                    {user.followed
+                        ? <button disabled={followingInProgress.some(id => id === user.id)}
+                                  className={s.unfollow}
+                                  onClick={() => {
+                                      unfollow(user.id)
+                                  }}>
+                            Unfollow</button>
 
-                    : <button disabled={followingInProgress.some(id => id === user.id)}
-                              className={s.follow}
-                              onClick={() => {
-                                  follow(user.id)
-                              }}>
-                        Follow</button>}
-            </div>
-            <div className={s.descriptionUser}>
-                <div className={s.name}>{user.name}</div>
-                <div>{user.status}</div>
+                        : <button disabled={followingInProgress.some(id => id === user.id)}
+                                  className={s.follow}
+                                  onClick={() => {
+                                      follow(user.id)
+                                  }}>
+                            Follow</button>}
+                </div>
             </div>
         </div>)
 }

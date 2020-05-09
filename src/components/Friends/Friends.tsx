@@ -25,8 +25,8 @@ let Friends: FC<PropsType> = ({
     return <div className={s.users}>
         <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
                                   totalItemsCount={totalUsersCount} pageSize={pageSize}/>
-        {isFetching ? <Preloader/> : null}
-        <div>
+        {/*        {isFetching ? <Preloader/> : null}
+       <div>
             {users.map(u => u.followed && <Friend user={u}
                                                   followingInProgress={props.followingInProgress}
                                                   unfollow={props.unfollow}
@@ -34,7 +34,7 @@ let Friends: FC<PropsType> = ({
                                                   key={u.id}
                 />
             )}
-        </div>
+        </div>*/}
     </div>
 }
 

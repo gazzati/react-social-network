@@ -8,6 +8,8 @@ import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {AppStateType} from "../../redux/redux-store";
 import {ProfileType} from "../../types/types";
+import s from "../Users/Users.module.css";
+import Preloader from "../common/Preloader/Preloader";
 
 
 type MapStatePropsType = {
@@ -15,6 +17,7 @@ type MapStatePropsType = {
     profile: ProfileType | null
     status: string
     isAuth: boolean
+    isFetching: boolean
 }
 
 type MapDispatchPropsType = {
@@ -85,6 +88,7 @@ class ProfileContainer extends React.Component<PropsType> {
     render() {
         return (
             <div>
+                {this.props.isFetching && <Preloader/>}
                 {
                     this.checkState() ?
 
@@ -117,6 +121,7 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => ({
     status: state.profilePage.status,
     authorizedUserId: state.auth.id,
     isAuth: state.auth.isAuth,
+    isFetching: state.profilePage.isFetching
 })
 
 

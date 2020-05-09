@@ -1,28 +1,35 @@
 .news {
-    background-color: var(--wrap-bg-color);
     width: 100%;
-    height: 100%;
     border-radius: 10px;
-    padding: 3.5%;
 }
 
 .newsList {
-    max-width: 845px;
+    margin-top: 10px;
+
 }
 
-.newsList :nth-child(2n){
+.newsContainer {
+    background-color: var(--wrap-bg-color);
+    padding: 15px 1.5%;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+.newsList :nth-child(2n) .newItem{
     grid-template-areas: "image title" "image description" "image info";
+    grid-template-columns: 300px auto;
+    grid-gap: 10px;
 }
 
 .newItem {
     height: auto;
-    border-bottom: #61dafb 1.5px solid;
-    padding: 10px 0;
 
     display: grid;
     grid-template-areas: "title image" "description image" "info image";
-    grid-template-columns: auto auto;
-    grid-gap: 5px;
+    grid-template-columns: auto 300px;
+    grid-gap: 10px;
 }
 
 a {
@@ -32,12 +39,13 @@ a {
 
 .img {
     grid-area: image;
-    max-width: 300px;
+
 }
 
 .img img {
-    max-width: 100px;
+    max-width: 320px;
     width: 100%;
+    height: 170px;
     border: black 1px solid;
     border-radius: 5px;
     box-shadow: none;
@@ -46,11 +54,22 @@ a {
 
 .title {
     grid-area: title;
-    font-size: 18px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.25;
+    text-align: left;
+    color: #6d57f6;
+
 }
 
 .description {
     grid-area: description;
+    font-family: Montserrat;
+    font-size: 12px;
+    line-height: 1.29;
+    text-align: left;
+    color: var(--1a122d-w-text-color);
 }
 
 .newItem .info {
@@ -64,14 +83,23 @@ a {
 .publish {
     grid-area: publish;
     text-align: left;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.25;
+    color: #6d57f6;
 }
 
 .newItem .info .date {
     text-align: right;
     grid-area: date;
-    font-size: 15px;
+    font-family: Montserrat;
+    font-size: 12px;
+    line-height: 1.29;
+    color: var(--1a122d-w-text-color);
 }
 
+/*
 @media screen and (max-width: 650px){
     .newsList {
         margin: 0 10px;
@@ -85,4 +113,4 @@ a {
         grid-template-areas: "title" "image" "description" "info";
         grid-gap: 5px;
     }
-}
+}*/

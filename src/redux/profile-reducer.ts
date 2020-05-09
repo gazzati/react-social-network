@@ -2,14 +2,16 @@ import {profileAPI, usersAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
 import {PhotosType, PostType, ProfileType} from "../types/types";
 
+
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
 const SET_STATUS = 'SET_STATUS'
 const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS'
 const DELETE_POST = 'DELETE_POST'
 const ADD_LIKES = 'ADD_LIKES'
+const TOGGLE_IS_FETCHING = 'profile/TOGGLE_IS_FETCHING'
 
-export let profileInitialState = {
+let initialState = {
     posts: [
         {id: 1, message: 'It is my first post', likesCount: 12},
         {id: 2, message: 'It is my website', likesCount: 1},
@@ -19,12 +21,13 @@ export let profileInitialState = {
 
     ] as Array<PostType>,
     profile: null as ProfileType | null,
-    status: ""
+    status: "",
+    isFetching: true
 };
 
-export type InitialStateType = typeof profileInitialState
+export type InitialStateType = typeof initialState
 
-const profileReducer = (state = profileInitialState, action: any): InitialStateType => {
+const profileReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case ADD_POST: {
             let newPost = {
@@ -62,6 +65,9 @@ const profileReducer = (state = profileInitialState, action: any): InitialStateT
                     return p;
                 })
             }
+        case TOGGLE_IS_FETCHING : {
+            return { ...state, isFetching: action.isFetching }
+        }
         default:
             return state;
     }
@@ -98,14 +104,22 @@ type AddLikesActionType = {
 }
 export const addLikes = (postId: number): AddLikesActionType => ({type: ADD_LIKES, postId})
 
+type ToggleIsFetchingActionType = {
+    type: typeof TOGGLE_IS_FETCHING
+    isFetching: boolean
+}
+const toggleIsFetching = (isFetching: boolean): ToggleIsFetchingActionType => ({type: TOGGLE_IS_FETCHING, isFetching})
+
 export const getUserProfile = (userId: number) => async (dispatch: any) => {
     let response = await usersAPI.getProfile(userId)
     dispatch(setUserProfile(response.data));
 
 }
 export const getStatus = (userId: number) => async (dispatch: any) => {
+    dispatch(toggleIsFetching(true));
     let response = await profileAPI.getStatus(userId)
     dispatch(setStatus(response.data));
+    dispatch(toggleIsFetching(false));
 }
 
 export const updateStatus = (status: string) => async (dispatch: any) => {

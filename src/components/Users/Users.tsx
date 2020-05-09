@@ -23,8 +23,8 @@ let Users: FC<PropsType> = ({currentPage, totalUsersCount, pageSize,
     return <div className={s.users}>
         <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
                    totalItemsCount={totalUsersCount} pageSize={pageSize}/>
-        {isFetching ? <Preloader/> : null}
-        <div>
+        {isFetching ? <span><Preloader/></span> : null}
+        <div className={s.usersBlock}>
             {users.map(u => <User user={u}
                                   followingInProgress={props.followingInProgress}
                                   unfollow={props.unfollow}

@@ -22,7 +22,16 @@ const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsCo
 
 class App extends React.Component {
     componentDidMount() {
+        /*if(!window.matchMedia) {
+            //matchMedia method not supported
+            return false;
+        } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            //OS theme setting detected as dark
+            localStorage.setItem('blackThemeButton', String(true))
+        }*/
         this.props.toggleBlackTheme(localStorage.getItem('blackThemeButton') === 'true');
+        document.documentElement.style.setProperty('--color-block', `${localStorage.getItem('colorBlock') || "#3827a0"}`);
+
         this.props.initializeApp()
     }
 
@@ -51,7 +60,7 @@ class App extends React.Component {
                         <Route path='/news'
                                render={() => <NewsContainer/>}/>
                         <Route path='*'
-                               render={() => <NewsContainer/>}/>
+                               render={() => <ProfileContainer/>}/>
                     </Switch>
                 </div>
             </div>

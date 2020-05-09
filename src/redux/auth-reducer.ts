@@ -1,15 +1,18 @@
 import {authAPI, ResultCodeEnum, ResultCodeForCaptcha, securityAPI} from "../api/api"
+// @ts-ignore
 import {stopSubmit} from "redux-form"
 
 const SET_USER_DATA = 'auth/SET_USER_DATA'
 const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS'
+const TOGGLE_IS_FETCHING = 'auth/TOGGLE_IS_FETCHING'
 
 let initialState = {
     id: null as number | null,
     email: null as string | null,
     login: null as string | null,
     isAuth: false,
-    captchaUrl: null as string | null
+    captchaUrl: null as string | null,
+    isFetching: true as boolean
 };
 
 export type initialStateType = typeof initialState
@@ -22,6 +25,9 @@ const authReducer = (state = initialState, action: any): initialStateType => {
                 ...state,
                 ...action.payload
             }
+        }
+        case TOGGLE_IS_FETCHING : {
+            return { ...state, isFetching: action.isFetching }
         }
         default:
             return state;
@@ -50,6 +56,12 @@ type getCaptchaUrlSuccessActionType = {
 export const getCaptchaUrlSuccess = (captchaUrl: string): getCaptchaUrlSuccessActionType =>
     ({type: GET_CAPTCHA_URL_SUCCESS, payload: {captchaUrl}})
 
+type ToggleIsFetchingActionType = {
+    type: typeof TOGGLE_IS_FETCHING
+    isFetching: boolean
+}
+const toggleIsFetching = (isFetching: boolean): ToggleIsFetchingActionType => ({type: TOGGLE_IS_FETCHING, isFetching})
+
 
 export const getAuthUserData = () => async (dispatch: any) => {
     let meData = await authAPI.me()
@@ -62,9 +74,11 @@ export const getAuthUserData = () => async (dispatch: any) => {
 
 export const login = (email: string, password: string, rememberMe: boolean, captcha:string) =>
     async (dispatch: any) => {
+        dispatch(toggleIsFetching(true));
     let data = await authAPI.login(email, password, rememberMe, captcha)
     if (data.resultCode === ResultCodeEnum.Success) {
         dispatch(getAuthUserData())
+        dispatch(toggleIsFetching(false));
     } else {
         if(data.resultCode === ResultCodeForCaptcha.CaptchaIsRequired){
             dispatch(getCaptchaUrl())

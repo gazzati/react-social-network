@@ -4,7 +4,6 @@ import Paginator from "../common/Paginator/Paginator";
 import Preloader from "../common/Preloader/Preloader";
 import NewsItem from "./NewsItem";
 import {NewsType} from "../../types/types";
-import * as CSS from "csstype";
 
 type PropsType = {
     totalNewsCount: number

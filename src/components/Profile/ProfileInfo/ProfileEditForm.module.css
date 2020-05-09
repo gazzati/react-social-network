@@ -49,10 +49,10 @@
 
 .upload label {
     cursor: pointer;
-    display: inline-block;
-    padding-top: 9%;
+    display: inline-grid;
     outline: none;
     text-align: center;
+    align-items: center;
     width: 111px;
     height: 40px;
     border-radius: 20px;
@@ -77,7 +77,7 @@
     max-width: 150px;
     grid-template-areas: "l s";
     align-items: end;
-    grid-column-gap: 20px;
+    grid-column-gap: 10%;
 }
 
 .largePhoto {

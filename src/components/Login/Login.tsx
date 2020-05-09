@@ -64,6 +64,7 @@ const LoginReduxForm = reduxForm<LoginFormValuesType, LoginFormOwnProps>({form: 
 type MapStatePropsType = {
     isAuth: boolean
     captchaUrl: string | null
+    isFetching: boolean
 }
 type MapDispatchPropsType = {
     login: (email: string, password: string, rememberMe: boolean, captcha:string) => void
@@ -93,7 +94,8 @@ const Login: React.FC<MapStatePropsType & MapDispatchPropsType> = (props) => {
 
 const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
     isAuth: state.auth.isAuth,
-    captchaUrl: state.auth.captchaUrl
+    captchaUrl: state.auth.captchaUrl,
+    isFetching: state.auth.isFetching
 })
 
 export default connect(mapStateToProps, {login})(Login)

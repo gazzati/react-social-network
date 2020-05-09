@@ -9,20 +9,53 @@
 
 .mainInfo {
     grid-area: mainInfo;
-    width: 100%;
+    padding: 0 0 10px 10%;
     border-radius: 10px;
-    background: linear-gradient(to top, var(--wrap-bg-color) 75%, #3827a0 25%);
+    display: grid;
+    grid-template-areas: "mainPhoto label" "name name" "status status" "edit edit";
+    grid-template-columns: 50% 50%;
+    height: 300px;
+    background: linear-gradient(to top, var(--wrap-bg-color) 73%, var(--color-block) 27%);
+}
+
+.colorBlock {
+    grid-area: label;
+    height: 62%;
+    width: 220%;
+    justify-self: right;
+    cursor: pointer;
+    background-color: rgba(255, 0, 0, 0);
+}
+
+.chooserColor {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 180px;
+    left: 46%
 }
 
 .mainPhoto {
+    grid-area: mainPhoto;
+    display: inline-block;
+    position: relative;
     border-radius: 40px;
-    margin: 40px 0 0 40px;
+    margin: 40px 0 0 0;
     width: 80px;
-    border: solid 2px #61dafb;
+    height: 80px;
+    border: #61dafb 2px solid;
+    background-color: white;
+    z-index: 11;
+}
+
+.mainInfo input {
+    display: none;
 }
 
 .name {
-    margin: 20px 0 0 40px;
+    grid-area: name;
+
+    margin: 20px 0 0 0;
     font-family: Montserrat;
     color: var(--b-w-text-color);
     font-size: 20px;
@@ -32,7 +65,8 @@
 }
 
 .status {
-    margin: 10px 0 0 40px;
+    grid-area: status;
+    margin: 10px 0 0 0;
     font-family: Montserrat;
     font-size: 14px;
     line-height: 1.29;
@@ -41,9 +75,9 @@
 }
 
 .edit {
-    display: grid;
-    margin: 12% 0 0 10%;
-    width: 80%;
+    grid-area: edit;
+    margin: 12% 0 0 0;
+
     max-width: 173px;
     height: 40px;
     border-radius: 20px;
@@ -108,93 +142,14 @@
 .contacts a p {
     grid-area: link;
     color: var(--9d9aa8-w-text-color);
+    font-size: 10px;
 }
 
 
-
-
-
-
-/*
-
-
-
-
-
-@media screen and (max-width: 1200px){
-    .form {
-        display: inline-block;
-
-    }
-    .info {
-        display: inline-block;
-    }
-
-    .description {
-        margin-top: 0;
-        display: inline-block;
+@media screen and (max-width: 1150px){
+    .contacts a p {
+        display: none;
 
     }
 }
-.contactsEdit {
-    margin: 10px;
-    grid-area: contacts;
-    display: grid;
-    grid-template-areas: "contactKey contactValue";
-    grid-template-columns: 30% auto;
-}
-
-.contactKey {
-    grid-area: contactKey;
-}
-
-.contactValue {
-    grid-area: contactValue;
-}
-
-.contactsLink {
-    text-decoration: none;
-    color: #61dafb;
-    font-weight: bold;
-}
-
-.contactsMenu {
-    display: none;
-}
-
-.contactsMenuName {
-    cursor: default;
-}
-
-.contactsMenuName::selection {
-    background: transparent;
-}
-
-
-.tab {
-    margin-left: 15px;
-}
-
-
-!*
-.save, .edit {
-    width: 100px;
-    height: 30px;
-    border-radius: 20px;
-    border: solid 1px #6d57f6;
-    background-color: #6d57f6;
-    cursor: pointer;
-    outline: none;
-
-    font-family: Montserrat;
-    font-size: 14px;
-    font-weight: 500;
-
-    line-height: 1.29;
-    text-align: center;
-    color: #ffffff;
-}
-*!
-*/
-
 

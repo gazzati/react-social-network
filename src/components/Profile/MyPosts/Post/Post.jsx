@@ -11,7 +11,7 @@ const Post = (props) => {
     return (
         <div className={s.item}>
             <div className={s.user}>
-                <img className={s.userPhoto} src={props.profile ? props.profile.photos.large : userPhoto} alt={""}/>
+                <img className={s.userPhoto} src={props.profile.photos.large ? props.profile.photos.large : userPhoto} alt={""}/>
                 <span className={s.name}>{props.profile.fullName}</span>
             </div>
 

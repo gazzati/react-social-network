@@ -17,12 +17,11 @@ type PropsType = {
 
 const Profile: FC<PropsType> = (props) => {
     if (!props.profile) {
-       return <Preloader />
+        return null
     }
     return (
         <div className={s.profile} >
             <ProfileInfo isOwner={props.isOwner}
-                         savePhoto={props.savePhoto}
                          profile={props.profile}
                          status={props.status}
                          updateStatus={props.updateStatus}

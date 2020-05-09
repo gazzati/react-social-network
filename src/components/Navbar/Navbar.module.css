@@ -8,6 +8,7 @@
     margin-top: 40px;
     grid-template-areas: "ico label";
     grid-template-columns: 18px auto;
+    align-items: center;
     grid-gap: 4.6%;
 }
 
@@ -48,13 +49,19 @@
     cursor: pointer;
 }
 
-
-/*
-
-@media screen and (max-width: 600px){
-    .nav {
-        max-width: 100px;
-        padding: 0.1em;
-        font-size: 0.7em;
+@media screen and (max-width: 1150px){
+    .item {
+        font-size: 12px;
     }
-}*/
+
+    .link svg {
+        grid-area: ico;
+        width: 80%;
+        fill: #9d9aa8;
+    }
+
+    .itemLogout svg {
+        fill: #f81c1c;
+        cursor: pointer;
+    }
+}
