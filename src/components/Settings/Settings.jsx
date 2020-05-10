@@ -13,14 +13,12 @@ let mapStateToProps = (state) => ({
 const Settings = ({isBlackThemeActivated, toggleBlackTheme}) => {
 
     const func = () => {
-        debugger
         if(!isBlackThemeActivated){
             toggleBlackTheme(!isBlackThemeActivated)
             document.documentElement.setAttribute("data-theme", "dark");
             localStorage.setItem('blackThemeButton', String(!isBlackThemeActivated))
         }
         else {
-            debugger
             toggleBlackTheme(!isBlackThemeActivated)
             localStorage.setItem('blackThemeButton', String(!isBlackThemeActivated))
             document.documentElement.setAttribute('data-theme', 'light')

@@ -15,18 +15,13 @@
     margin-bottom: 10px;
 }
 
-/*@media screen and (max-width: 600px){
-    .item {
-        margin: 10px 0 10px 10px;
-    }
-}*/
 
 .item div a {
     font-family: Montserrat;
     font-size: 18px;
     font-weight: 500;
     line-height: 1.29;
-    color: #ffffff;
+    color: var(--b-w-text-color);
     outline: none;
 }
 
@@ -41,7 +36,32 @@
 
 .userName a:hover{
     color: #6d57f6;
-    width: 400px;
+}
+
+@media screen and (max-width: 600px) {
+    .item {
+        height: 45px;
+        width: 110px;
+
+        display: grid;
+        grid-template-areas: "i d";
+        grid-template-columns: 50px auto;
+        align-items: center;
+
+        margin-bottom: 10px;
+    }
+
+    .item img {
+        width: 30px;
+        margin-left: 7px;
+    }
+
+    .item div a {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+
 }
 
 

@@ -54,11 +54,9 @@ h3 {
 
 
 
-/*
 @media screen and (max-width: 600px){
-    .button {
-        width: 60px;
-        height: 20px;
-        font-size: 14px;
+    .form {
+        grid-template-columns: 80% 20%;
     }
-}*/
+}
+

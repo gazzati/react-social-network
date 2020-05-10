@@ -31,6 +31,7 @@ class App extends React.Component {
         }*/
         this.props.toggleBlackTheme(localStorage.getItem('blackThemeButton') === 'true');
         document.documentElement.style.setProperty('--color-block', `${localStorage.getItem('colorBlock') || "#3827a0"}`);
+        document.documentElement.setAttribute('nav', 'none');
 
         this.props.initializeApp()
     }
@@ -39,10 +40,8 @@ class App extends React.Component {
         return (
             <div className="mainPage">
                 <span className="icon"><MainIcon /></span>
-                <div className="head"> </div>
                 <span className="userLog"><HeaderContainer /></span>
-                <div className="nav">
-                    <Navbar /></div>
+                <nav><Navbar /></nav>
                 <div className="appWrapperContent">
                     <Switch>
                         <Route exact path='/login'

@@ -9,9 +9,13 @@ const mapStateToProps = (state) => ({
     login: state.auth.login
 });
 
+const closeNav = () => {
+    document.documentElement.setAttribute('nav', 'none');
+}
+
 const Navbar = (props) => {
     return (
-        <div className={s.nav}>
+        <div className={s.nav} onClick={closeNav}>
             <NavLink to="/profile" className={s.link} activeClassName={s.activeItem}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.998 18">
                     <g transform="translate(-260.001 -148)">

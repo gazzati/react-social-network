@@ -79,7 +79,34 @@
 }
 
 @media screen and (max-width: 600px){
+    .userContainer {
+        padding: 8px 1.5%;
+        height: 100px;
+        margin-bottom: 10px;
+    }
     .user {
-        margin: 0 10px;
+        grid-template-columns: 90px auto 15%;
+        align-items: center;
+    }
+    .photo {
+        width: 85px;
+        height: 85px;
+    }
+
+    .name {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .follow {
+        width: 70px;
+        height: 30px;
+        border-radius: 24px;
+
+    }
+    .unfollow {
+        width: 70px;
+        height: 30px;
+        border-radius: 24px;
     }
 }

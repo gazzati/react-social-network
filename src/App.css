@@ -13,6 +13,10 @@
     --1a122d-w-text-color: #1a122d;
     --9d9aa8-w-text-color: #9d9aa8;
     --color-block: #3827a0;
+
+    --nav-grid-areas: "icon userLog"  "wraper wraper";
+    --nav-grid-columns: 27% 70%;
+    --nav-display: none;
 }
 
 [data-theme="dark"] {
@@ -23,14 +27,33 @@
     --b-w-text-color: white;
     --1a122d-w-text-color: white;
     --9d9aa8-w-text-color: white;
-
 }
+
+[nav="inline-block"] {
+    --nav-grid-areas: "icon . userLog" "nav wraper wraper";
+    --nav-grid-columns: 20% 27% 50%;
+    --nav-display: inline-block;
+}
+
 
 body {
     background: var(--body-bg-color);
     overflow-y: scroll;
     overflow-x: hidden;
+    width: 100vw;
 }
+
+body:after {
+    content: '';
+    width: 100%;
+    height: 88px;
+    background: var(--head-bg-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
 
 button {
     cursor: pointer;
@@ -53,7 +76,7 @@ textarea:-webkit-autofill:hover
 textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
-select:-webkit-autofill:focus  {
+select:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0 30px #f6f6fa inset !important;
     transition: background-color 5000s ease-in-out 0s;
 }
@@ -69,20 +92,11 @@ textarea {
 .mainPage {
     width: 100%;
     display: grid;
-    grid-template-areas: ". icon userLog ."
-                         ". navbar wraper .";
+    grid-template-areas: ". icon userLog ." ". nav wraper .";
     grid-template-rows: 88px auto;
     grid-template-columns: 11% 16% 59% 11%;
     grid-row-gap: 18px;
     grid-column-gap: 1%;
-}
-
-.head {
-    width: calc(100vw - 10px);
-    height: 88px;
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.05);
-    background-color: var(--head-bg-color);
-    z-index: -1;
 }
 
 .icon {
@@ -90,9 +104,8 @@ textarea {
     align-self: center;
 }
 
-
-.nav {
-    grid-area: navbar;
+nav {
+    grid-area: nav;
     width: 100%;
     height: 515px;
     border-radius: 10px;
@@ -107,36 +120,47 @@ textarea {
 .appWrapperContent {
     grid-area: wraper;
     width: 100%;
-    min-width: 400px;
 }
 
 .preloader {
     position: fixed;
     left: 50%;
-    top: 50%;
-    width: 100%;
-    height: 100%;
+    top: 40%;
     z-index: 9999;
-
 }
 
 
-/*
-@media screen and (max-width: 700px){
+@media screen and (max-width: 900px) {
+    body {
+        padding: 0 0 0 5px;
+    }
     .mainPage {
-        display: grid;
-        grid-template-areas: "h h" "n c";
-        grid-template-rows: 80px auto;
-        grid-template-columns: 0.1fr 3fr;
-        grid-column-gap: 0.3em;
-        grid-row-gap: 0.2em;
+        grid-template-areas: "icon userLog" "nav wraper";
+        grid-template-columns: 22% 76%;
+        grid-row-gap: 8px;
     }
 }
 
-@media screen and (max-width: 600px){
-    .nav {
-        height: 160px;
+@media screen and (max-width: 600px) {
+    .mainPage {
+        grid-template-areas: var(--nav-grid-areas);
+        grid-template-columns: var(--nav-grid-columns);
+        grid-row-gap: 5px;
+    }
+
+    nav {
+        display: var(--nav-display);
+        height: 380px;
+    }
+
+    .appWrapperContent {
+        max-width: 550px;
+    }
+
+    .preloader {
+        left: 40%;
+        top: 45%;
     }
 }
-*/
+
 

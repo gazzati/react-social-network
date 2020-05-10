@@ -46,64 +46,8 @@
     color: #ffffff;
 }
 
-
-
-
-
-
-
-
-/*
-.header {
-    display: grid;
-    grid-template-areas: ". logo login ." ;
-    grid-template-columns: 1fr 0.5fr 3fr 1fr;
-    grid-gap: 0.5em;
-}
-
-.logo {
-    grid-area: logo;
-}
-
-.logo img{
-    width: 80px;
-    margin-top: 3px;
-}
-
-
-.userName {
-    font-size: 32px;
-}
-
-
-.logout {
-    font-size: 18px;
-    color: white;
-    text-align: right;
-}
-
-
-.button {
-    background-color: #61dafb;
-    width: 65px;
-    height: 20px;
-    border: #61dafb 1px solid;
-    border-radius: 5px;
-    font-size: 15px;
-    cursor: pointer;
-    font-weight: bold;
-    outline: none;
-}
-
-@media screen and (max-width: 700px){
-    .header {
-        display: grid;
-        grid-template-areas: "logo login" ;
-        grid-template-columns: 0.5fr 3fr;
-        grid-gap: 0.5em;
-    }
-    .loginBlock {
-        margin-right: 2px;
+@media screen and (max-width: 600px) {
+    .userLogName {
+        display: none;
     }
 }
-*/

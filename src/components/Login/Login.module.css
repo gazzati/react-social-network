@@ -7,6 +7,10 @@
     color: var(--b-w-text-color);
 }
 
+h2 {
+    margin-bottom: 10px;
+}
+
 .button {
     width: 80px;
     height: 38px;
@@ -38,5 +42,11 @@
 .s3 {
     grid-area: st;
     margin-top: -2px
+}
+
+@media screen and (max-width: 600px) {
+    .s1 {
+        margin-top: 5px;
+    }
 }
 

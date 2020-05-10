@@ -5,3 +5,10 @@
     grid-template-rows: 300px auto;
     grid-gap: 18px;
 }
+
+@media screen and (max-width: 900px){
+    .profile {
+        grid-gap: 5px;
+        grid-template-rows: auto;
+    }
+}

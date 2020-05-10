@@ -3,12 +3,12 @@ import s from './ProfileInfo.module.css'
 import userPhoto from '../../../assets/images/user.png'
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 import ProfileDataForm from './ProfileEditForm.jsx'
-import vk from '../../../assets/images/vk.svg'
-import instagram from '../../../assets/images/instagram.svg'
-import skype from '../../../assets/images/skype.svg'
-import twitter from '../../../assets/images/twitter.svg'
-import youtube from '../../../assets/images/youtube.svg'
-import facebook from '../../../assets/images/facebook.svg'
+import vk from '../../../assets/images/contactsIcons/vk.svg'
+import instagram from '../../../assets/images/contactsIcons/instagram.svg'
+import github from '../../../assets/images/contactsIcons/github.svg'
+import twitter from '../../../assets/images/contactsIcons/twitter.svg'
+import youtube from '../../../assets/images/contactsIcons/youtube.svg'
+import facebook from '../../../assets/images/contactsIcons/facebook.svg'
 import {GithubPicker} from 'react-color'
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, goToEditMode}) => {
@@ -26,18 +26,18 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, goToEditMode}) => 
     const changeColor = (color) => {
         document.documentElement.style.setProperty('--color-block', `${color.hex}`);
         localStorage.setItem('colorBlock', String(color.hex))
+        setColorMode(false)
     }
-
 
     return (
         <div className={s.infoBlock} onDoubleClick={closeColorWindow}>
             {colorMode &&
-            <span className={s.chooserColor}>
+            <div className={s.chooserColor}>
                         <GithubPicker onChange={changeColor}
                                       width={'215px'}
-                                      colors={['#d435b7', '#ff2600', '#ffd900', '#65d435', '#35d4cf',
+                                      colors={['#d435b7', '#ff2600', '#ffd900', '#65d435', '#61dafb',
                                           '#359ad4', '#6d57f6', '#3827a0']}/>
-                    </span>}
+                    </div>}
             <div className={s.mainInfo}>
                 {/*<input onChange={changeColor} type="color" id="color"/>*/}
                 <label className={s.colorBlock} onClick={openColorWindow}>
@@ -90,13 +90,13 @@ const Contact = ({contactTitle, contactValue}) => {
             <div className={s.contacts}>
                 {contactTitle === 'github' && contactValue !== '' &&
                 <a href={contactValue} target="_blank">
-                    <img src={skype} alt=""/>
+                    <img src={github} className={s.gitHubIcon} alt=""/>
                     <p>{contactValue}</p>
                 </a>}
 
                 {contactTitle === 'vk' && contactValue !== '' &&
                 <a href={contactValue} target="_blank">
-                    <img src={vk} alt=""/>
+                    <img src={vk} className={s.vkIcon} alt=""/>
                     <p>{contactValue}</p>
                 </a>}
 

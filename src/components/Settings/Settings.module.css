@@ -56,3 +56,12 @@
     margin: 25px 0 0 5px;
     color: var(--b-w-text-color);
 }
+
+@media screen and (max-width: 600px) {
+
+    .settings {
+        height: 380px;
+    }
+
+}
+

@@ -49,19 +49,22 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 1150px){
+
+@media screen and (max-width: 600px) {
+    .nav {
+        margin-left: 5%;
+        margin-bottom: 0;
+    }
+    .link {
+        margin-top: 25px;
+        grid-template-columns: 10px auto;
+    }
+
     .item {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .link svg {
-        grid-area: ico;
-        width: 80%;
-        fill: #9d9aa8;
-    }
-
-    .itemLogout svg {
-        fill: #f81c1c;
-        cursor: pointer;
+        margin-top: -7px;
     }
 }
