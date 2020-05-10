@@ -1,35 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e04cee5b04a608dad30da58149b3098d",
+    "revision": "1d70448ec293f4c9022cb12852947423",
     "url": "/ReactSocialNetwork/index.html"
   },
   {
-    "revision": "bbcd33a31cdd406342e9",
+    "revision": "8f68600ca4043181004d",
     "url": "/ReactSocialNetwork/static/css/3.82576e5c.chunk.css"
   },
   {
-    "revision": "8313347ccdcd88558dd3",
-    "url": "/ReactSocialNetwork/static/css/main.64cfc9e1.chunk.css"
+    "revision": "77b96d2021b0b3606cf0",
+    "url": "/ReactSocialNetwork/static/css/main.11c337ad.chunk.css"
   },
   {
-    "revision": "1ccb634f57cf34fdb185",
-    "url": "/ReactSocialNetwork/static/js/2.95683684.chunk.js"
+    "revision": "da408b63cd782a6335dc",
+    "url": "/ReactSocialNetwork/static/js/2.ae304f23.chunk.js"
   },
   {
     "revision": "6759f9ff4529f9bb648fbba567eda343",
-    "url": "/ReactSocialNetwork/static/js/2.95683684.chunk.js.LICENSE.txt"
+    "url": "/ReactSocialNetwork/static/js/2.ae304f23.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bbcd33a31cdd406342e9",
-    "url": "/ReactSocialNetwork/static/js/3.5ccf8052.chunk.js"
+    "revision": "8f68600ca4043181004d",
+    "url": "/ReactSocialNetwork/static/js/3.963ba924.chunk.js"
   },
   {
-    "revision": "8313347ccdcd88558dd3",
-    "url": "/ReactSocialNetwork/static/js/main.3f32a532.chunk.js"
+    "revision": "77b96d2021b0b3606cf0",
+    "url": "/ReactSocialNetwork/static/js/main.9f0b0f35.chunk.js"
   },
   {
-    "revision": "6b9b1290c01133a8f752",
-    "url": "/ReactSocialNetwork/static/js/runtime-main.acec3d4c.js"
+    "revision": "df374963f150266cbe21",
+    "url": "/ReactSocialNetwork/static/js/runtime-main.7b7469ac.js"
   },
   {
     "revision": "87610641cf4a84ff236ecff0c6501004",
@@ -52,8 +52,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ReactSocialNetwork/static/media/nav.d438f036.svg"
   },
   {
-    "revision": "0cd9853d07e08a5449e6a303bbbb8e9c",
-    "url": "/ReactSocialNetwork/static/media/preloader.0cd9853d.svg"
+    "revision": "dc32f910be9e5b22de0e4479e701a2bb",
+    "url": "/ReactSocialNetwork/static/media/preloader.dc32f910.svg"
+  },
+  {
+    "revision": "9818cce663baf2e3558b792d87207c8b",
+    "url": "/ReactSocialNetwork/static/media/preloaderMini.9818cce6.svg"
   },
   {
     "revision": "a79469daa83205dfcbdc2858f1e892cb",
