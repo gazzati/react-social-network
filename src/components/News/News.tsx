@@ -1,4 +1,4 @@
-import React, {CSSProperties, FC} from 'react';
+import React, {FC} from 'react';
 import s from './../News/News.module.css';
 import Paginator from "../common/Paginator/Paginator";
 import Preloader from "../common/Preloader/Preloader";

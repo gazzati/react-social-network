@@ -3,6 +3,10 @@
     margin-bottom: 20px;
 }
 
+.miniNav {
+    display: none;
+}
+
 .link {
     display: grid;
     margin-top: 40px;
@@ -50,21 +54,32 @@
 }
 
 
+
 @media screen and (max-width: 600px) {
     .nav {
-        margin-left: 5%;
+        display: none;
+    }
+    .miniNav {
+        margin-left: 0;
         margin-bottom: 0;
-    }
-    .link {
-        margin-top: 25px;
-        grid-template-columns: 10px auto;
-    }
-
-    .item {
-        font-size: 10px;
+        display: grid;
+        grid-template-columns: repeat(5, 20%);
+        grid-row-gap: 10%;
+        justify-items: center;
+        padding-top: 5px;
     }
 
-    .link svg {
-        margin-top: -7px;
+    .li {
+        align-self: center;
+    }
+
+    .li svg {
+        width: 30px;
+        height: 30px;
+        fill: #9d9aa8;
+    }
+
+    .activeLi svg{
+        fill: #6d57f6;
     }
 }

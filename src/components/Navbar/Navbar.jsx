@@ -17,7 +17,7 @@ const Navbar = (props) => {
     return (
         <div className={s.nav} onClick={closeNav}>
             <NavLink to="/profile" className={s.link} activeClassName={s.activeItem}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.998 18">
+                <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.998 18">
                     <g transform="translate(-260.001 -148)">
                         <path className="a"
                               d="M17.515,7.829h0L10.171.486a1.657,1.657,0,0,0-2.344,0L.489,7.824l-.007.008a1.656,1.656,0,0,0,1.1,2.823l.051,0h.293v5.4A1.942,1.942,0,0,0,3.867,18H6.74a.527.527,0,0,0,.527-.527V13.236a.886.886,0,0,1,.885-.885H9.846a.886.886,0,0,1,.885.885v4.236a.527.527,0,0,0,.527.527h2.873a1.942,1.942,0,0,0,1.94-1.939v-5.4h.271a1.657,1.657,0,0,0,1.173-2.828Zm0,0"
@@ -28,7 +28,7 @@ const Navbar = (props) => {
             </NavLink>
 
             <NavLink to="/dialogs" className={s.link} activeClassName={s.activeItem}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17">
+                <svg className={s.dialogs} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17">
                     <g transform="translate(-260 -207)">
                         <path className="a"
                               d="M15.525-.037H2.475A2.511,2.511,0,0,0,0,2.5v8.2a2.511,2.511,0,0,0,2.466,2.54v3.721l5.208-3.72h7.851A2.511,2.511,0,0,0,18,10.7V2.5a2.511,2.511,0,0,0-2.475-2.54ZM13.182,9.49H4.818V8.408h8.365Zm0-2.31H4.818V6.1h8.365Zm0-2.31H4.818V3.788h8.365Zm0,0"

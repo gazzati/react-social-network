@@ -1,9 +1,7 @@
 import React, {FC} from 'react'
 import s from "./Friends.module.css"
-import Friend from './Friend'
 import Paginator from '../common/Paginator/Paginator'
 import {UserType} from '../../types/types'
-import Preloader from "../common/Preloader/Preloader";
 
 type PropsType = {
     totalUsersCount: number

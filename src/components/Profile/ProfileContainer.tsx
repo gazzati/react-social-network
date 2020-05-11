@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React  from 'react';
 import Profile from "./Profile";
 import ProfileEditForm from "./ProfileInfo/ProfileEditForm";
 import {connect} from "react-redux";
@@ -8,9 +8,7 @@ import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {AppStateType} from "../../redux/redux-store";
 import {ProfileType} from "../../types/types";
-import s from "../Users/Users.module.css";
 import Preloader from "../common/Preloader/Preloader";
-
 
 type MapStatePropsType = {
     authorizedUserId: number | null

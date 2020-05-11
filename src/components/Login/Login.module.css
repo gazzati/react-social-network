@@ -28,6 +28,10 @@ h2 {
     color: #ffffff;
 }
 
+.password {
+    margin-top: 10px;
+}
+
 .s1 {
     display: grid;
     width: 120px;

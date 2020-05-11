@@ -1,6 +1,6 @@
 import {usersAPI} from "../api/api"
 import {updateObjectInArray} from "../utils/object-helpers"
-import {ProfileType, UserType} from "../types/types"
+import {UserType} from "../types/types"
 import {AppStateType, InferActionsTypes} from "./redux-store"
 import {Dispatch} from "redux"
 import {ThunkAction} from "redux-thunk"

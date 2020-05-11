@@ -54,9 +54,10 @@
 @media screen and (max-width: 600px) {
     .paginator {
         height: 25px;
-        margin: 5px 0 0 20px;
+
     }
     .paginatorElements {
+        width: 200px;
         grid-template-columns: repeat(auto-fill, 25px);
         grid-column-gap: 5px;
     }

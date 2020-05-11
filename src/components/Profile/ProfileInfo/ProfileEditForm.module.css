@@ -1,6 +1,5 @@
 .editInfoBlock {
     width: 100%;
-    height: 100%;
     color: var(--1a122d-w-text-color);
     background-color: var(--wrap-bg-color);
     border-radius: 10px;
@@ -8,7 +7,7 @@
 
     display: grid;
     grid-template-areas: "photoName aboutMeSkills" "contacts contacts";
-    grid-template-rows: 280px 330px;
+    grid-template-rows: 280px 340px;
     grid-template-columns: 37% 58%;
     grid-gap: 5%;
 }
@@ -131,7 +130,18 @@
 .checkbox {
     grid-area: checkbox;
     display: grid;
+    grid-template-areas: "checkboxP checkboxSpan";
+    grid-template-columns: 190px auto;
 }
+
+.checkbox span {
+    grid-area: checkboxSpan;
+}
+
+.checkbox p {
+    grid-area: checkboxP;
+}
+
 
 .skills {
     grid-area: skills;
@@ -146,8 +156,11 @@
 
     display: grid;
     grid-template-areas: "h3" "cont" "buttons";
-    grid-template-rows: 20px 150px 50px;
+    grid-template-rows: 20px 180px 60px;
+    grid-template-columns: 100%;
     grid-row-gap: 40px;
+
+
 }
 
 .contacts h3 {
@@ -158,6 +171,8 @@
     grid-area: cont;
     display: grid;
     grid-template-columns: repeat(3, 35%);
+
+
 }
 
 .contactKey {
@@ -166,7 +181,7 @@
     font-weight: 600;
     line-height: 1.29;
     text-align: left;
-    color: #1a122d;
+    color: var(--1a122d-w-text-color);
 }
 
 .buttons {
@@ -239,20 +254,30 @@ p {
         padding: 30px 3.5% 30px 3.5%;
 
         grid-template-areas: "photoName" "aboutMeSkills" "contacts";
-        grid-template-rows: 280px 280px 330px;
+        grid-template-rows: 280px 280px 420px;
         grid-template-columns: 100%;
         grid-gap: 5%;
     }
     .contacts {
-        grid-template-rows: 20px 200px 50px;
+        grid-template-rows: 20px 230px 65px;
         grid-row-gap: 20px;
+    }
+    .contacts h3 {
+        width: 250px;
     }
     .cont {
         grid-template-columns: repeat(2, 50%);
         grid-row-gap: 10px;
+        width: 100%;
+    }
+    .contactKey {
+        width: 100px;
+    }
+    .buttons {
+        width: 100%;
     }
     .cancel {
-        margin-left: 10%;
+        margin-left: 5%;
     }
 }
 

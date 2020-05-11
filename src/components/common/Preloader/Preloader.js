@@ -4,7 +4,7 @@ import preloaderMini from "../../../assets/images/preloaderMini.svg";
 
 let Preloader = (props) => {
     return <span  className="preloader">
-        <img src={document.documentElement.getAttribute('nav') === 'none' ? preloader : preloaderMini} alt={""}/>
+        <img src={window.matchMedia("(min-width: 600px)").matches ? preloader : preloaderMini} alt={""}/>
     </span>
 }
 

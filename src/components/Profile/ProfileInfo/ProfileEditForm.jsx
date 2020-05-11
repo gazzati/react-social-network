@@ -1,6 +1,6 @@
 import React from "react";
 import s from './ProfileEditForm.module.css';
-import {createField, Input, Textarea} from "../../common/FormsControls/FormsControls";
+import {createField, Input} from "../../common/FormsControls/FormsControls";
 import {reduxForm} from "redux-form";
 import style from "../../common/FormsControls/FormsControls.module.css";
 import userPhoto from "../../../assets/images/user.png";
@@ -46,10 +46,10 @@ const ProfileEditForm = ({handleSubmit, profile, error, isOwner, savePhoto, exit
 
                 <span className={s.checkbox}>
                     <p>Do you want a find a job?</p>
-                    {createField("", "lookingForAJob", [], Input, {
-                        'background-color': '#f6f6fa',
-                        'margin-left': '1px'
-                    }, {type: "checkbox"})}
+                    <span>
+                        {createField("", "lookingForAJob", [], Input, {
+                        }, {type: "checkbox"})}
+                    </span>
                 </span>
 
                 <span className={s.skills}>
@@ -62,12 +62,12 @@ const ProfileEditForm = ({handleSubmit, profile, error, isOwner, savePhoto, exit
 
             </span>
 
-            <span className={s.contacts}>
+            <div className={s.contacts}>
                 <h3>Edit contacts</h3>
                 <span className={s.cont}>
                     {Object.keys(profile.contacts).map(key => {
                         if (key !== 'website' & key !== 'mainLink')
-                            return <div>
+                            return <div key={key}>
                                 <div className={s.contactKey}>{key}</div>
                                 <div
                                     className={s.contactValue}>
@@ -78,6 +78,8 @@ const ProfileEditForm = ({handleSubmit, profile, error, isOwner, savePhoto, exit
 
                                 </div>
                             </div>
+                        else
+                            return null
                     })}
                 </span>
 
@@ -86,7 +88,7 @@ const ProfileEditForm = ({handleSubmit, profile, error, isOwner, savePhoto, exit
                         <button className={s.save}>Save changes</button>
                     </div>
                 {error && <div className={style.formSummaryError}>{error}</div>}
-            </span>
+            </div>
 
         </form>
     )

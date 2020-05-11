@@ -30,13 +30,15 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPro
                 [],
                 Input,
                 {'height': '30px', 'width': '200px'})}
-            {createField<LoginFormValuesTypeKeys>(
+            <div className={s.password}>
+                {createField<LoginFormValuesTypeKeys>(
                 "Password",
                 "password",
                 [],
                 Input,
-                {'height': '30px', 'width': '200px', 'margin-top': '10px'},
+                {'height': '30px', 'width': '200px'},
                 {type: "password"})}
+            </div>
             <div className={s.s1}>
                 <div className={s.s2}>
                     {createField<LoginFormValuesTypeKeys>(undefined, "rememberMe", [], Input, {}, {type: "checkbox"})}

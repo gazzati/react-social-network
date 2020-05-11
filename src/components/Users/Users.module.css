@@ -85,7 +85,7 @@
         margin-bottom: 10px;
     }
     .user {
-        grid-template-columns: 90px auto 15%;
+        grid-template-columns: 90px auto 12%;
         align-items: center;
     }
     .photo {

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import s from './../Settings/Settings.module.css'
 import cn from "classnames"
 import {connect} from "react-redux"

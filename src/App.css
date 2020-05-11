@@ -13,10 +13,7 @@
     --1a122d-w-text-color: #1a122d;
     --9d9aa8-w-text-color: #9d9aa8;
     --color-block: #3827a0;
-
-    --nav-grid-areas: "icon userLog"  "wraper wraper";
-    --nav-grid-columns: 27% 70%;
-    --nav-display: none;
+    --mininav-border-color: rgba(0, 0, 0, 1)
 }
 
 [data-theme="dark"] {
@@ -27,14 +24,8 @@
     --b-w-text-color: white;
     --1a122d-w-text-color: white;
     --9d9aa8-w-text-color: white;
+    --mininav-border-color: #9d9aa8;
 }
-
-[nav="inline-block"] {
-    --nav-grid-areas: "icon . userLog" "nav wraper wraper";
-    --nav-grid-columns: 20% 27% 50%;
-    --nav-display: inline-block;
-}
-
 
 body {
     background: var(--body-bg-color);
@@ -131,8 +122,8 @@ nav {
 
 
 @media screen and (max-width: 900px) {
-    body {
-        padding: 0 0 0 5px;
+    .appWrapperContent {
+        margin: 0 0 0 5px;
     }
     .mainPage {
         grid-template-areas: "icon userLog" "nav wraper";
@@ -142,25 +133,34 @@ nav {
 }
 
 @media screen and (max-width: 600px) {
+    body:after {
+        height: 50px;
+    }
     .mainPage {
-        grid-template-areas: var(--nav-grid-areas);
-        grid-template-columns: var(--nav-grid-columns);
+        grid-template-areas: "icon userLog" "wraper wraper" "nav nav";
+        grid-template-columns: calc(30% - 5px) 70%;
+        grid-template-rows: 50px auto;
         grid-row-gap: 5px;
     }
 
     nav {
-        display: var(--nav-display);
-        height: 380px;
+        display: inline-block;
+        border-radius: 0;
+        border-top: 1px var(--mininav-border-color) solid;
+        height: 41px;
+        position: fixed;
+        top: calc(100% - 40px);
+        width: 100vw;
+        background-color: var(--head-bg-color);
     }
 
     .appWrapperContent {
-        max-width: 550px;
+        max-width: calc(100% - 10px);
     }
 
     .preloader {
-        left: 40%;
-        top: 45%;
+        left: calc(50% - 50px);
+        top: calc(40% - 50px);
     }
 }
-
 

@@ -47,7 +47,14 @@
 }
 
 @media screen and (max-width: 600px) {
+    .isAuthUserBlock {
+        grid-template-columns: auto 45px 20px;
+        grid-gap: 10px;
+    }
     .userLogName {
         display: none;
+    }
+    .userPhoto {
+        width: 45px;
     }
 }

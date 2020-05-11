@@ -89,37 +89,37 @@ const Contact = ({contactTitle, contactValue}) => {
         return (
             <div className={s.contacts}>
                 {contactTitle === 'github' && contactValue !== '' &&
-                <a href={contactValue} target="_blank">
+                <a href={contactValue} target="_blank" rel="noopener noreferrer">
                     <img src={github} className={s.gitHubIcon} alt=""/>
                     <p>{contactValue}</p>
                 </a>}
 
                 {contactTitle === 'vk' && contactValue !== '' &&
-                <a href={contactValue} target="_blank">
+                <a href={contactValue} target="_blank" rel="noopener noreferrer">
                     <img src={vk} className={s.vkIcon} alt=""/>
                     <p>{contactValue}</p>
                 </a>}
 
                 {contactTitle === 'facebook' && contactValue !== '' &&
-                <a href={contactValue} target="_blank">
+                <a href={contactValue} target="_blank" rel="noopener noreferrer">
                     <img src={facebook} alt=""/>
                     <p>{contactValue}</p>
                 </a>}
 
                 {contactTitle === 'instagram' && contactValue !== '' &&
-                <a href={contactValue} target="_blank">
+                <a href={contactValue} target="_blank" rel="noopener noreferrer">
                     <img src={instagram} alt=""/>
                     <p>{contactValue}</p>
                 </a>}
 
                 {contactTitle === 'twitter' && contactValue !== '' &&
-                <a href={contactValue} target="_blank">
+                <a href={contactValue} target="_blank" rel="noopener noreferrer">
                     <img src={twitter} alt=""/>
                     <p>{contactValue}</p>
                 </a>}
 
                 {contactTitle === 'youtube' && contactValue !== '' &&
-                <a href={contactValue} target="_blank">
+                <a href={contactValue} target="_blank" rel="noopener noreferrer">
                     <img src={youtube} alt=""/>
                     <p>{contactValue}</p>
                 </a>}

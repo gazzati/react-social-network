@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from "./App.css";
+import "./App.css";
 import Navbar from './components/Navbar/Navbar';
-import {BrowserRouter, HashRouter, Route, Switch, withRouter} from "react-router-dom";
+import {/*BrowserRouter,*/ HashRouter, Route, Switch, withRouter} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -16,6 +16,7 @@ import NewsContainer from "./components/News/NewsContainer";
 import MainIcon from "./components/MainIcon/MainIcon";
 import {toggleBlackTheme} from "./redux/settings-reducer";
 import FriendsContainer from "./components/Friends/FriendsContainer";
+import MiniNavbar from "./components/NavMini/MiniNavbar";
 
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"))
@@ -41,7 +42,7 @@ class App extends React.Component {
             <div className="mainPage">
                 <span className="icon"><MainIcon /></span>
                 <span className="userLog"><HeaderContainer /></span>
-                <nav><Navbar /></nav>
+                <nav>{window.matchMedia("(max-width: 600px)").matches ? <MiniNavbar /> : <Navbar />} </nav>
                 <div className="appWrapperContent">
                     <Switch>
                         <Route exact path='/login'

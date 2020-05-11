@@ -32,7 +32,7 @@ let Paginator: React.FC<PropsType> = ({
     let rightPortionPageNumber = portionNumber * portionSize;
 
 
-    return <div className={cn(styles.paginator)}>
+    return <span className={cn(styles.paginator)}>
         <div className={styles.paginatorElements}>
             {<img src={leftArrowIcon} alt=""
 
@@ -63,7 +63,7 @@ let Paginator: React.FC<PropsType> = ({
                     </span>
             }
         </div>
-    </div>
+    </span>
 }
 
 

@@ -1,0 +1,23 @@
+.miniNav {
+    margin-left: 0;
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-row-gap: 10%;
+    justify-items: center;
+    padding-top: 5px;
+}
+
+.link {
+    align-self: center;
+}
+
+.link svg {
+    width: 30px;
+    height: 30px;
+    fill: #9d9aa8;
+}
+
+.activeItem svg{
+    fill: #6d57f6;
+}
