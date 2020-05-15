@@ -1,7 +1,7 @@
-import {newsAPI} from "../api/api";
 import {NewsType} from "../types/types";
 import {AppStateType, InferActionsTypes} from "./redux-store";
 import {ThunkAction} from "redux-thunk";
+import {newsAPI} from "../api/news-api";
 
 let initialState = {
     news: [] as Array<NewsType>,

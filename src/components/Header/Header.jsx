@@ -17,7 +17,6 @@ const Header = ({isAuth, profile, logout}) => {
     }, [1>0])
 
     const showUserMenu = () => {
-
     }
 
     return <div className={s.userBlock}>
@@ -27,10 +26,9 @@ const Header = ({isAuth, profile, logout}) => {
                     <span className={s.userLogName}>{name}</span>
                     <img className={s.userPhoto}
                          src={photo ? photo : userPhoto} alt=""/>
-                    {window.matchMedia("(max-width: 600px)").matches ?
-                        <img className={s.function} src={exit} alt="" onClick={logout}/>
-                        :  <img className={s.function} src={userLogIcon} alt="" onClick={showUserMenu}/>
-                    }
+                        <img className={s.functionExit} src={exit} alt="" onClick={logout}/>
+                        <img className={s.functionLogout} src={userLogIcon} alt="" onClick={showUserMenu}/>
+
 
                 </span>
                 : <NavLink to={'/login'} className={s.login}>Log in</NavLink>}

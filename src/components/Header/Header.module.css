@@ -29,7 +29,14 @@
     border: solid 2px #61dafb;
 }
 
-.function {
+.functionLogout {
+    grid-area: func;
+    width: 20px;
+    cursor: pointer;
+}
+
+.functionExit {
+    display: none;
     grid-area: func;
     width: 20px;
     cursor: pointer;
@@ -56,5 +63,11 @@
     }
     .userPhoto {
         width: 45px;
+    }
+    .functionLogout {
+        display: none;
+    }
+    .functionExit {
+        display: inline-block;
     }
 }

@@ -37,6 +37,7 @@ export type UserType = {
 export type SourceType = {
     name: string
 }
+
 export type NewsType = {
     title: string
     description: string

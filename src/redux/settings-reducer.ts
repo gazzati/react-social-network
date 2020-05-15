@@ -1,15 +1,10 @@
-const TOGGLE_BLACK_THEME = 'TOGGLE_BLACK_THEME';
+const TOGGLE_BLACK_THEME = 'settings/TOGGLE_BLACK_THEME';
 
-type InitialStateType = {
-    isBlackThemeActivated: boolean,
-}
-
-let initialState:  InitialStateType= {
+let initialState = {
     isBlackThemeActivated: false,
 };
 
-
-const settingsReducer = (state: InitialStateType = initialState, action: any): InitialStateType => {
+const settingsReducer = (state = initialState, action: any): InitialState => {
     switch (action.type) {
         case TOGGLE_BLACK_THEME: {
             return {
@@ -29,3 +24,5 @@ type ToggleBlackThemeActionType = {
 export const toggleBlackTheme = (theme?: boolean): ToggleBlackThemeActionType => ({type: TOGGLE_BLACK_THEME, theme})
 
 export default settingsReducer;
+
+type InitialState = typeof initialState

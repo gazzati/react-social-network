@@ -3,21 +3,21 @@
     margin-bottom: 0;
     display: grid;
     grid-template-columns: repeat(5, 20%);
-    grid-row-gap: 10%;
     justify-items: center;
-    padding-top: 5px;
+    padding-top: 10px;
 }
 
-.link {
+.li {
     align-self: center;
 }
 
-.link svg {
-    width: 30px;
-    height: 30px;
+.li svg {
+    width: 20px;
+    height: 20px;
     fill: #9d9aa8;
+    outline: none;
 }
 
-.activeItem svg{
+.activeLi svg{
     fill: #6d57f6;
 }

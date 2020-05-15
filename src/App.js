@@ -37,12 +37,17 @@ class App extends React.Component {
         this.props.initializeApp()
     }
 
+
+
     render() {  /*if(!this.props.initialized){ return <Preloader />}*/
         return (
             <div className="mainPage">
                 <span className="icon"><MainIcon /></span>
                 <span className="userLog"><HeaderContainer /></span>
-                <nav>{window.matchMedia("(max-width: 600px)").matches ? <MiniNavbar /> : <Navbar />} </nav>
+                <nav>
+                    <span className="miniNavbar"><MiniNavbar />  </span>
+                    <span><Navbar className="Navbar"/> </span>
+                </nav>
                 <div className="appWrapperContent">
                     <Switch>
                         <Route exact path='/login'

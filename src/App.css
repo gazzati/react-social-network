@@ -13,7 +13,8 @@
     --1a122d-w-text-color: #1a122d;
     --9d9aa8-w-text-color: #9d9aa8;
     --color-block: #3827a0;
-    --mininav-border-color: rgba(0, 0, 0, 1)
+    --mininav-border-color: rgba(0, 0, 0, 1);
+    --mini-nav-activated: false
 }
 
 [data-theme="dark"] {
@@ -103,6 +104,10 @@ nav {
     background-color: var(--wrap-bg-color);
 }
 
+.miniNavbar {
+    display: none;
+}
+
 .userLog {
     grid-area: userLog;
     align-self: center;
@@ -133,6 +138,9 @@ nav {
 }
 
 @media screen and (max-width: 600px) {
+    :root {
+        --mini-nav-activated: true
+    }
     body:after {
         height: 50px;
     }
@@ -147,11 +155,15 @@ nav {
         display: inline-block;
         border-radius: 0;
         border-top: 1px var(--mininav-border-color) solid;
-        height: 41px;
+        height: 51px;
         position: fixed;
         top: calc(100% - 40px);
         width: 100vw;
         background-color: var(--head-bg-color);
+    }
+
+    .miniNavbar {
+        display: block;
     }
 
     .appWrapperContent {
@@ -162,5 +174,6 @@ nav {
         left: calc(50% - 50px);
         top: calc(40% - 50px);
     }
+
 }
 
