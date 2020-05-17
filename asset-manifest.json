@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ReactSocialNetwork/static/css/main.29fdd609.chunk.css",
+    "main.css": "/ReactSocialNetwork/static/css/main.291e5b62.chunk.css",
     "main.js": "/ReactSocialNetwork/static/js/main.6cdb7ecf.chunk.js",
     "main.js.map": "/ReactSocialNetwork/static/js/main.6cdb7ecf.chunk.js.map",
     "runtime-main.js": "/ReactSocialNetwork/static/js/runtime-main.3a406af3.js",
@@ -11,10 +11,10 @@
     "static/js/3.9111ccfa.chunk.js": "/ReactSocialNetwork/static/js/3.9111ccfa.chunk.js",
     "static/js/3.9111ccfa.chunk.js.map": "/ReactSocialNetwork/static/js/3.9111ccfa.chunk.js.map",
     "index.html": "/ReactSocialNetwork/index.html",
-    "precache-manifest.8d061d3817ec22eeaf7080b6d372f62f.js": "/ReactSocialNetwork/precache-manifest.8d061d3817ec22eeaf7080b6d372f62f.js",
+    "precache-manifest.f1477baf35dea6d95682d69a83892966.js": "/ReactSocialNetwork/precache-manifest.f1477baf35dea6d95682d69a83892966.js",
     "service-worker.js": "/ReactSocialNetwork/service-worker.js",
     "static/css/3.ae528448.chunk.css.map": "/ReactSocialNetwork/static/css/3.ae528448.chunk.css.map",
-    "static/css/main.29fdd609.chunk.css.map": "/ReactSocialNetwork/static/css/main.29fdd609.chunk.css.map",
+    "static/css/main.291e5b62.chunk.css.map": "/ReactSocialNetwork/static/css/main.291e5b62.chunk.css.map",
     "static/js/2.3353ab93.chunk.js.LICENSE.txt": "/ReactSocialNetwork/static/js/2.3353ab93.chunk.js.LICENSE.txt",
     "static/media/facebook.svg": "/ReactSocialNetwork/static/media/facebook.87610641.svg",
     "static/media/github.svg": "/ReactSocialNetwork/static/media/github.c85902c5.svg",
@@ -32,7 +32,7 @@
   "entrypoints": [
     "static/js/runtime-main.3a406af3.js",
     "static/js/2.3353ab93.chunk.js",
-    "static/css/main.29fdd609.chunk.css",
+    "static/css/main.291e5b62.chunk.css",
     "static/js/main.6cdb7ecf.chunk.js"
   ]
 }
