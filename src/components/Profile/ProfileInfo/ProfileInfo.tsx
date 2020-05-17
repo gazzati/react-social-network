@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import s from './ProfileInfo.module.css'
 import userPhoto from '../../../assets/images/user.png'
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
-import ProfileDataForm from './ProfileEditForm.jsx'
 import vk from '../../../assets/images/contactsIcons/vk.svg'
 import instagram from '../../../assets/images/contactsIcons/instagram.svg'
 import github from '../../../assets/images/contactsIcons/github.svg'
@@ -10,8 +9,17 @@ import twitter from '../../../assets/images/contactsIcons/twitter.svg'
 import youtube from '../../../assets/images/contactsIcons/youtube.svg'
 import facebook from '../../../assets/images/contactsIcons/facebook.svg'
 import {GithubPicker} from 'react-color'
+import {ContactsType, ProfileType} from "../../../types/types";
 
-const ProfileInfo = ({profile, status, updateStatus, isOwner, goToEditMode}) => {
+type PropsType = {
+    profile: ProfileType
+    status: string
+    updateStatus: (status: string) => void
+    isOwner: boolean
+    goToEditMode: () => void
+}
+
+const ProfileInfo: React.FC<PropsType> = ({profile, status, updateStatus, isOwner, goToEditMode}) => {
 
     let [colorMode, setColorMode] = useState(false);
 
@@ -23,7 +31,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, goToEditMode}) => 
         setColorMode(false)
     };
 
-    const changeColor = (color) => {
+    const changeColor = (color: any) => {
         document.documentElement.style.setProperty('--color-block', `${color.hex}`);
         localStorage.setItem('colorBlock', String(color.hex))
         setColorMode(false)
@@ -33,11 +41,11 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, goToEditMode}) => 
         <div className={s.infoBlock} onDoubleClick={closeColorWindow}>
             {colorMode &&
             <div className={s.chooserColor}>
-                        <GithubPicker onChange={changeColor}
-                                      width={'215px'}
-                                      colors={['#d435b7', '#ff2600', '#ffd900', '#65d435', '#61dafb',
-                                          '#359ad4', '#6d57f6', '#3827a0']}/>
-                    </div>}
+                <GithubPicker onChange={changeColor}
+                              width={'215px'}
+                              colors={['#d435b7', '#ff2600', '#ffd900', '#65d435', '#61dafb',
+                                  '#359ad4', '#6d57f6', '#3827a0']}/>
+            </div>}
             <div className={s.mainInfo}>
                 {/*<input onChange={changeColor} type="color" id="color"/>*/}
                 <label className={s.colorBlock} onClick={openColorWindow}>
@@ -51,15 +59,16 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, goToEditMode}) => 
                 </div>
                 {isOwner && <button className={s.edit} onClick={goToEditMode}>Edit my profile</button>}
             </div>
-            {0
-                ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={1}
-                                   status={status} updateStatus={updateStatus}/>
-                : <ProfileData profile={profile}/>}
+            <ProfileData profile={profile}/>
         </div>
     )
 }
 
-const ProfileData = ({profile}) => {
+type ProfileDataPropsType = {
+    profile: ProfileType
+}
+
+const ProfileData: React.FC<ProfileDataPropsType> = ({profile}) => {
     return <div className={s.description}>
         <div>
             <p>About me</p>
@@ -75,16 +84,23 @@ const ProfileData = ({profile}) => {
         </div>}
 
         <div className={s.contactsList}>
-            {Object.keys(profile.contacts).map(key => {
-                return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
-            })}
+            {Object
+                .keys(profile.contacts)
+                .map(key => {
+                    return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key as keyof ContactsType]}/>
+                })}
         </div>
 
 
     </div>
 }
 
-const Contact = ({contactTitle, contactValue}) => {
+type ContactPropsType = {
+    contactTitle: string
+    contactValue: string
+}
+
+const Contact: React.FC<ContactPropsType> = ({contactTitle, contactValue}) => {
     if (contactValue) {
         return (
             <div className={s.contacts}>
@@ -131,10 +147,6 @@ const Contact = ({contactTitle, contactValue}) => {
     }
 }
 
-
-/*{Object.keys(profile.contacts).map(key => {
-    return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
-})}*/
 export default ProfileInfo;
 
 

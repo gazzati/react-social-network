@@ -1,31 +1,24 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import {follow, unfollow, requestUsers} from '../../redux/users-reducer';
+import { requestFriends, unfollow } from '../../redux/friends-reducer';
 import Friends from './Friends';
 import {compose} from "redux";
-import {
-    getCurrentPage,
-    getFollowingInProgress,
-    getIsFetching,
-    getPageSize,
-    getTotalUsersCount, getUsers
-} from "../../redux/users-selectors";
 import { UserType } from '../../types/types';
 import {AppStateType} from "../../redux/redux-store";
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 type MapStatePropsType = {
     currentPage: number
     pageSize: number
     isFetching: boolean
-    totalUsersCount: number
-    users: Array<UserType>
-    followingInProgress: Array<number>
+    totalFriendsCount: number
+    friends: Array<UserType>
+    unfollowingInProgress: Array<number>
 }
 
 type MapDispatchPropsType = {
-    getUsers: (currentPage: number, pageSize: number) => void
+    getFriends: (currentPage: number, pageSize: number) => void
     unfollow: (userId: number) => void
-    follow: (userId: number) => void
 }
 
 type OwnPropsType = { }
@@ -36,24 +29,23 @@ type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
 class FriendsContainer extends React.Component<PropsType> {
     componentDidMount() {
         const {currentPage, pageSize} = this.props;
-        this.props.getUsers(currentPage, pageSize);
+        this.props.getFriends(currentPage, pageSize);
     }
 
     onPageChanged = (pageNumber: number) => {
         const {pageSize} = this.props;
-        this.props.getUsers(pageNumber, pageSize);
+        this.props.getFriends(pageNumber, pageSize);
     }
 
     render() {
         return <>
-            <Friends totalUsersCount={this.props.totalUsersCount}
+            <Friends totalFriendsCount={this.props.totalFriendsCount}
                      pageSize={this.props.pageSize}
                      currentPage={this.props.currentPage}
                      onPageChanged={this.onPageChanged}
-                     users={this.props.users}
+                     users={this.props.friends}
                      unfollow={this.props.unfollow}
-                     follow={this.props.follow}
-                     followingInProgress={this.props.followingInProgress}
+                     unfollowingInProgress={this.props.unfollowingInProgress}
                      isFetching={this.props.isFetching}
             />
         </>
@@ -62,17 +54,16 @@ class FriendsContainer extends React.Component<PropsType> {
 
 let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
-        users: getUsers(state),
-        pageSize: getPageSize(state),
-        totalUsersCount: getTotalUsersCount(state),
-        currentPage: getCurrentPage(state),
-        isFetching: getIsFetching(state),
-        followingInProgress: getFollowingInProgress(state)
+        friends: state.friends.friends,
+        pageSize: state.friends.pageSize,
+        totalFriendsCount: state.friends.totalFriendsCount,
+        currentPage: state.friends.currentPage,
+        isFetching: state.friends.isFetching,
+        unfollowingInProgress: state.friends.unfollowingInProgress
     }
 }
 
 export default compose(
-    // TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, State = DefaultRootState
     connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>
-    (mapStateToProps, {follow, unfollow, getUsers: requestUsers}),
-    /*withAuthRedirect*/)(FriendsContainer)
+    (mapStateToProps, {unfollow, getFriends: requestFriends}),
+    withAuthRedirect)(FriendsContainer) as React.ComponentType

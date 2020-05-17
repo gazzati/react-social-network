@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux';
-import {follow, unfollow, requestUsers} from '../../redux/users-reducer';
+import {follow, unfollow, requestUsers, actions} from '../../redux/users-reducer';
 import Users from './Users';
 import {compose} from "redux";
 import {
@@ -23,41 +23,47 @@ type MapStatePropsType = {
 }
 
 type MapDispatchPropsType = {
-    getUsers: (currentPage: number, pageSize: number) => void
+    getUsers: (currentPage: number, pageSize: number, term: string) => void
     unfollow: (userId: number) => void
     follow: (userId: number) => void
+    resetCurrentPage: () => void
 }
 
 type OwnPropsType = { }
 
-
 type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
 
-class UsersContainer extends React.Component<PropsType> {
-    componentDidMount() {
-        const {currentPage, pageSize} = this.props;
-        this.props.getUsers(currentPage, pageSize);
+const UsersContainer: React.FC<PropsType> = (props) => {
+    let [searchRequest, setSearchRequest] = useState("");
+
+    useEffect(() => {
+        const {currentPage, pageSize} = props;
+        props.getUsers(currentPage, pageSize, searchRequest);
+    }, [searchRequest])
+
+    const onPageChanged = (pageNumber: number) => {
+        const {pageSize} = props;
+        props.getUsers(pageNumber, pageSize, searchRequest);
     }
 
-    onPageChanged = (pageNumber: number) => {
-        const {pageSize} = this.props;
-        this.props.getUsers(pageNumber, pageSize);
+    const searchUsers = (newSearchRequest: string) => {
+        setSearchRequest(newSearchRequest)
+        props.resetCurrentPage()
     }
 
-    render() {
         return <>
-            <Users totalUsersCount={this.props.totalUsersCount}
-                   pageSize={this.props.pageSize}
-                   currentPage={this.props.currentPage}
-                   onPageChanged={this.onPageChanged}
-                   users={this.props.users}
-                   unfollow={this.props.unfollow}
-                   follow={this.props.follow}
-                   followingInProgress={this.props.followingInProgress}
-                   isFetching={this.props.isFetching}
+            <Users totalUsersCount={props.totalUsersCount}
+                   pageSize={props.pageSize}
+                   currentPage={props.currentPage}
+                   onPageChanged={onPageChanged}
+                   users={props.users}
+                   unfollow={props.unfollow}
+                   follow={props.follow}
+                   followingInProgress={props.followingInProgress}
+                   isFetching={props.isFetching}
+                   searchUsers={searchUsers}
             />
         </>
-    }
 }
 
 let mapStateToProps = (state: AppStateType): MapStatePropsType => {
@@ -74,5 +80,5 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => {
 export default compose(
     // TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, State = DefaultRootState
     connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>
-    (mapStateToProps, {follow, unfollow, getUsers: requestUsers}),
+    (mapStateToProps, {follow, unfollow, getUsers: requestUsers, resetCurrentPage: actions.resetCurrentPage}),
     /*withAuthRedirect*/)(UsersContainer)

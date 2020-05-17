@@ -3,18 +3,24 @@ import s from './Navbar.module.css';
 import {NavLink} from 'react-router-dom';
 import {connect} from "react-redux";
 import {logout} from "../../redux/auth-reducer";
+import {AppStateType} from "../../redux/redux-store";
 
-const mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth,
-    login: state.auth.login
+const mapStateToProps = (state: AppStateType) => ({
+    isAuth: state.auth.isAuth
 });
 
 const closeNav = () => {
     document.documentElement.setAttribute('nav', 'none');
 }
 
-const Navbar = (props) => {
+type PropsType = {
+    isAuth: boolean
+    logout: () => void
+}
+
+const Navbar: React.FC<PropsType> = ({isAuth, logout}) => {
     return (
+        <span className="maxNavbar">
         <div className={s.nav} onClick={closeNav}>
             <NavLink to="/profile" className={s.link} activeClassName={s.activeItem}>
                 <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.998 18">
@@ -120,8 +126,8 @@ const Navbar = (props) => {
                 <span className={s.item}>Settings</span>
             </NavLink>
 
-            {props.isAuth &&
-            <div className={`${s.link} ${s.itemLogout}`} onClick={props.logout}>
+            {isAuth &&
+            <div className={`${s.link} ${s.itemLogout}`} onClick={logout}>
                 <svg fill="red" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 17.999 18">
                     <g transform="translate(-260 -554)">
                         <g transform="translate(260 554)">
@@ -136,6 +142,7 @@ const Navbar = (props) => {
             </div>}
 
         </div>
+        </span>
     )
 }
 

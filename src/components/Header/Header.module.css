@@ -29,17 +29,39 @@
     border: solid 2px #61dafb;
 }
 
-.functionLogout {
+.function {
     grid-area: func;
     width: 20px;
     cursor: pointer;
 }
 
-.functionExit {
-    display: none;
-    grid-area: func;
-    width: 20px;
+.dropdown {
+    position: fixed;
+    height: 130px;
+    width: 100px;
+    background-color: var(--body-bg-color);
+    border: black 1px solid;
+    border-radius: 2px;
+    padding: 10px;
+    top: 88px;
+    left: 84%;
+    text-align: right;
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+}
+
+.dropdown a{
     cursor: pointer;
+    color: var(--b-w-text-color);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.29;
+}
+
+.dropdown a:hover{
+    cursor: pointer;
+    background-color: var(--wrap-bg-color);
 }
 
 .login {
@@ -53,6 +75,7 @@
     color: #ffffff;
 }
 
+
 @media screen and (max-width: 600px) {
     .isAuthUserBlock {
         grid-template-columns: auto 45px 20px;
@@ -64,10 +87,7 @@
     .userPhoto {
         width: 45px;
     }
-    .functionLogout {
-        display: none;
-    }
-    .functionExit {
-        display: inline-block;
+    .dropdown {
+        top: 50px;
     }
 }

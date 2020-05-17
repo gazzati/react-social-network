@@ -125,6 +125,35 @@ nav {
     z-index: 9999;
 }
 
+.areaPosts{
+    grid-area: area;
+    resize: none;
+    width: 110%;
+    height: 40px;
+    border-radius: 25px 0 0 25px;
+    border: none;
+    background-color: var(--body-bg-color);
+    font-size: 14px;
+    padding-left: 15px;
+    outline: none;
+    display: inline-block;
+    color: var(--b-w-text-color)
+}
+
+.searchArea{
+    grid-area: area;
+    resize: none;
+    width: 110%;
+    height: 50px;
+    border-radius: 25px 0 0 25px;
+    border: none;
+    background-color: var(--body-bg-color);
+    font-size: 14px;
+    outline: none;
+    display: inline-block;
+    color: var(--b-w-text-color);
+    padding-left: 15px;
+}
 
 @media screen and (max-width: 900px) {
     .appWrapperContent {
@@ -164,6 +193,10 @@ nav {
 
     .miniNavbar {
         display: block;
+    }
+
+    .maxNavbar {
+        display: none;
     }
 
     .appWrapperContent {

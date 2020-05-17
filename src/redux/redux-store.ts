@@ -9,6 +9,7 @@ import {reducer as formReducer } from 'redux-form'
 import appReducer from "./app-reducer";
 import newsReducer from "./news-reducer";
 import settingsReducer from "./settings-reducer";
+import friendsReducer from "./friends-reducer";
 
 let rootReducer = combineReducers({
     profilePage: profileReducer,
@@ -19,14 +20,14 @@ let rootReducer = combineReducers({
     form: formReducer,
     app: appReducer,
     news: newsReducer,
-    settings: settingsReducer
+    settings: settingsReducer,
+    friends: friendsReducer
 });
 
 type RootReducerType = typeof rootReducer; // (globalstate: AppStateType) => AppStateType
 export type AppStateType = ReturnType<RootReducerType>
 
-type PropertiesTypes<T> = T extends {[key: string]: infer U} ? U : never
-export type InferActionsTypes<T extends {[key: string]: (...args: any[]) => any}> = ReturnType<PropertiesTypes<T>>
+export type InferActionsTypes<T> =  T extends {[key: string]: (...args: any[]) => infer U} ? U : never
 
 export type BaseThunkType<A extends Action, R = Promise<void>> = ThunkAction<R, AppStateType, unknown, A>
 

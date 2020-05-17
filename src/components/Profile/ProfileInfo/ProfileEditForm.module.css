@@ -241,8 +241,14 @@ p {
     line-height: 1.29;
     text-align: left;
     color: var(--b-w-text-color);
+
 }
 
+
+input {
+    background-color: var(--body-bg-color);
+    color: var(--b-w-text-color);
+}
 
 @media screen and (max-width: 600px){
     .editInfoBlock {

@@ -2,8 +2,18 @@ import React from 'react';
 import s from './Post.module.css';
 import userPhoto from "../../../../assets/images/user.png";
 import likeIcon from "../../../../assets/images/like.png";
+import {ProfileType} from "../../../../types/types";
 
-const Post = (props) => {
+type PropsType = {
+    message: string
+    likesCount: number
+    key: number
+    id: number
+    profile: ProfileType | null
+    addLikes: (id: number) => void
+}
+
+const Post: React.FC<PropsType>= (props) => {
     const onClick = () => {
         props.addLikes(props.id)
     }
@@ -11,8 +21,8 @@ const Post = (props) => {
     return (
         <div className={s.item}>
             <div className={s.user}>
-                <img className={s.userPhoto} src={props.profile.photos.large ? props.profile.photos.large : userPhoto} alt={""}/>
-                <span className={s.name}>{props.profile.fullName}</span>
+                <img className={s.userPhoto} src={props.profile && props.profile.photos.large || userPhoto} alt={""}/>
+                <span className={s.name}>{props.profile && props.profile.fullName}</span>
             </div>
 
             <div className={s.text}>

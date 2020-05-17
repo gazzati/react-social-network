@@ -1,27 +1,34 @@
 import React from 'react';
 import "./App.css";
-import Navbar from './components/Navbar/Navbar';
 import {/*BrowserRouter,*/ HashRouter, Route, Switch, withRouter} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
+import Navbar from './components/Navbar/Navbar';
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
+import FriendsContainer from "./components/Friends/FriendsContainer";
+import MiniNavbar from "./components/NavMini/MiniNavbar";
+import Settings from "./components/Settings/Settings";
+import MainIcon from "./components/MainIcon/MainIcon";
+import NewsContainer from "./components/News/NewsContainer";
 import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
-import store from "./redux/redux-store";
+import store, {AppStateType} from "./redux/redux-store";
 import {withSuspense} from "./hoc/withSuspense";
-import Settings from "./components/Settings/Settings";
-import NewsContainer from "./components/News/NewsContainer";
-import MainIcon from "./components/MainIcon/MainIcon";
 import {toggleBlackTheme} from "./redux/settings-reducer";
-import FriendsContainer from "./components/Friends/FriendsContainer";
-import MiniNavbar from "./components/NavMini/MiniNavbar";
-
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"))
+const SuspendedDialogs = withSuspense(DialogsContainer)
 
-class App extends React.Component {
+
+type MapPropsType = ReturnType<typeof mapStateToProps>
+type DispatchPropsType = {
+    initializeApp: () => void
+    toggleBlackTheme: (theme?: boolean) => void
+}
+
+class App extends React.Component<MapPropsType & DispatchPropsType> {
     componentDidMount() {
         /*if(!window.matchMedia) {
             //matchMedia method not supported
@@ -33,20 +40,18 @@ class App extends React.Component {
         this.props.toggleBlackTheme(localStorage.getItem('blackThemeButton') === 'true');
         document.documentElement.style.setProperty('--color-block', `${localStorage.getItem('colorBlock') || "#3827a0"}`);
         document.documentElement.setAttribute('nav', 'none');
-
         this.props.initializeApp()
     }
-
 
 
     render() {  /*if(!this.props.initialized){ return <Preloader />}*/
         return (
             <div className="mainPage">
-                <span className="icon"><MainIcon /></span>
-                <span className="userLog"><HeaderContainer /></span>
+                <span className="icon"><MainIcon/></span>
+                <span className="userLog"><HeaderContainer/></span>
                 <nav>
-                    <span className="miniNavbar"><MiniNavbar />  </span>
-                    <span><Navbar className="Navbar"/> </span>
+                    <MiniNavbar/>
+                    <Navbar/>
                 </nav>
                 <div className="appWrapperContent">
                     <Switch>
@@ -55,7 +60,7 @@ class App extends React.Component {
                         <Route path='/profile/:userId?'
                                render={() => <ProfileContainer/>}/>
                         <Route path='/dialogs'
-                               render={withSuspense(DialogsContainer)}/>
+                               render={() => <SuspendedDialogs/>}/>
                         <Route path='/users'
                                render={() => <UsersContainer/>}/>
                         <Route path='/friends'
@@ -73,18 +78,22 @@ class App extends React.Component {
     }
 }
 
-setTimeout(() => { if(localStorage.getItem('blackThemeButton') === 'true') {
-    document.documentElement.setAttribute("data-theme", "dark");
-}}, 300)
+setTimeout(() => {
+    if (localStorage.getItem('blackThemeButton') === 'true') {
+        document.documentElement.setAttribute("data-theme", "dark");
+    }
+}, 300)
 
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state: AppStateType) => ({
     initialized: state.app.initialized,
 })
 
-let AppContainer = compose(withRouter, connect(mapStateToProps, {initializeApp, toggleBlackTheme}))(App);
+let AppContainer = compose<React.ComponentType>(
+    withRouter,
+    connect(mapStateToProps, {initializeApp, toggleBlackTheme}))(App);
 
-const MainApp = (props) => {
+const MainApp: React.FC = () => {
     return <HashRouter>
         <Provider store={store}>
             <AppContainer/>

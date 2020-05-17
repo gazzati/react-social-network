@@ -4,41 +4,34 @@ import userPhoto from '../../assets/images/user.png'
 import {NavLink} from "react-router-dom";
 
 type PropsType = {
-    user: any
-    followingInProgress: Array<number>
+    friend: any
+    unfollowingInProgress: Array<number>
     unfollow: (userId: number) => void
-    follow: (userId: number) => void
 }
 
-let Friend: FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
+let Friend: FC<PropsType> = ({friend, unfollowingInProgress, unfollow}) => {
     return (
-        <div className={s.user}>
+        <div className={s.friend}>
             <div>
-                <NavLink to={'profile/' + user.id}>
-                    <img src={user.photos.small != null ? user.photos.small : userPhoto}
+                <NavLink to={'profile/' + friend.id}>
+                    <img src={friend.photos.small != null ? friend.photos.small : userPhoto}
                          className={s.photo} alt={""}/>
                 </NavLink>
             </div>
-            <div className={s.fol}>
-                {user.followed
-                    ? <button disabled={followingInProgress.some(id => id === user.id)}
-                              className={s.unfollow}
-                              onClick={() => {
-                                  unfollow(user.id)
-                              }}>
-                        Unfollow</button>
-
-                    : <button disabled={followingInProgress.some(id => id === user.id)}
-                              className={s.follow}
-                              onClick={() => {
-                                  follow(user.id)
-                              }}>
-                        Follow</button>}
-            </div>
             <div className={s.descriptionUser}>
-                <div className={s.name}>{user.name}</div>
-                <div>{user.status}</div>
+                <div className={s.name}>{friend.name}</div>
+                <div>{friend.status}</div>
             </div>
+
+            <button disabled={unfollowingInProgress.some(id => id === friend.id)}
+                    className={s.delete}
+                    onClick={() => {
+                        unfollow(friend.id)
+                    }}>
+                Delete
+            </button>
+
+
         </div>)
 }
 

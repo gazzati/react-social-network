@@ -10,7 +10,7 @@ type PropsType = {
     follow: (userId: number) => void
 }
 
-let User: FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
+const User: FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
     return (
         <div className={s.userContainer}>
             <div className={s.user}>

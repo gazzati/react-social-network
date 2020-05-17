@@ -4,6 +4,7 @@ import User from './User'
 import Paginator from '../common/Paginator/Paginator'
 import {UserType} from '../../types/types'
 import Preloader from "../common/Preloader/Preloader";
+import SearchUsers, {SearchUsersValuesType} from "./SearchUsers";
 
 type PropsType = {
     totalUsersCount: number
@@ -15,23 +16,32 @@ type PropsType = {
     unfollow: (userId: number) => void
     follow: (userId: number) => void
     isFetching: boolean
+    searchUsers: (newSearchRequest: string) => void
 }
 
-let Users: FC<PropsType> = ({currentPage, totalUsersCount, pageSize,
-                                onPageChanged,  users, isFetching,
-                                ...props}) => {
+let Users: FC<PropsType> = (props) => {
+    const onSearch = (values: SearchUsersValuesType) => {
+        props.searchUsers(values.newSearchRequest);
+    }
+
     return <div className={s.users}>
-        <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
-                   totalItemsCount={totalUsersCount} pageSize={pageSize}/>
-        {isFetching ? <span><Preloader/></span> : null}
+        {props.isFetching ? <span><Preloader/></span> : null}
+        <div className={s.search}>
+            <h3>Find other users</h3>
+            <SearchUsers onSubmit={onSearch} />
+        </div>
         <div className={s.usersBlock}>
-            {users.map(u => <User user={u}
+            {props.users.map(u => <User user={u}
                                   followingInProgress={props.followingInProgress}
                                   unfollow={props.unfollow}
                                   follow={props.follow}
                                   key={u.id}
                 />
             )}
+        </div>
+        <div className={s.pag}>
+            <Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged}
+                         totalItemsCount={props.totalUsersCount} pageSize={props.pageSize}/>
         </div>
     </div>
 }

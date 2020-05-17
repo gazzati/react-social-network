@@ -3,7 +3,12 @@ import s from './DialogItem.module.css'
 import {NavLink} from "react-router-dom";
 import userPhoto from "../../../assets/images/user.png";
 
-const DialogItem = (props) => {
+type PropsType = {
+    id: number
+    name: string
+}
+
+const DialogItem: React.FC<PropsType> = (props) => {
     return (
         <div className={s.item}>
             <img

@@ -57,7 +57,7 @@
 
     }
     .paginatorElements {
-        width: 200px;
+        width: 240px;
         grid-template-columns: repeat(auto-fill, 25px);
         grid-column-gap: 5px;
     }

@@ -4,13 +4,18 @@ import cn from "classnames"
 import {connect} from "react-redux"
 import {toggleBlackTheme} from "../../redux/settings-reducer"
 import {compose} from "redux";
+import {AppStateType} from "../../redux/redux-store";
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state: AppStateType) => ({
     isBlackThemeActivated: state.settings.isBlackThemeActivated
 })
 
+type PropsType = {
+    isBlackThemeActivated: boolean
+    toggleBlackTheme: (theme: boolean) => void
+}
 
-const Settings = ({isBlackThemeActivated, toggleBlackTheme}) => {
+const Settings: React.FC<PropsType> = ({isBlackThemeActivated, toggleBlackTheme}) => {
 
     const func = () => {
         if(!isBlackThemeActivated){

@@ -2,7 +2,6 @@ import React from 'react';
 import s from './MainIcon.module.css';
 import reactIcon from "./../../assets/images/reactIcon.png"
 import {NavLink} from "react-router-dom";
-import navIcon from "../../assets/images/nav.svg";
 
 const MainIcon = () => {
 

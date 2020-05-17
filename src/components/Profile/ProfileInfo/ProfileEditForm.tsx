@@ -1,19 +1,29 @@
 import React from "react";
 import s from './ProfileEditForm.module.css';
-import {createField, Input} from "../../common/FormsControls/FormsControls";
-import {reduxForm} from "redux-form";
+import {createField, GetStringKeys, Input} from "../../common/FormsControls/FormsControls";
+import {InjectedFormProps, reduxForm} from "redux-form";
 import style from "../../common/FormsControls/FormsControls.module.css";
 import userPhoto from "../../../assets/images/user.png";
+import {ProfileType} from "../../../types/types";
 
+type PropsType = {
+    profile: ProfileType
+    isOwner: boolean
+    savePhoto: (photo: File) => void
+    exitOfEditMode: () => void
+}
 
-const ProfileEditForm = ({handleSubmit, profile, error, isOwner, savePhoto, exitOfEditMode}) => {
+type ProfileTypeKeys = GetStringKeys<ProfileType>
 
-    const onMainPhotoSelected = (e) => {
-        if (e.target.files.length) {
+const ProfileEditForm: React.FC<InjectedFormProps<ProfileType, PropsType> & PropsType> = ({handleSubmit, profile
+                                                                                              , error, isOwner,
+                                                                                              savePhoto, exitOfEditMode}) => {
+
+    const onMainPhotoSelected = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files.length) {
             savePhoto(e.target.files[0]);
         }
     }
-
 
     return (
         <form className={s.editInfoBlock} onSubmit={handleSubmit}>
@@ -32,7 +42,7 @@ const ProfileEditForm = ({handleSubmit, profile, error, isOwner, savePhoto, exit
                 </span>
                 <div className={s.name}>
                     <p>Edit name</p>
-                    {createField("Full name", "fullName", [], Input, {'height': '40px', 'width': '100%'})}
+                    {createField<ProfileTypeKeys>("Full name", "fullName", [], Input, {'height': '40px', 'width': '100%'})}
 
                 </div>
             </span>
@@ -41,20 +51,20 @@ const ProfileEditForm = ({handleSubmit, profile, error, isOwner, savePhoto, exit
                 <h3>Edit information</h3>
                 <span className={s.aboutMe}>
                     <p>Edit info</p>
-                    {createField("About me", "aboutMe", [], Input, {'height': '40px', 'width': '100%'})}
+                    {createField<ProfileTypeKeys>("About me", "aboutMe", [], Input, {'height': '40px', 'width': '100%'})}
                 </span>
 
                 <span className={s.checkbox}>
                     <p>Do you want a find a job?</p>
                     <span>
-                        {createField("", "lookingForAJob", [], Input, {
+                        {createField<ProfileTypeKeys>("", "lookingForAJob", [], Input, {
                         }, {type: "checkbox"})}
                     </span>
                 </span>
 
                 <span className={s.skills}>
                     <p>Edit skills</p>
-                    {createField("My professional skills", "lookingForAJobDescription", [], Input, {
+                    {createField<ProfileTypeKeys>("My professional skills", "lookingForAJobDescription", [], Input, {
                         'height': '40px',
                         'width': '100%'
                     },)}
@@ -66,7 +76,7 @@ const ProfileEditForm = ({handleSubmit, profile, error, isOwner, savePhoto, exit
                 <h3>Edit contacts</h3>
                 <span className={s.cont}>
                     {Object.keys(profile.contacts).map(key => {
-                        if (key !== 'website' & key !== 'mainLink')
+                        if (key !== 'website' && key !== 'mainLink')
                             return <div key={key}>
                                 <div className={s.contactKey}>{key}</div>
                                 <div
@@ -94,6 +104,6 @@ const ProfileEditForm = ({handleSubmit, profile, error, isOwner, savePhoto, exit
     )
 }
 
-const ProfileDataFormReduxForm = reduxForm({form: 'edit-profile'})(ProfileEditForm);
+const ProfileDataReduxForm = reduxForm<ProfileType, PropsType>({form: 'edit-profile'})(ProfileEditForm);
 
-export default ProfileDataFormReduxForm;
+export default ProfileDataReduxForm;

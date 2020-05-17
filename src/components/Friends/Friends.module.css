@@ -1,43 +1,46 @@
-.users {
-    background-color: var(--wrap-bg-color);
+.friendsBlock {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
-    padding: 3.5%;
 }
 
-.user {
-    max-width: 100%;
-    height: 0.5fr;
-    max-height: 100%;
-    border-bottom: #61dafb 1px solid;
-
-
+.friends {
     display: grid;
-    grid-template-areas: "p d f";
-    grid-template-columns: 0.2fr 1fr 0.1fr;
-    grid-gap: 5px;
-    align-items: center;
+    grid-template-columns: repeat(auto-fill, 25%);
+    grid-row-gap: 18px;
+}
+
+.friend {
+    background: linear-gradient(to top, var(--wrap-bg-color) 72%, var(--color-block) 28%);
+    border-radius: 10px;
+    width: 93%;
+    height: 230px;
+    display: grid;
+    justify-items: center;
+    grid-template-areas: "photo" "desc" "button";
+    grid-template-rows: 100px 90px 30px;
+    padding-bottom: 10px;
 }
 
 .pag {
-
+    height: 50px;
+    margin-top: 20px;
 }
 
 .photo {
-    grid-area: p;
-    width: 90%;
-    min-width: 60px;
-}
-
-.fol {
-    grid-area: f;
+    grid-area: photo;
+    width: 70px;
+    height: 70px;
+    margin-top: 28px;
+    border: solid 2px #61dafb;
+    border-radius: 40px;
+    background-color: var(--b-w-text-color);
 }
 
 .descriptionUser {
-    grid-area: d;
-    margin-top: 20px;
-    height: 90px;
+    grid-area: desc;
+    text-align: center;
+    cursor: default;
+    color: var(--b-w-text-color);
 }
 
 .name {
@@ -45,31 +48,42 @@
     font-weight: bold;
 }
 
-.follow{
-    background-color: #61dafb;
-    width: 72px;
+.delete {
+    grid-area: button;
+    width: 80px;
     height: 30px;
-    border: #61dafb 1px solid;
-    border-radius: 7px;
-    font-size: 18px;
-    cursor: pointer;
+    border-radius: 24px;
+    background-color: #6d57f6;
     outline: none;
-}
+    border: none;
 
-.unfollow {
-    background-color: black;
-    color: #61dafb;
-    width: 72px;
-    height: 30px;
-    border: black 1px solid;
-    border-radius: 7px;
-    font-size: 18px;
-    cursor: pointer;
-    outline: none;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29;
+    text-align: center;
+    color: #ffffff;
 }
 
 @media screen and (max-width: 600px){
-    .user {
-        margin: 0 10px;
+    .friends {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 50%);
+        grid-row-gap: 4px;
+    }
+    .friend {
+        background: linear-gradient(to top, var(--wrap-bg-color) 72%, var(--color-block) 28%);
+        border-radius: 10px;
+        width: 98%;
+        height: 230px;
+        display: grid;
+        justify-items: center;
+        grid-template-areas: "photo" "desc" "button";
+        grid-template-rows: 100px 90px 30px;
+        padding-bottom: 10px;
+    }
+    .pag {
+        height: 70px;
+        margin-left: 15%;
     }
 }

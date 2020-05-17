@@ -70,6 +70,7 @@
     line-height: 1.29;
     text-align: left;
     color: var(--1a122d-w-text-color);
+    overflow:hidden
 }
 
 .edit {
@@ -150,6 +151,15 @@
     color: var(--9d9aa8-w-text-color);
     font-size: 8px;
 }
+
+.statusEdit input{
+    all: initial;
+    border: 1px #d8d6dc solid;
+    cursor: pointer;
+    color: var(--9d9aa8-w-text-color);
+}
+
+
 
 @media screen and (max-width: 600px){
     .infoBlock {
