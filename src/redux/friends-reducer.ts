@@ -6,7 +6,7 @@ import {ResultCodeEnum} from "../api/api";
 
 let initialState = {
     friends: [] as Array<UserType>,
-    pageSize: 10,
+    pageSize: 8,
     totalFriendsCount: 0,
     currentPage: 1,
     isFetching: true,

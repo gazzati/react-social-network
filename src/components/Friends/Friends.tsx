@@ -4,6 +4,8 @@ import Paginator from '../common/Paginator/Paginator'
 import {UserType} from '../../types/types'
 import Preloader from "../common/Preloader/Preloader";
 import Friend from "./Friend";
+import {Redirect} from "react-router-dom";
+import DialogsContainer from "../Dialogs/DialogsContainer";
 
 type PropsType = {
     totalFriendsCount: number
@@ -14,9 +16,17 @@ type PropsType = {
     unfollowingInProgress: Array<number>
     unfollow: (userId: number) => void
     isFetching: boolean
+    startDialog: (userId: number) => void
+    getAllDialogs: () => void
+    getMessages: (userId: number) => void
 }
 
 let Friends: FC<PropsType> = (props) => {
+    const onSendMessage = (id: number) => {
+        props.startDialog(id)
+        props.getAllDialogs()
+        props.getMessages(id)
+    }
     return <div className={s.friendsBlock}>
         {props.isFetching ? <Preloader/> : null}
         <div className={s.friends}>
@@ -24,6 +34,7 @@ let Friends: FC<PropsType> = (props) => {
                                                         unfollowingInProgress={props.unfollowingInProgress}
                                                         unfollow={props.unfollow}
                                                         key={f.id}
+                                                        onSendMessage={onSendMessage}
                 />
             )}
         </div>

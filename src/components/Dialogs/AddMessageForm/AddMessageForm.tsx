@@ -23,17 +23,16 @@ const AddMessageForm: React.FC<InjectedFormProps<NewMessageFormValuesType, Props
     return (
         <form onSubmit={props.handleSubmit}
               onKeyDown={(e) => handleKeyDown(e, props.handleSubmit)}>
-            <div>
+            <div className={s.form}>
                 {createField<NewMessageFormValuesKeysType>(
                     "Enter your message",
                         "newMessageBody",
-                        [required, maxLength50],
+                        [],
                         Textarea,
-                        {'height': '70px', 'width': '80%', 'margin': '20px 0 5px 0'})}
-            </div>
-            <div>
+                    {}, {className: "sendMessageArea"})}
                 <button className={s.button}>Send</button>
             </div>
+
         </form>)
 }
 

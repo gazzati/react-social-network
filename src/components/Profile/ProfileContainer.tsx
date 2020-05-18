@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, {useEffect, useState} from 'react';
 import Profile from "./Profile";
 import ProfileEditForm from "./ProfileInfo/ProfileEditForm";
 import {connect} from "react-redux";
@@ -25,86 +25,68 @@ type PathParamsType = {
 }
 
 type PropsType = MapPropsType & DispatchPropsType & RouteComponentProps<PathParamsType>
-type ThisState = {
-    editMode:  boolean
-}
 
-class ProfileContainer extends React.Component<PropsType, ThisState> {
-    constructor(props: any) {
-        super(props);
-        this.state = {editMode: false};
-        this.goToEditMode = this.goToEditMode.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-        this.exitOfEditMode = this.exitOfEditMode.bind(this);
+const ProfileContainer: React.FC<PropsType> = (props) => {
+    let [editMode, setEditMode] = useState(false);
+
+    const exitOfEditMode = () => {
+        setEditMode(false)
     }
 
-    exitOfEditMode() {
-        this.setState({editMode: false})
+    const goToEditMode = () => {
+        setEditMode(true)
     }
 
-    goToEditMode() {
-        this.setState({editMode: true})
-    }
-
-    onSubmit(formData: ProfileType) {
+    const onSubmit = (formData: ProfileType) => {
         // todo: remove then
-        this.props.saveProfile(formData).then(
-            () => this.setState({editMode: false})
+        props.saveProfile(formData).then(
+            () => exitOfEditMode
         )
     }
-    refreshProfile() { //общая часть didMount и didUpdate
-        let userId: number | null = +this.props.match.params.userId;
+
+    useEffect(() => {
+        let userId: number | null = +props.match.params.userId;
         if (!userId) {
-            userId = this.props.authorizedUserId;
+            userId = props.authorizedUserId;
             if (!userId) {
-                this.props.history.push("/login")
+                props.history.push("/login")
             }
         }
 
-        if(!userId) {
+        if (!userId) {
             console.error("ID should exists in URI params or in state ('authorizedUserId')");
         } else {
-            this.props.getUserProfile(userId)
-            this.props.getStatus(userId)
+            props.getUserProfile(userId)
+            props.getStatus(userId)
         }
-    }
+    }, [props.authorizedUserId])
 
-    componentDidMount() {
-        this.refreshProfile()
-    }
 
-    componentDidUpdate(prevProps: PropsType) {
-        if (this.props.match.params.userId !== prevProps.match.params.userId) {
-            this.refreshProfile()
-        }
-    }
+    return (
+        <div>
+            {props.isFetching && <Preloader/>}
+            {
+                editMode ?
 
-    render() {
-        return (
-            <div>
-                {this.props.isFetching && <Preloader/>}
-                {
-                    this.state.editMode ?
+                    <ProfileEditForm
+                        initialValues={props.profile as ProfileType}
+                        profile={props.profile as ProfileType}
+                        onSubmit={onSubmit}
+                        savePhoto={props.savePhoto}
+                        exitOfEditMode={exitOfEditMode}
+                        isOwner={!props.match.params.userId}/>
+                    : <Profile {...props}
 
-                        <ProfileEditForm
-                                        initialValues={this.props.profile as ProfileType}
-                                        profile={this.props.profile as ProfileType}
-                                        onSubmit={this.onSubmit}
-                                        savePhoto={this.props.savePhoto}
-                                        exitOfEditMode={this.exitOfEditMode}
-                                        isOwner={!this.props.match.params.userId}/>
-                        : <Profile {...this.props}
+                               isOwner={!props.match.params.userId}
+                               profile={props.profile}
+                               status={props.status}
+                               updateStatus={props.updateStatus}
+                               goToEditMode={goToEditMode}
+                    />
+            }
+        </div>
+    )
 
-                                   isOwner={!this.props.match.params.userId}
-                                   profile={this.props.profile}
-                                   status={this.props.status}
-                                   updateStatus={this.props.updateStatus}
-                                   goToEditMode={this.goToEditMode}
-                        />
-                }
-            </div>
-        )
-    }
 }
 
 

@@ -6,6 +6,7 @@ import {compose} from "redux";
 import { UserType } from '../../types/types';
 import {AppStateType} from "../../redux/redux-store";
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import {actions, getAllDialogs, getMessages, startDialog} from "../../redux/dialogs-reducer";
 
 type MapStatePropsType = {
     currentPage: number
@@ -14,11 +15,15 @@ type MapStatePropsType = {
     totalFriendsCount: number
     friends: Array<UserType>
     unfollowingInProgress: Array<number>
+
 }
 
 type MapDispatchPropsType = {
     getFriends: (currentPage: number, pageSize: number) => void
     unfollow: (userId: number) => void
+    startDialog: (userId: number) => void
+    getAllDialogs: () => void
+    getMessages: (userId: number) => void
 }
 
 type OwnPropsType = { }
@@ -47,6 +52,9 @@ class FriendsContainer extends React.Component<PropsType> {
                      unfollow={this.props.unfollow}
                      unfollowingInProgress={this.props.unfollowingInProgress}
                      isFetching={this.props.isFetching}
+                     startDialog={this.props.startDialog}
+                     getAllDialogs={this.props.getAllDialogs}
+                     getMessages={this.props.getMessages}
             />
         </>
     }
@@ -65,5 +73,6 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => {
 
 export default compose(
     connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>
-    (mapStateToProps, {unfollow, getFriends: requestFriends}),
+    (mapStateToProps, {unfollow, getFriends: requestFriends, startDialog: startDialog,
+        getAllDialogs: getAllDialogs, getMessages: getMessages}),
     withAuthRedirect)(FriendsContainer) as React.ComponentType

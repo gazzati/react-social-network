@@ -1,15 +1,16 @@
 import React, {FC} from 'react';
 import s from "./Friends.module.css";
 import userPhoto from '../../assets/images/user.png'
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 
 type PropsType = {
     friend: any
     unfollowingInProgress: Array<number>
     unfollow: (userId: number) => void
+    onSendMessage: (userId: number) => void
 }
 
-let Friend: FC<PropsType> = ({friend, unfollowingInProgress, unfollow}) => {
+let Friend: FC<PropsType> = ({friend, unfollowingInProgress, unfollow, onSendMessage}) => {
     return (
         <div className={s.friend}>
             <div>
@@ -22,15 +23,20 @@ let Friend: FC<PropsType> = ({friend, unfollowingInProgress, unfollow}) => {
                 <div className={s.name}>{friend.name}</div>
                 <div>{friend.status}</div>
             </div>
-
-            <button disabled={unfollowingInProgress.some(id => id === friend.id)}
-                    className={s.delete}
-                    onClick={() => {
-                        unfollow(friend.id)
-                    }}>
-                Delete
-            </button>
-
+            <span className={s.button}>
+                <button disabled={unfollowingInProgress.some(id => id === friend.id)}
+                        className={s.delete}
+                        onClick={() => {
+                            unfollow(friend.id)
+                        }}>
+                    Delete
+                </button>
+                <NavLink onClick={() => { onSendMessage(friend.id)}} className={s.sendMessage} to={"/dialogs"}>
+                    <button className={s.sendMessage}>
+                        Send message
+                    </button>
+                </NavLink>
+            </span>
 
         </div>)
 }

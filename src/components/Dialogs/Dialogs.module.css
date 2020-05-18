@@ -1,21 +1,85 @@
 .dialogs {
-    padding: 3.5%;
+    padding: 2%;
     background-color: var(--wrap-bg-color);
     width: 100%;
-    height: 100%;
+    height: 515px;
     border-radius: 10px;
 
     display: grid;
-    grid-template-areas: "i . m ." ;
-    grid-template-columns: 160px auto 200px auto;
+    grid-template-areas: "i m" ;
+    grid-template-columns: 190px auto ;
+    grid-gap: 20px;
 }
 
-.dialogsItems{
+.dialogsItems {
     grid-area: i;
-    width: 10em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 480px;
 }
+
+.dialogsItems::-webkit-scrollbar {
+    width: 4px;
+}
+
+.item {
+    outline: none;
+    border-radius: 10px;
+    border: solid 1px #6d57f6;
+    background-color: var(--body-bg-color);
+    height: 50px;
+    width: 160px;
+
+
+    display: grid;
+    grid-template-areas: "i d";
+    grid-template-columns: 50px auto;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.activeDialogItem {
+    background-color:  #6d57f6;
+}
+
+.item div {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.29;
+    color: var(--b-w-text-color);
+    outline: none;
+}
+
+.item img {
+    width: 40px;
+    grid-area: i;
+    border: solid 2px #61dafb;
+    border-radius: 25px;
+    margin-left: 5px;
+}
+
+.userName a:hover{
+    color: #6d57f6;
+}
+
 .messages {
+    height: 100%;
+
     grid-area: m;
+    display: grid;
+    grid-template-areas: "messagesBlock" "formBlock";
+    grid-template-rows: auto 60px;
+}
+
+.messagesBlock {
+    grid-area: messagesBlock;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 30px);
+    align-items: end;
+    align-self: end;
 }
 
 .message {
@@ -26,32 +90,62 @@
     color: var(--b-w-text-color);
     outline: none;
     margin: 10px 0;
-    width: 80%;
+
 }
 
+.myMessage {
+    text-align: right;
+}
+
+.formBlock {
+    grid-area: formBlock;
+}
+
+.form {
+    height: 50px;
+    align-self: end;
+
+    display: grid;
+    grid-template-areas: "area but";
+    grid-template-columns: 89% 11%;
+}
 
 .button {
-    width: 70px;
-    height: 30px;
-    border-radius: 20px;
-    border: solid 1px #6d57f6;
+    grid-area: but;
+    width: 100%;
+    height: 50px;
     background-color: #6d57f6;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    outline: none;
     font-family: Montserrat;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.29;
-    text-align: center;
     color: #ffffff;
-    outline: none;
+    display: inline-block;
 }
 
 @media screen and (max-width: 600px) {
     .dialogs {
-        grid-template-areas: "i  m" ;
-        grid-template-columns: 120px 200px;
-        grid-gap: 30px;
+        grid-gap: 5px;
+        grid-template-columns: 95px auto ;
+    }
+    .item {
+        width: 85px;
+        grid-template-columns: 0 auto;
 
-        padding: 2%;
+    }
+    .item div {
+        font-size: 10px;
+        margin-left: 5px;
     }
 
+    .item img {
+        display: none;
+    }
+    .form {
+        grid-template-columns: 70% 30%;
+    }
 }

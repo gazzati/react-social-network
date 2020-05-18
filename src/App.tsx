@@ -17,10 +17,10 @@ import {initializeApp} from "./redux/app-reducer";
 import store, {AppStateType} from "./redux/redux-store";
 import {withSuspense} from "./hoc/withSuspense";
 import {toggleBlackTheme} from "./redux/settings-reducer";
+import Preloader from "./components/common/Preloader/Preloader";
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"))
 const SuspendedDialogs = withSuspense(DialogsContainer)
-
 
 type MapPropsType = ReturnType<typeof mapStateToProps>
 type DispatchPropsType = {
@@ -40,11 +40,14 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
         this.props.toggleBlackTheme(localStorage.getItem('blackThemeButton') === 'true');
         document.documentElement.style.setProperty('--color-block', `${localStorage.getItem('colorBlock') || "#3827a0"}`);
         document.documentElement.setAttribute('nav', 'none');
+        if (localStorage.getItem('blackThemeButton') === 'true') {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
         this.props.initializeApp()
     }
 
 
-    render() {  /*if(!this.props.initialized){ return <Preloader />}*/
+    render() {  if(!this.props.initialized){ return <Preloader />}
         return (
             <div className="mainPage">
                 <span className="icon"><MainIcon/></span>
@@ -77,13 +80,6 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
         )
     }
 }
-
-setTimeout(() => {
-    if (localStorage.getItem('blackThemeButton') === 'true') {
-        document.documentElement.setAttribute("data-theme", "dark");
-    }
-}, 300)
-
 
 let mapStateToProps = (state: AppStateType) => ({
     initialized: state.app.initialized,

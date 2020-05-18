@@ -27,7 +27,6 @@ const Header: React.FC<PropsType> = ({isAuth, profile, logout}) => {
     }
 
     return <div className={s.userBlock}>
-        <Redirect to="/login"/>
         {isAuth
             ? <span className={s.isAuthUserBlock}>
                     <span className={s.userLogName}>{name}</span>
