@@ -5,18 +5,11 @@
     padding-left: 3.5%;
     padding-top: 20px;
     background-color: var(--wrap-bg-color);
-
-    display: grid;
-    grid-template-areas: "l b" ". .";
-    grid-template-columns: 120px auto;
-    grid-template-rows: 30px auto;
-    align-items: center;
-
-
+    display: flex;
+    margin-bottom: 50px;
 }
 
 .button {
-    grid-area: b;
     margin-top: 25px;
     display: inline-block;
     width: 45px; /* ширина */
@@ -50,18 +43,7 @@
 }
 
 .label {
-    grid-area: l;
-    font-family: Montserrat;
     line-height: 1.29;
-    margin: 25px 0 0 5px;
+    margin: 25px 10px 0 5px;
     color: var(--b-w-text-color);
 }
-
-@media screen and (max-width: 600px) {
-
-    .settings {
-        height: 380px;
-    }
-
-}
-

@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './MiniNavbar.module.css';
+import s from './Navbar.module.css';
 import {NavLink} from 'react-router-dom';
 import {connect} from "react-redux";
 import {logout} from "../../redux/auth-reducer";

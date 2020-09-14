@@ -1,28 +1,25 @@
 .paginator {
-    height: 35px;
-    display: grid;
-    justify-items: center;
+    margin-top: 20px;
+    display: flex;
 }
 
-.paginatorElements {
-    max-width: 300px;
-    display: grid;
-
-    grid-template-columns: repeat(auto-fill, 36px);
-    grid-column-gap: 8px;
-    justify-content: center;
+.container {
+    height: 35px;
+    margin: 0 auto;
+    display: flex;
 }
 
 .pageNumber {
     cursor: pointer;
     text-align: center;
-    padding-top: 18%;
     height: 29px;
+    padding-top: 6px;
     border-radius: 10px;
     background-color: #ffffff;
     outline: none;
+    width: 40px;
+    margin: 0 4px;
 
-    font-family: Montserrat;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.29;
@@ -33,18 +30,12 @@
     background-color: #6d57f6;
 }
 
-.paginator span {
-    margin-left: 8px;
-    max-width: 45px;
-}
-
 .button {
     max-width: 45px;
     cursor: pointer;
     outline: none;
     color: #61dafb;
-    display: inline-block;
-    margin: 0 -8px;
+    margin: -6px 4px 0;
 }
 
 .buttonHidden {
@@ -53,24 +44,19 @@
 
 @media screen and (max-width: 600px) {
     .paginator {
-        height: 25px;
-
-    }
-    .paginatorElements {
-        width: 240px;
-        grid-template-columns: repeat(auto-fill, 25px);
-        grid-column-gap: 5px;
+        height: 20px;
+        margin-bottom: 80px;
+        margin-top: 10px;
     }
     .pageNumber {
-        height: 25px;
+        height: 20px;
         border-radius: 7px;
+        width: 30px;
+        padding-top: 2px;
+        margin: 0 2px;
     }
     .button {
-        height: 25px;
-        margin: 0 -14px;
+        height: 20px;
+        margin: 0 2px 0;
     }
-    .paginator span {
-        margin-left: 14px;
-    }
-
 }

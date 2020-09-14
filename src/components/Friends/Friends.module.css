@@ -4,21 +4,20 @@
 }
 
 .friends {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 25%);
-    grid-row-gap: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .friend {
     background: linear-gradient(to top, var(--wrap-bg-color) 72%, var(--color-block) 28%);
     border-radius: 10px;
-    width: 93%;
+    width: 24%;
     height: 230px;
-    display: grid;
-    justify-items: center;
-    grid-template-areas: "photo" "desc" "buttons";
-    grid-template-rows: 100px 90px 30px;
-    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .pag {
@@ -27,7 +26,6 @@
 }
 
 .photo {
-    grid-area: photo;
     width: 70px;
     height: 70px;
     margin-top: 28px;
@@ -36,23 +34,21 @@
     background-color: var(--b-w-text-color);
 }
 
-.descriptionUser {
-    grid-area: desc;
-    text-align: center;
-    cursor: default;
-    color: var(--b-w-text-color);
-}
-
 .name {
     font-size: 20px;
     font-weight: bold;
 }
 
+.descriptionUser {
+    text-align: center;
+    cursor: default;
+    color: var(--b-w-text-color);
+    height: 70px;
+}
+
 .button {
-    grid-area: buttons;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-gap: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .sendMessage {
@@ -62,15 +58,13 @@
     background-color: #6d57f6;
     outline: none;
     border: none;
-    margin-bottom: 5px;
+    padding: 6px 15px;
 
-    font-family: Montserrat;
-    font-size: 10px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 400;
     line-height: 1.29;
     text-align: center;
     color: #ffffff;
-
 }
 
 .delete {
@@ -80,29 +74,34 @@
     outline: none;
     border: solid 1px #6d57f6;
     background-color: #ffffff;
+    padding: 5px 10px;
+    margin-right: 10px;
 
-
-    font-family: Montserrat;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.29;
     text-align: center;
     color: #6d57f6;
-
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 900px){
     .friends {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 50%);
-        grid-row-gap: 4px;
+        justify-content: left;
     }
     .friend {
-        background: linear-gradient(to top, var(--wrap-bg-color) 72%, var(--color-block) 28%);
-        border-radius: 10px;
-        width: 98%;
-        height: 230px;
+        width: 31%;
+        margin: 0 10px 10px 0;
+    }
+}
 
+@media screen and (max-width: 700px){
+    .friends {
+        justify-content: space-around;
+    }
+    .friend {
+        width: 49%;
+        height: 230px;
+        margin: 0 0 6px 0;
     }
     .pag {
         height: 70px;

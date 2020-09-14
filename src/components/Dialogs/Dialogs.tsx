@@ -27,22 +27,24 @@ const Dialogs: React.FC<PropsType> = (props) => {
         props.getAllDialogs()
     }, [props.dialogsPage.messages])
 
+
     let dialogsElements = props.dialogsPage.dialogs.map(d =>
-        <span onClick={() => chooseDialog(d.id)} >
+        <span onClick={() => chooseDialog(d.id)} key={d.id}>
             <DialogItem name={d.userName} key={d.id} id={d.id} photo={d.photos.large} currentDialog={currentDialog}
                         hasNewMessage={d.hasNewMessages} newMessagesCount={d.newMessagesCount}/>
-        </span>);
+        </span>)
 
-    let messagesElements = props.dialogsPage.messages.map(m => <Message isItMe={props.authorizedUserId === m.senderId} message={m.body} key={m.id}/>);
+    let messagesElements = props.dialogsPage.messages.map(m => <Message isItMe={props.authorizedUserId === m.senderId} message={m.body} key={m.id}/>)
 
     useEffect(() => {
         dialogsElements = props.dialogsPage.dialogs.map(d =>
             <span onClick={() => chooseDialog(d.id)} >
             <DialogItem name={d.userName} key={d.id} id={d.id} photo={d.photos.large} currentDialog={currentDialog}
                         hasNewMessage={d.hasNewMessages} newMessagesCount={d.newMessagesCount}/>
-        </span>);
+        </span>)
 
-        messagesElements = props.dialogsPage.messages.map(m => <Message isItMe={props.authorizedUserId === m.senderId} message={m.body} key={m.id}/>);
+        messagesElements = props.dialogsPage.messages.map(m => <Message isItMe={props.authorizedUserId === m.senderId} message={m.body} key={m.id}/>)
+
 
     }, [props.dialogsPage.messages, props.dialogsPage.dialogs])
 
@@ -51,13 +53,11 @@ const Dialogs: React.FC<PropsType> = (props) => {
         setCurrentDialog(id)
     }
 
-
     let addNewMessage = (values: {newMessageBody: string}) => {
         props.sendMessage(currentDialog, values.newMessageBody)
         props.getMessages(currentDialog)
-        values.newMessageBody = "";
+        values.newMessageBody = ""
     }
-
 
     return (
         <div className={s.dialogs}>
@@ -66,8 +66,8 @@ const Dialogs: React.FC<PropsType> = (props) => {
                 {dialogsElements}
             </div>
             {currentDialog !== 0 &&<div className={s.messages}>
-                <div className={s.messagesBlock}>{messagesElements}</div>
-                 <span className={s.formBlock}><AddMessageForm onSubmit={addNewMessage}/></span>
+                <ul className={s.messagesBlock}>{messagesElements.length ? messagesElements : <div className={s.noMessages}>No messages</div>}</ul>
+                 <AddMessageForm onSubmit={addNewMessage}/>
             </div>}
         </div>
     )

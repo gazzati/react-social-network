@@ -18,7 +18,6 @@
 .title {
     width: 156px;
     height: 36px;
-    font-family: Montserrat;
     font-size: 16px;
     font-weight: bold;
     line-height: 1.06;
@@ -34,7 +33,6 @@
 }
 
 .userLogName {
-    font-family: Montserrat;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.29;
@@ -56,36 +54,76 @@
     margin-left: 5px;
 }
 
-.dropdown {
-    position: fixed;
-    height: 130px;
-    width: 100px;
+.popup {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #000;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+}
+
+.content {
+    position: absolute;
+    z-index: 300;
+    border-radius: 10px;
     background-color: var(--body-bg-color);
-    border: black 1px solid;
-    border-radius: 2px;
-    padding: 10px;
-    top: 88px;
-    left: 84%;
-    text-align: right;
-    display: grid;
-    grid-template-columns: repeat(1, 100%);
+    top: 220px;
+    left: calc(50% - 100px);
+    padding: 25px 20px;
 }
 
-.dropdown a{
+.night {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.exit {
+    color: red
+}
+
+.button {
+    display: inline-block;
+    width: 45px; /* ширина */
+    height: 24px; /* высота */
+    border-radius: 19px; /* радиус скругления */
+    background: #bfbfbf; /* цвет фона */
+    z-index: 0;
+    border: none;
     cursor: pointer;
-    color: var(--b-w-text-color);
-    font-size: 16px;
-    font-weight: 500;
+    position: relative;
+    transition-duration: 300ms; /* анимация */
+
+}
+.button::after {
+    content: "";
+    height: 20px; /* высота кнопки */
+    width: 20px; /* ширина кнопки */
+    border-radius: 17px;
+    background: #fff; /* цвет кнопки */
+    top: 2px; /* положение кнопки по вертикали относительно основы */
+    left: 3px; /* положение кнопки по горизонтали относительно основы */
+    transition-duration: 300ms; /* анимация */
+    position: absolute;
+    z-index: 1;
+}
+.switchOn {
+    background: #6d57f6;
+}
+.switchOn::after {
+    left: 23px;
+}
+
+.label {
     line-height: 1.29;
-}
-
-.dropdown a:hover{
-    cursor: pointer;
-    background-color: var(--wrap-bg-color);
+    margin-right: 10px;
+    color: var(--b-w-text-color);
 }
 
 .login {
-    font-family: Montserrat;
     font-size: 18px;
     font-weight: 600;
     line-height: 1.29;
@@ -96,10 +134,13 @@
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1440px) {
     .headerWrap {
-        margin: 0 5px;
+        margin: 0 10px;
     }
+}
+
+@media screen and (max-width: 600px) {
     .logo {
         width: 45px;
         margin-top: 5px;
@@ -112,9 +153,5 @@
     }
     .function {
         display: block;
-    }
-    .dropdown {
-        top: 50px;
-        left: 77%;
     }
 }

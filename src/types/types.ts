@@ -47,3 +47,19 @@ export type NewsType = {
     publishedAt: string
     source: SourceType
 }
+
+export type DialogType = {
+    hasNewMessages: boolean
+    newMessagesCount: number
+    id: number
+    photos: PhotosType
+    userName: string
+}
+export type MessageType = {
+    id: string
+    body: string
+    viewed: boolean
+    recipientId: number
+    senderId: number
+    senderName: string
+}

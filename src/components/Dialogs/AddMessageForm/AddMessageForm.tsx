@@ -13,7 +13,7 @@ type PropsType = {}
 const AddMessageForm: React.FC<InjectedFormProps<NewMessageFormValuesType, PropsType> & PropsType>
     = (props) => {
 
-    let handleKeyDown =  (e: any, cb: any) => {
+    let handleKeyDown = (e: any, cb: any) => {
         if (e.key === 'Enter' && e.shiftKey === false) {
             e.preventDefault();
             cb();
@@ -21,17 +21,15 @@ const AddMessageForm: React.FC<InjectedFormProps<NewMessageFormValuesType, Props
     };
 
     return (
-        <form onSubmit={props.handleSubmit}
+        <form className={s.form} onSubmit={props.handleSubmit}
               onKeyDown={(e) => handleKeyDown(e, props.handleSubmit)}>
-            <div className={s.form}>
-                {createField<NewMessageFormValuesKeysType>(
-                    "Enter your message",
-                        "newMessageBody",
-                        [],
-                        Textarea,
-                    {}, {className: "sendMessageArea"})}
-                <button className={s.button}>Send</button>
-            </div>
+            {createField<NewMessageFormValuesKeysType>(
+                "Enter your message",
+                "newMessageBody",
+                [],
+                Textarea,
+                {}, {className: "sendMessageArea"})}
+            <button className={s.button}>Send</button>
 
         </form>)
 }

@@ -39,10 +39,8 @@ let Users: FC<PropsType> = (props) => {
                 />
             )}
         </div>
-        <div className={s.pag}>
-            <Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged}
-                         totalItemsCount={props.totalUsersCount} pageSize={props.pageSize}/>
-        </div>
+        <Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged}
+                   totalItemsCount={props.totalUsersCount} pageSize={props.pageSize}/>
     </div>
 }
 

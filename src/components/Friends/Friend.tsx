@@ -32,9 +32,7 @@ let Friend: FC<PropsType> = ({friend, unfollowingInProgress, unfollow, onSendMes
                     Delete
                 </button>
                 <NavLink onClick={() => { onSendMessage(friend.id)}} className={s.sendMessage} to={"/dialogs"}>
-                    <button className={s.sendMessage}>
-                        Send message
-                    </button>
+                    Chat
                 </NavLink>
             </span>
 

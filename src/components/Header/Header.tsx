@@ -5,14 +5,17 @@ import userPhoto from "../../assets/images/user.png";
 import userLogIcon from "../../assets/images/userLogIcon.png";
 import {ProfileType} from "../../types/types";
 import reactIcon from "../../assets/images/reactIcon.png";
+import cn from "classnames";
 
 export type PropsType = {
     isAuth: boolean
     profile: ProfileType | null
     logout: () => void
+    isBlackThemeActivated: boolean
+    toggleBlackTheme: (theme: boolean) => void
 }
 
-const Header: React.FC<PropsType> = ({isAuth, profile, logout}) => {
+const Header: React.FC<PropsType> = ({isAuth, profile, logout, isBlackThemeActivated, toggleBlackTheme}) => {
 
     let [photo, setPhoto] = useState(profile && profile.photos.large);
     let [name, setName] = useState(profile && profile.fullName);
@@ -25,6 +28,20 @@ const Header: React.FC<PropsType> = ({isAuth, profile, logout}) => {
 
     const showUserMenu = () => {
         setShowMenu(!showMenu)
+    }
+
+    const func = () => {
+        if(!isBlackThemeActivated){
+            toggleBlackTheme(!isBlackThemeActivated)
+            document.documentElement.setAttribute("data-theme", "dark");
+            localStorage.setItem('blackThemeButton', String(!isBlackThemeActivated))
+        }
+        else {
+            toggleBlackTheme(!isBlackThemeActivated)
+            localStorage.setItem('blackThemeButton', String(!isBlackThemeActivated))
+            document.documentElement.setAttribute('data-theme', 'light')
+
+        }
     }
 
     return <div className={s.headerWrap}>
@@ -41,16 +58,21 @@ const Header: React.FC<PropsType> = ({isAuth, profile, logout}) => {
                     <img className={s.userPhoto}
                          src={photo ? photo : userPhoto} alt=""/>
                         <img className={s.function} src={userLogIcon} alt="" onClick={showUserMenu}/>
-                    {showMenu &&
-                    <div className={s.dropdown} onClick={showUserMenu}>
-                        <NavLink to="/settings" className={s.link}>Settings</NavLink>
-                        <a onClick={logout}>Exit</a>
-                    </div>}
 
                 </span>
                 : <NavLink to={'/login'} className={s.login}>Log in</NavLink>}
 
         </div>
+        {showMenu && <>
+            <div className={s.popup} onClick={showUserMenu}> </div>
+            <div className={s.content}>
+                <div className={s.night}>
+                    <span className={s.label}>Night theme</span>
+                    <span onClick={func} className={cn({[s.switchOn]: isBlackThemeActivated}, s.button)}> </span>
+                </div>
+                <a className={s.exit} onClick={logout}>Exit from account</a>
+            </div>
+        </>}
     </div>
 }
 

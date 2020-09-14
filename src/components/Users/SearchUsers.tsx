@@ -21,16 +21,13 @@ const SearchUsers: React.FC<InjectedFormProps<SearchUsersValuesType, PropsType> 
     };
 
     return (
-        <form onSubmit={props.handleSubmit}
-              onKeyDown={(e) => handleKeyDown(e, props.handleSubmit)}>
-            <div className={s.form} >
-                { createField<SearchUsersValuesTypeKeys>(
-                    "Enter your request...",
-                    'newSearchRequest',
-                    [],
-                    Input, {}, {className: "searchArea"}) }
-                <button className={s.button}>Search</button>
-            </div>
+        <form className={s.form} onSubmit={props.handleSubmit} onKeyDown={(e) => handleKeyDown(e, props.handleSubmit)}>
+            {createField<SearchUsersValuesTypeKeys>(
+                "Enter your request...",
+                'newSearchRequest',
+                [],
+                Input, {}, {className: "searchArea"})}
+            <button className={s.button}>Search</button>
         </form>
     )
 }

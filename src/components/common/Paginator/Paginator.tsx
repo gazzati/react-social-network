@@ -15,7 +15,8 @@ type PropsType = {
 let Paginator: React.FC<PropsType> = ({
                                           totalItemsCount, pageSize,
                                           currentPage = 1,
-                                          onPageChanged = () => {},
+                                          onPageChanged = () => {
+                                          },
                                           portionSize = 5
                                       }) => {
 
@@ -32,38 +33,27 @@ let Paginator: React.FC<PropsType> = ({
     let rightPortionPageNumber = portionNumber * portionSize;
 
 
-    return <span className={cn(styles.paginator)}>
-        <div className={styles.paginatorElements}>
-            {<img src={leftArrowIcon} alt=""
-
-                  className={portionNumber > 1 ? styles.button :  styles.buttonHidden }
-                  onClick={() => {
-                      setPortionNumber(portionNumber - 1)
-                  }}/>
-            }
+    return <div className={cn(styles.paginator)}>
+        <div className={styles.container}>
+            <img src={leftArrowIcon} alt="" className={portionNumber > 1 ? styles.button : styles.buttonHidden}
+                 onClick={() => {
+                     setPortionNumber(portionNumber - 1)
+                 }}/>
             {pages
                 .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
                 .map((p) => {
-                    return <div className={cn({
-                        [styles.selectedPage]: currentPage === p
-                    }, styles.pageNumber)}
+                    return <div className={cn({[styles.selectedPage]: currentPage === p}, styles.pageNumber)}
                                 key={p}
-                                onClick={(e) => {
-                                    onPageChanged(p);
-                                }}>{p}</div>
+                                onClick={(e) => {onPageChanged(p);}}>
+                        {p}
+                    </div>
                 })}
             {portionCount > portionNumber &&
-
-            <span>
-                      <img src={rightArrowIcon} alt=""
-                           className={styles.button}
-                           onClick={() => {
-                               setPortionNumber(portionNumber + 1)
-                           }}/>
-                    </span>
+            <img src={rightArrowIcon} alt="" className={styles.button}
+                 onClick={() => {setPortionNumber(portionNumber + 1)}}/>
             }
         </div>
-    </span>
+    </div>
 }
 
 

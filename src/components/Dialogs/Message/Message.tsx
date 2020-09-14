@@ -10,7 +10,7 @@ const Message: React.FC<PropsType> = (props) => {
     let className = props.isItMe ? `${s.message} ${s.myMessage}` : s.message
 
     return (
-        <div className={className}>{props.message}</div>
+        <li className={className}>{props.message}</li>
     )
 }
 

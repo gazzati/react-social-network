@@ -12,17 +12,14 @@
 }
 
 .link {
-    display: grid;
+    display: flex;
     margin-top: 40px;
-    grid-template-areas: "ico label";
-    grid-template-columns: 18px auto;
     align-items: center;
-    grid-gap: 4.6%;
 }
 
 .link svg {
-    grid-area: ico;
-    width: 100%;
+    width: 18px;
+    margin-right: 5px;
     fill: #9d9aa8;
 }
 
@@ -31,8 +28,6 @@
 }
 
 .item {
-    grid-area: label;
-    font-family: Montserrat;
     max-width: 150px;
     height: 18px;
     font-size: 14px;
@@ -57,19 +52,43 @@
     cursor: pointer;
 }
 
+.miniNavbar {
+    height: 51px;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    background-color: var(--head-bg-color);
+    border-top: 1px var(--mininav-border-color) solid;
+    position: fixed;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.li svg {
+    width: 20px;
+    height: 20px;
+    fill: #9d9aa8;
+    outline: none;
+}
+
+.activeLi svg{
+    fill: #6d57f6;
+}
+
+@media screen and (max-width: 900px) {
+    .navbar {
+        margin-right: 10px;
+    }
+}
+
+
 @media screen and (max-width: 600px) {
     .navbar {
         display: none;
     }
-    .li {
-        align-self: center;
-    }
-    .li svg {
-        width: 30px;
-        height: 30px;
-        fill: #9d9aa8;
-    }
-    .activeLi svg{
-        fill: #6d57f6;
+    .miniNavbar {
+        display: flex;
     }
 }

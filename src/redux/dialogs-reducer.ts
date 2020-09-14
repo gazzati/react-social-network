@@ -1,22 +1,6 @@
 import {BaseThunkType, InferActionsTypes} from "./redux-store";
 import {dialogsAPI} from "../api/dialogs-api";
-import {PhotosType} from "../types/types";
-
-type DialogType = {
-    hasNewMessages: boolean
-    newMessagesCount: number
-    id: number
-    photos: PhotosType
-    userName: string
-}
-type MessageType = {
-    id: string
-    body: string
-    viewed: boolean
-    recipientId: number
-    senderId: number
-    senderName: string
-}
+import {DialogType, MessageType} from "../types/types";
 
 let initialState = {
     dialogs: [] as Array<DialogType>,
@@ -47,15 +31,15 @@ export const actions = {
 }
 
 export const startDialog = (userId: number): ThunkType => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         dispatch(actions.toggleIsFetching(true))
-        let data = await dialogsAPI.startDialog(userId)
+        await dialogsAPI.startDialog(userId)
         dispatch(actions.toggleIsFetching(false))
     }
 }
 
 export const getAllDialogs = (): ThunkType => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         dispatch(actions.toggleIsFetching(true))
         let data = await dialogsAPI.getAllDialogs()
         dispatch(actions.setDialogs(data));
@@ -64,7 +48,7 @@ export const getAllDialogs = (): ThunkType => {
 }
 
 export const getMessages = (userId: number): ThunkType => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         dispatch(actions.toggleIsFetching(true))
         let data = await dialogsAPI.getMessages(userId)
         dispatch(actions.setMessages(data.items))
@@ -73,9 +57,9 @@ export const getMessages = (userId: number): ThunkType => {
 }
 
 export const sendMessage = (userId: number, message: string): ThunkType => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         dispatch(actions.toggleIsFetching(true))
-        let data = await dialogsAPI.sendMessage(userId, message)
+        await dialogsAPI.sendMessage(userId, message)
         dispatch(actions.toggleIsFetching(false))
     }
 }
