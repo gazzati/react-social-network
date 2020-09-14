@@ -1,6 +1,10 @@
-.nav {
-    margin-left: 12%;
-    margin-bottom: 20px;
+.navbar {
+    height: 515px;
+    border-radius: 10px;
+    background-color: var(--wrap-bg-color);
+    width: 280px;
+    margin-right: 20px;
+    padding: 0 40px 40px;
 }
 
 .miniNav {
@@ -53,32 +57,18 @@
     cursor: pointer;
 }
 
-
-
 @media screen and (max-width: 600px) {
-    .nav {
+    .navbar {
         display: none;
     }
-    .miniNav {
-        margin-left: 0;
-        margin-bottom: 0;
-        display: grid;
-        grid-template-columns: repeat(5, 20%);
-        grid-row-gap: 10%;
-        justify-items: center;
-        padding-top: 5px;
-    }
-
     .li {
         align-self: center;
     }
-
     .li svg {
         width: 30px;
         height: 30px;
         fill: #9d9aa8;
     }
-
     .activeLi svg{
         fill: #6d57f6;
     }

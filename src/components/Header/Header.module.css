@@ -1,38 +1,59 @@
-.userBlock {
+.headerWrap {
+    max-width: var(--wrap-size);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
 
+.mainIcon {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.title {
+    width: 156px;
+    height: 36px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.06;
+    color: #ffffff;
+    text-align: left;
 }
 
 .isAuthUserBlock {
-    display: grid;
-    grid-template-areas: "userName photo func";
-    grid-template-columns: auto 48px 20px;
-    grid-gap: 20px;
+    margin-top: 5px;
+    display: flex;
     align-items: center;
-    justify-items: right;
+    justify-content: right;
 }
 
-
 .userLogName {
-    grid-area: userName;
     font-family: Montserrat;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.29;
     text-align: right;
     color: #ffffff;
+    margin-right: 10px;
 }
 
 .userPhoto {
-    grid-area: photo;
     width: 48px;
     border-radius: 24px;
     border: solid 2px #61dafb;
 }
 
 .function {
-    grid-area: func;
+    display: none;
     width: 20px;
     cursor: pointer;
+    margin-left: 5px;
 }
 
 .dropdown {
@@ -53,7 +74,6 @@
 .dropdown a{
     cursor: pointer;
     color: var(--b-w-text-color);
-    font-family: Montserrat;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.29;
@@ -65,27 +85,33 @@
 }
 
 .login {
-    display: grid;
-    align-self: center;
     font-family: Montserrat;
     font-size: 18px;
     font-weight: 600;
     line-height: 1.29;
     text-align: right;
     color: #ffffff;
+    display: block;
+    margin-top: 16px;
 }
 
 
 @media screen and (max-width: 600px) {
-    .isAuthUserBlock {
-        grid-template-columns: auto 45px 20px;
-        grid-gap: 10px;
+    .headerWrap {
+        margin: 0 5px;
     }
-    .userLogName {
+    .logo {
+        width: 45px;
+        margin-top: 5px;
+    }
+    .userLogName, .title {
         display: none;
     }
     .userPhoto {
         width: 45px;
+    }
+    .function {
+        display: block;
     }
     .dropdown {
         top: 50px;

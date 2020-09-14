@@ -4,6 +4,7 @@ import {NavLink, Redirect} from "react-router-dom";
 import userPhoto from "../../assets/images/user.png";
 import userLogIcon from "../../assets/images/userLogIcon.png";
 import {ProfileType} from "../../types/types";
+import reactIcon from "../../assets/images/reactIcon.png";
 
 export type PropsType = {
     isAuth: boolean
@@ -26,22 +27,30 @@ const Header: React.FC<PropsType> = ({isAuth, profile, logout}) => {
         setShowMenu(!showMenu)
     }
 
-    return <div className={s.userBlock}>
-        {isAuth
-            ? <span className={s.isAuthUserBlock}>
+    return <div className={s.headerWrap}>
+        <div className={s.mainIcon}>
+            <NavLink to="/profile/" >
+                <img src={reactIcon} alt={""} className={s.logo}/>
+            </NavLink>
+            <p className={s.title}>GAZZATI <br/> SOCIAL NETWORK</p>
+        </div>
+        <div className={s.userBlock}>
+            {isAuth
+                ? <span className={s.isAuthUserBlock}>
                     <span className={s.userLogName}>{name}</span>
                     <img className={s.userPhoto}
                          src={photo ? photo : userPhoto} alt=""/>
                         <img className={s.function} src={userLogIcon} alt="" onClick={showUserMenu}/>
-                        {showMenu &&
-                        <div className={s.dropdown} onClick={showUserMenu}>
-                            <NavLink to="/settings" className={s.link}>Settings</NavLink>
-                            <a onClick={logout}>Exit</a>
-                        </div>}
+                    {showMenu &&
+                    <div className={s.dropdown} onClick={showUserMenu}>
+                        <NavLink to="/settings" className={s.link}>Settings</NavLink>
+                        <a onClick={logout}>Exit</a>
+                    </div>}
 
                 </span>
-            : <NavLink to={'/login'} className={s.login}>Log in</NavLink>}
+                : <NavLink to={'/login'} className={s.login}>Log in</NavLink>}
 
+        </div>
     </div>
 }
 

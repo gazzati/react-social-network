@@ -13,9 +13,7 @@ const mapStateToProps = (state: AppStateType) => ({
 
 const MiniNavbar = () => {
     return (
-        <span className="miniNavbar">
-        <div className={s.miniNav}>
-
+        <div className={s.miniNavbar}>
              <NavLink to="/news" className={s.li} activeClassName={s.activeLi}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
                     <path className="a"
@@ -94,7 +92,6 @@ const MiniNavbar = () => {
             </NavLink>
 
         </div>
-        </span>
     )
 }
 

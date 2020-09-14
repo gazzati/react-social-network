@@ -9,7 +9,6 @@ import LoginPage from "./components/Login/Login";
 import FriendsContainer from "./components/Friends/FriendsContainer";
 import MiniNavbar from "./components/NavMini/MiniNavbar";
 import Settings from "./components/Settings/Settings";
-import MainIcon from "./components/MainIcon/MainIcon";
 import NewsContainer from "./components/News/NewsContainer";
 import {connect, Provider} from "react-redux";
 import {compose} from "redux";
@@ -47,34 +46,36 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
     }
 
 
-    render() {  if(!this.props.initialized){ return <Preloader />}
+    render() {
+        if (!this.props.initialized) {
+            return <Preloader/>
+        }
         return (
             <div className="mainPage">
-                <span className="icon"><MainIcon/></span>
-                <span className="userLog"><HeaderContainer/></span>
-                <nav>
+                <div className="header"><HeaderContainer/></div>
+                <div className="container">
                     <MiniNavbar/>
                     <Navbar/>
-                </nav>
-                <div className="appWrapperContent">
-                    <Switch>
-                        <Route exact path='/login'
-                               render={() => <LoginPage/>}/>
-                        <Route path='/profile/:userId?'
-                               render={() => <ProfileContainer/>}/>
-                        <Route path='/dialogs'
-                               render={() => <SuspendedDialogs/>}/>
-                        <Route path='/users'
-                               render={() => <UsersContainer/>}/>
-                        <Route path='/friends'
-                               render={() => <FriendsContainer/>}/>
-                        <Route exact path='/settings'
-                               render={() => <Settings/>}/>
-                        <Route path='/news'
-                               render={() => <NewsContainer/>}/>
-                        <Route path='*'
-                               render={() => <ProfileContainer/>}/>
-                    </Switch>
+                    <div className="appWrapperContent">
+                        <Switch>
+                            <Route exact path='/login'
+                                   render={() => <LoginPage/>}/>
+                            <Route path='/profile/:userId?'
+                                   render={() => <ProfileContainer/>}/>
+                            <Route path='/dialogs'
+                                   render={() => <SuspendedDialogs/>}/>
+                            <Route path='/users'
+                                   render={() => <UsersContainer/>}/>
+                            <Route path='/friends'
+                                   render={() => <FriendsContainer/>}/>
+                            <Route exact path='/settings'
+                                   render={() => <Settings/>}/>
+                            <Route path='/news'
+                                   render={() => <NewsContainer/>}/>
+                            <Route path='*'
+                                   render={() => <ProfileContainer/>}/>
+                        </Switch>
+                    </div>
                 </div>
             </div>
         )

@@ -7,11 +7,7 @@ import {AppStateType} from "../../redux/redux-store";
 
 const mapStateToProps = (state: AppStateType) => ({
     isAuth: state.auth.isAuth
-});
-
-const closeNav = () => {
-    document.documentElement.setAttribute('nav', 'none');
-}
+})
 
 type PropsType = {
     isAuth: boolean
@@ -20,8 +16,7 @@ type PropsType = {
 
 const Navbar: React.FC<PropsType> = ({isAuth, logout}) => {
     return (
-        <span className="maxNavbar">
-        <div className={s.nav} onClick={closeNav}>
+        <div className={s.navbar}>
             <NavLink to="/profile" className={s.link} activeClassName={s.activeItem}>
                 <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.998 18">
                     <g transform="translate(-260.001 -148)">
@@ -140,9 +135,7 @@ const Navbar: React.FC<PropsType> = ({isAuth, logout}) => {
                 </svg>
                 <span className={s.item}>Exit from account</span>
             </div>}
-
         </div>
-        </span>
     )
 }
 

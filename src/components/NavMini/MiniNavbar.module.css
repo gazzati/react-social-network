@@ -1,7 +1,12 @@
-.miniNav {
-    margin-left: 0;
-    margin-bottom: 0;
-    display: grid;
+.miniNavbar {
+    border-top: 1px var(--mininav-border-color) solid;
+    height: 51px;
+    top: calc(100% - 40px);
+    width: 100vw;
+    background-color: var(--head-bg-color);
+    position: fixed;
+    bottom: 0;
+    display: none;
     grid-template-columns: repeat(5, 20%);
     justify-items: center;
     padding-top: 10px;
@@ -20,4 +25,10 @@
 
 .activeLi svg{
     fill: #6d57f6;
+}
+
+@media screen and (max-width: 600px) {
+    .miniNavbar {
+        display: grid;
+    }
 }

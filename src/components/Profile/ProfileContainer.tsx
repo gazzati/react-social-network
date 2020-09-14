@@ -40,7 +40,7 @@ const ProfileContainer: React.FC<PropsType> = (props) => {
     const onSubmit = (formData: ProfileType) => {
         // todo: remove then
         props.saveProfile(formData).then(
-            () => exitOfEditMode
+            () => exitOfEditMode()
         )
     }
 
