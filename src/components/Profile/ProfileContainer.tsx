@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Profile from "./Profile";
-import ProfileEditForm from "./ProfileInfo/ProfileEditForm";
+import ProfileEditForm from "./ProfileEditForm/ProfileEditForm";
 import {connect} from "react-redux";
 import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from "../../redux/profile-reducer";
 import {compose} from "redux";

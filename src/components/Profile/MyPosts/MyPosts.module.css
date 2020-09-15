@@ -1,12 +1,10 @@
 .postsBlock{
-    grid-area: posts;
-    padding: 40px 3.5% 0 3.5%;
+    padding: 40px;
     background-color: var(--wrap-bg-color);
     border-radius: 10px;
 }
 
 h3 {
-    font-family: Montserrat;
     font-size: 20px;
     font-weight: 600;
     line-height: 1.2;
@@ -15,18 +13,19 @@ h3 {
 }
 
 .form {
-    height: 40px;
+    height: 50px;
     margin: 20px 0 30px 0;
+    display: flex;
+}
 
-    display: grid;
-    grid-template-areas: "area but";
-    grid-template-columns: 89% 11%;
+.form span {
+    width: 92%;
 }
 
 .button {
-    grid-area: but;
-    width: 100%;
-    height: 40px;
+    width: 100px;
+    margin-left: 33px;
+    height: 50px;
     background-color: #6d57f6;
     border-radius: 25px;
     border: none;
@@ -37,11 +36,11 @@ h3 {
     display: inline-block;
 }
 
-
-
-@media screen and (max-width: 600px){
-    .form {
-        grid-template-columns: 80% 20%;
+@media screen and (max-width: 900px) {
+    .postsBlock{
+        padding: 20px;
+    }
+    .button {
+        margin-left: 0;
     }
 }
-

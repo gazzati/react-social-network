@@ -1,29 +1,17 @@
 .item {
-  margin-bottom: 30px;
   border-top: #d8d6dc 1px solid;
 
-  display: grid;
-  grid-template-areas: "user user"
-                       ". text"
-                       ". likes";
-  grid-template-rows: 60px auto 20px;
-  grid-template-columns: calc(40px + 1%) auto;
+  display: flex;
+  flex-direction: column;
 }
-
 
 .user {
   margin-top: 10px;
-
-  grid-area: user;
-  display: grid;
-  grid-template-areas: "userPhoto name";
-  grid-template-columns: 40px auto;
-  grid-column-gap: 1%;
+  display: flex;
   align-items: center;
 }
 
 .userPhoto {
-  grid-area: userPhoto;
   width: 40px;
   height: 40px;
   border: solid 2px #61dafb;
@@ -31,24 +19,21 @@
 }
 
 .name {
-  grid-area: name;
-  font-family: Montserrat;
   color: var(--b-w-text-color);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.19;
   text-align: left;
+  margin-left: 10px;
 }
 
-
-.date {
-
+.bottomBlock {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 10px 10px 50px;
 }
-
 
 .text {
-  grid-area: text;
-  font-family: Montserrat;
   font-size: 14px;
   line-height: 1.29;
   text-align: left;
@@ -56,19 +41,12 @@
 }
 
 .likes {
-  grid-area: likes;
   cursor: pointer;
-  margin-top: 20px;
-
-  display: grid;
-  grid-template-areas: "c l";
-  grid-template-columns: 17px auto;
+  display: flex;
   align-items: center;
 }
 
 .likeCount {
-  grid-area: c;
-  font-family: Montserrat;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.29;
@@ -78,8 +56,7 @@
 }
 
 .likes img {
-  grid-area: l;
+  margin-left: 5px;
   width: 18px;
   height: 16px;
 }
-

@@ -15,6 +15,7 @@
     display: flex;
     margin-top: 40px;
     align-items: center;
+    min-width: 100px;
 }
 
 .link svg {
@@ -55,10 +56,11 @@
 .miniNavbar {
     height: 51px;
     bottom: 0;
-    z-index: 2;
-    width: 100%;
+    z-index: 5;
+    width: 100vw;
     background-color: var(--head-bg-color);
     border-top: 1px var(--mininav-border-color) solid;
+    border-bottom: 4px var(--head-bg-color) solid;
     position: fixed;
     display: none;
     justify-content: space-around;

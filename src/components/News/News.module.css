@@ -59,7 +59,6 @@ a {
     line-height: 1.25;
     text-align: left;
     color: #6d57f6;
-
 }
 
 .description {
@@ -74,7 +73,6 @@ a {
 .newItem .info {
     grid-area: info;
     align-self: end;
-
     display: grid;
     grid-template-areas: "publish date";
 }

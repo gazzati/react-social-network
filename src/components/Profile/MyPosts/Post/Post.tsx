@@ -24,16 +24,15 @@ const Post: React.FC<PropsType>= (props) => {
                 <img className={s.userPhoto} src={props.profile && props.profile.photos.large || userPhoto} alt={""}/>
                 <span className={s.name}>{props.profile && props.profile.fullName}</span>
             </div>
-
-            <div className={s.text}>
-                {props.message && props.message}
+            <div className={s.bottomBlock}>
+                <div className={s.text}>
+                    {props.message && props.message}
+                </div>
+                <div className={s.likes} onClick={onClick}>
+                    <span className={s.likeCount}>{props.likesCount}</span>
+                    <img src={likeIcon} alt=""/>
+                </div>
             </div>
-            <div className={s.likes} onClick={onClick}>
-                <span className={s.likeCount}>{props.likesCount}</span>
-                <img src={likeIcon} alt=""/>
-            </div>
-
-
         </div>
     )
 }

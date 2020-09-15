@@ -1,30 +1,37 @@
-.infoBlock {
-    grid-area: infoBlock;
+.profile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
-    display: grid;
-    grid-template-areas: "mainInfo description";
-    grid-template-columns: 34% 64.3%;
-    grid-gap: 1.7%;
+.infoBlock {
+    margin-bottom: 20px;
+    display: flex;
+    height: 300px;
 }
 
 .mainInfo {
-    grid-area: mainInfo;
-    padding: 0 0 10px 10%;
+    width: 28%;
     border-radius: 10px;
-    display: grid;
-    grid-template-areas: "mainPhoto label" "name name" "status status" "edit edit";
-    grid-template-columns: 50% 50%;
-    height: 300px;
+    padding: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     background: linear-gradient(to top, var(--wrap-bg-color) 73%, var(--color-block) 27%);
 }
 
 .colorBlock {
-    grid-area: label;
-    height: 62%;
-    width: 220%;
-    justify-self: right;
+    position: absolute;
+    height: 27%;
+    width: 100%;
     background-color: rgba(255, 0, 0, 0);
     cursor: pointer;
+
+    z-index: 1;
+    left: 0;
+    top: 0;
+    border-radius: 10px 10px 0 0;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .chooserColor {
@@ -32,18 +39,17 @@
     width: 100px;
     position: absolute;
     top: 180px;
-    left: 46%;
+    left: 35%;
+    z-index: 3;
 }
 
 .mainPhoto {
-    grid-area: mainPhoto;
-
     border-radius: 40px;
-    margin: 40px 0 0 0;
     width: 80px;
     height: 80px;
     border: #61dafb 2px solid;
     background-color: white;
+    z-index: 2;
 }
 
 .mainInfo input {
@@ -51,10 +57,7 @@
 }
 
 .name {
-    grid-area: name;
-
-    margin: 20px 0 0 0;
-    font-family: Montserrat;
+    margin: 10px 0 0 0;
     color: var(--b-w-text-color);
     font-size: 20px;
     font-weight: 600;
@@ -63,26 +66,21 @@
 }
 
 .status {
-    grid-area: status;
     margin: 10px 0 0 0;
-    font-family: Montserrat;
     font-size: 14px;
     line-height: 1.29;
     text-align: left;
     color: var(--1a122d-w-text-color);
-    overflow:hidden
+    overflow:hidden;
+    height: calc(100% - 150px);
 }
 
 .edit {
-    grid-area: edit;
-    margin: 12% 5% 0 0;
-
-    max-width: 173px;
-    height: 40px;
+    max-width: 143px;
+    height: 50px;
     border-radius: 20px;
     border: solid 1px #6d57f6;
     background-color: #6d57f6;
-    font-family: Montserrat;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.29;
@@ -92,20 +90,21 @@
 }
 
 .description {
-    grid-area: description;
-    width: 100%;
+    width: calc(72% - 20px);
+    margin-left: 20px;
     border-radius: 10px;
     background-color: var(--wrap-bg-color);
-    padding: 40px 5%;
+    padding: 40px;
 
-    display: grid;
-    grid-template-areas: "aboutMe" "skills" "contacts";
-    grid-template-rows: auto auto 30px;
-    grid-gap: 1.7%;
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutMe, .skills {
+    height: 82px;
 }
 
 .description p {
-    font-family: Montserrat;
     font-size: 12px;
     font-weight: bold;
     line-height: 1.25;
@@ -114,28 +113,27 @@
 }
 
 .description span {
-    font-family: Montserrat;
     font-size: 14px;
     line-height: 1.29;
     text-align: left;
-    color: var(--1a122d-w-text-color)
+    color: var(--1a122d-w-text-color);
 }
 
 .contactsList {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 33%);
-    grid-row-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
 }
 
 .contacts a {
-    display: grid;
-    grid-template-areas: "ico link";
-    grid-template-columns: 20px auto;
+    display: flex;
+    width: 160px;
+    margin: 20px 20px 0 0;
     align-items: center;
 }
 
 .contacts a img {
-    grid-area: ico;
+    margin-right: 5px;
 }
 
 .gitHubIcon {
@@ -147,54 +145,65 @@
 }
 
 .contacts a p {
-    grid-area: link;
     color: var(--9d9aa8-w-text-color);
     font-size: 8px;
 }
 
 .statusEdit input{
-    all: initial;
+    display: block;
     border: 1px #d8d6dc solid;
+    width: 80px;
+    height: 30px;
     cursor: pointer;
     color: var(--9d9aa8-w-text-color);
 }
 
-
-
-@media screen and (max-width: 600px){
+@media screen and (max-width: 900px){
     .infoBlock {
-        height: 100%;
-        grid-template-areas: "mainInfo"  "description";
-        grid-template-columns: 100%;
-        grid-template-rows: 300px auto;
-        grid-gap: 5px;
-
+        margin-bottom: 10px;
     }
-
+    .mainInfo {
+        padding: 20px;
+    }
     .description {
-        padding: 20px 5%;
-        display: grid;
-        grid-template-areas: "aboutMe" "skills" "contacts";
-        grid-template-rows: auto auto 30px;
-        height: 250px;
-
-
+        margin-left: 10px;
+        width: calc(72% - 10px);
+        padding: 20px;
     }
-    .chooserColor {
-        left: 35%
+    .edit {
+        margin-top: 5px;
+        max-width: 123px;
     }
 }
 
-@media screen and (max-width: 1150px) {
-    .contacts a p {
-        display: none;
+@media screen and (max-width: 800px){
+    .contacts a {
+        width: 160px;
+        margin: 10px 20px 0 0;
     }
+}
 
-    .contactsList {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 15%);
-        grid-row-gap: 10px;
+@media screen and (max-width: 600px){
+    .profile {
+        margin-bottom: 50px;
     }
-
+    .infoBlock {
+        margin-bottom: 5px;
+        flex-direction: column;
+        height: initial;
+    }
+    .mainInfo {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .description {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+    }
+    .edit {
+        height: 45px;
+        border-radius: 30px;
+    }
 }
 

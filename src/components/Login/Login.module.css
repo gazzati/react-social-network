@@ -19,9 +19,8 @@ h2 {
     border: none;
     cursor: pointer;
     outline: none;
-    margin-top: 5px;
+    margin-top: 10px;
 
-    font-family: Montserrat;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.29;
@@ -33,24 +32,16 @@ h2 {
 }
 
 .s1 {
-    display: grid;
-    width: 120px;
-    grid-template-areas: "so st";
-    grid-template-columns: auto auto;
+    display: flex;
+    margin-top: 5px;
 }
 
 .s2 {
-    grid-area: so;
+    margin-right: 5px;
 }
 
 .s3 {
-    grid-area: st;
-    margin-top: -2px
+    margin-top: -1px
 }
 
-@media screen and (max-width: 600px) {
-    .s1 {
-        margin-top: 5px;
-    }
-}
 

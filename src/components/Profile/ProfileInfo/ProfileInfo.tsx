@@ -70,13 +70,13 @@ type ProfileDataPropsType = {
 
 const ProfileData: React.FC<ProfileDataPropsType> = ({profile}) => {
     return <div className={s.description}>
-        <div>
+        <div className={s.aboutMe}>
             <p>About me</p>
             <span>{profile.aboutMe}</span>
         </div>
 
         {profile.lookingForAJob &&
-        <div>
+        <div className={s.skills}>
             <p>Skills</p>
             <span>
                 {profile.lookingForAJobDescription}
