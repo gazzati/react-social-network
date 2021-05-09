@@ -1,4 +1,4 @@
-# Новое приложение, с реализованной серверной частью доступно тут https://github.com/gazzati/social-network
+# Новое приложение с реализованной серверной частью доступно тут https://github.com/gazzati/social-network
 
 Социальная сеть, созданная с использованием React, Redux и TypeScript.
 
